@@ -3,7 +3,7 @@ screensize(10000, 10000)
 # tracer(0)
 
 
-n, m = 10, 100
+n, m = 9, 180
 d = 180 - ((n - 2) * 180 / n)
 
 print(d)
