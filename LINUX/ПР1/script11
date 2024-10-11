@@ -1,0 +1,1 @@
+(date; hostname; whoami; pwd) | tee res1 /dev/null

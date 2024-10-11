@@ -1,0 +1,11 @@
+mkdir LAB1
+mkdir ./LAB1/STEP1
+cp res1 ./LAB1/res1
+cp res1 ./LAB1/STEP1/res1
+rm -f res1
+ls -R ./LAB1 > res2
+echo "Таким был файл res1:" >> res2
+cat ./LAB1/res1 >> res2
+echo "Конец файла res1" >> res2
+find ./LAB1 -name 'res1' -delete
+
