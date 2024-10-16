@@ -1,0 +1,4 @@
+#!/bin/bash
+count=10
+echo $(( count-- ))
+echo $(( count-- ))

@@ -1,0 +1,14 @@
+#!/bin/bash
+# 3. Считывать строки с клавиатуры, пока не будет 
+# введена строка "q". После вывести последовательность 
+# считанных строк в виде одной строки.
+
+result=""
+while true; do
+    read -p "Введите строку: " input
+    if [ $input = "q" ]; then 
+        break 
+    fi
+    result="${result}${input}"
+done
+echo "$result"

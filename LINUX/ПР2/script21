@@ -1,0 +1,4 @@
+#!/bin/bash
+# Добавить в ~/.bashrc, чтобы исполнялось при запуске пользовательского bash
+PS1="\t:\u:\w\$ "
+alias hi="echo \"Have a nice day, ${USER}!\""

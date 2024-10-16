@@ -1,0 +1,14 @@
+#!/bin/bash
+# 4. Считывать с клавиатуры целые числа, пока не будет 
+# введено четное число. После этого вывести количество 
+# считанных чисел.
+
+result=1
+while true; do
+    read -p "Введите число: " input
+    if [ $((input % 2)) -eq 0 ]; then 
+        break 
+    fi
+    result=$(($result + 1))
+done
+echo "$result"

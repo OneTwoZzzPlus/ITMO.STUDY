@@ -1,0 +1,15 @@
+#!/bin/bash
+# 1. В параметрах скрипта передаются две строки. 
+# Вывести сообщение о равенстве или неравенстве 
+# переданных строк.
+
+if [ $# -eq 2 ]; then
+    if [ $1 = $2 ]; then
+        echo "Strings is equals =)"
+    else
+        echo "Strings is not equals =("
+    fi
+else
+    echo "There must be 2 strings!"
+fi
+

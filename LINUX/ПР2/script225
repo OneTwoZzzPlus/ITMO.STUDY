@@ -1,0 +1,25 @@
+#!/bin/bash
+# 5. Создать текстовое меню с четырьмя пунктами. 
+# При вводе пользователем номера пункта меню происходит 
+# запуск редактора nano, редактора vi, браузера links 
+# или выход из меню. При запуске скрипта нужно 
+# проверить, установлены ли программы, а если нет, то 
+# выводить сообщение об их отсутствии и завершать скрипт
+
+echo -e "Menu\n1) nano\n2) vi\n3) links"
+read -n 1 -p "Введите ваш выбор (1-3): " input
+echo
+
+case $input in
+"1") program="nano" ;;
+"2") program="vi" ;;
+"3") program="links" ;;
+*) echo "Invalid value!"; exit ;;
+esac
+
+if which $program > /dev/null; then
+    $program
+else
+    echo "$program not installed"
+fi
+

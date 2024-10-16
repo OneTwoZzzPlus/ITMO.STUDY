@@ -1,0 +1,16 @@
+#!/bin/bash
+
+float_operation() {
+    for i in $(seq 1 $1); do
+        echo "1.0123456789 * 1.0123456789" | bc &> /dev/null
+    done
+}
+
+count=$1
+
+time_start=$(date +%s%3N)
+float_operation "$count" 
+time_stop=$(date +%s%3N)
+
+flops=$(echo "$count * 1000 / ($time_stop - $time_start)" | bc)
+echo "$flops FLOPS"

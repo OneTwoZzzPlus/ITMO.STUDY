@@ -1,0 +1,26 @@
+#!/bin/bash
+# 6. Создать скрипт для чтения содержимого файла, имя 
+# которого передается в параметре скрипта. Вторым 
+# параметром надо передать ключ «h» или «t», которые
+# заставят читать строки с начала файла или с конца. 
+# Третий параметр число этих строк. Следует подавить 
+# вывод ошибок, если файл не существует или недоступен.
+
+if [ $# -ne 3 ]; then
+    echo -e "1) path\n2) h = head, t = tail\n3) count of strings" 1>&2
+    exit 1
+elif [ "$2" != "h" ] && [ "$2" != "t" ]; then
+    echo "2 arg must be 'h' or 't'" 1>&2
+    exit 1
+elif ! [ $3 -ge 0 ] 2> /dev/null ; then
+    echo "3 arg must be natural or 0" 1>&2
+    exit 1
+fi
+
+case $2 in
+"h") program="head" ;;
+"t") program="tail" ;;
+esac
+
+"$program" -n $3 $1 2> /dev/null
+echo
