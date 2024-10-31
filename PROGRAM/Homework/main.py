@@ -1,5 +1,7 @@
 import tui
 import data
+
+import datetime
     
     
 def not_implemented(*args):
@@ -53,8 +55,8 @@ def state_main(clear: bool=True, *args):
             'save': (state_save_base, ['[path]'], 'сохранить файл'),
             'exit': (state_exit, [], 'выход из приложения'),
             
-            'add': (not_implemented, [], 'добавить продукт'),
-            'list': (not_implemented, [], 'просмотреть коллекцию'),
+            'add': (state_add, [], 'добавить продукт'),
+            'list': (state_list, [], 'просмотреть коллекцию'),
             'date': (not_implemented, [''], 'просмотреть по дате'),
             'type': (not_implemented, [], 'просмотреть по категории'),
             'up': (not_implemented, [], 'сортировать по возрастанию стоимости'),
@@ -73,6 +75,45 @@ def state_main(clear: bool=True, *args):
         tui.draw_state('Главное меню', commands, caption_down=caption)
     return tui.next_state(commands)
 
+
+def state_list(*args):
+    if len(data.data) == 0:
+        print("Коллекция пуста! Добавьте туда что-нибудь")
+        return state_main(False)
+    
+    commands = {
+            'main': (state_main, [], 'главное меню'),
+            'exit': (state_exit, [], 'выход из приложения'),
+    }
+    tui.draw_state('Коллекция', commands)
+
+    for x in data.get_list():
+        print(x)
+        
+    return tui.next_state(commands)
+
+
+def state_add(*args):
+    now = datetime.datetime(
+        datetime.datetime.now().year, 
+        datetime.datetime.now().month, 
+        datetime.datetime.now().day
+    )
+    
+    product_name, product_cost, product_type = 'lol', 1.0, 'lol1', now
+
+    
+    tui.draw_substate('Добавление')
+    
+    if tui.input_bool():
+        ... # TODO tui.input_[type]
+    
+    tui.draw_substate('Подтверждение')
+    print(f"Сохранить: {product_name} {product_cost} {product_type} {product_date}?")
+    if tui.input_bool():
+        data.add_product(product_name, product_cost, product_type, product_date)
+    return state_main()
+    
 
 if __name__ == "__main__":
     

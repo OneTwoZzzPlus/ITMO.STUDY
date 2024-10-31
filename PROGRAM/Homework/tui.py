@@ -23,6 +23,17 @@ def check_commands_type(commands):
         raise TypeError('COMMANDS type not dict[str, tuple[Callable, str]]')
 
 
+def draw_substate(title: str):
+    """ Отрисовка временного шага TUI """
+    cls()  # Очистка экрана
+    x, y = shutil.get_terminal_size((80, 20))
+    # Размеры линий
+    equ = (x - len(title) - 3) // 2
+    eqc = int(not(x % 2))
+    # Линия с подписью
+    print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{Style.RESET_ALL}')
+    
+
 def draw_state(title: str, 
           commands: dict[str, tuple[Callable, list, str]], 
           caption_up: str='',
