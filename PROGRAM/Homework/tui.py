@@ -5,8 +5,6 @@ from colorama import init as colorama_init, Fore, Back, Style
 colorama_init()
 
 
-# Определяем поведение при выходе 
-state_exit = lambda: exit(0)
 # Очистка терминала в зависимости от ОС
 cls = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
@@ -47,11 +45,14 @@ def draw_state(title: str,
     
     # Список комманд
     com = [
-        f'{Fore.CYAN}{key} {' '.join(commands[key][1])}{Style.RESET_ALL} - {commands[key][2]} ' 
+        f'{Fore.CYAN}{key}{' ' if commands else ''}{' '.join(commands[key][1])}{Style.RESET_ALL} - {commands[key][2]} ' 
         for key in commands
     ]
     # Расчёт размера колонн
-    com_len = [len(key) + len(commands[key][1]) + len(' '.join(commands[key][1])) + 4 for key in commands]
+    com_len = [
+        len(key) + len(commands[key][2]) + bool(commands) + len(' '.join(commands[key][1])) + 4 
+        for key in commands
+    ]
     count_columns = x // max(com_len)
     width_columns = x // count_columns
     # Отображение списка комманд в табличном виде
@@ -75,9 +76,29 @@ def next_state(commands: dict[str, tuple[Callable, list, str]]):
     
     while True:
         try:
-            r = input('>>> ')
-            if r in commands:
-                commands[r][0]()
+            r = input('>>> ').split()
+            if r:
+                if r[0] in commands:
+                    if len(r) == 1:
+                        commands[r[0]][0]()
+                    else:
+                        commands[r[0]][0](*r[1:])
+        except (EOFError) as e:
+            pass
+        except (KeyboardInterrupt) as e:
+            exit(0)
+            
+            
+def input_bool() -> bool:
+    """ Ввод bool """
+    
+    while True:
+        try:
+            r = input('[y/n] > ')
+            if r == 'y':
+                return True
+            elif r == 'n':
+                return False
         except (EOFError) as e:
             pass
         except (KeyboardInterrupt) as e:
