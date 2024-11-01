@@ -1,6 +1,8 @@
 import os
 import shutil
+import datetime
 from typing import Callable
+import dateutil
 from colorama import init as colorama_init, Fore, Back, Style
 colorama_init()
 
@@ -9,18 +11,21 @@ colorama_init()
 cls = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
 
-def init():
-    """ Инициализация """
-    ...
-    
+# Переменные
+_comm: dict[str, tuple[Callable, list, str]] = {}
 
-def check_commands_type(commands):
+
+def set_commands(commands: dict[str, tuple[Callable, list, str]]):
+    """ Проверяем на корректность переданные доступные команды  """
     if not (isinstance(commands, dict)
             and all(isinstance(k, str) and isinstance(v, tuple) for k, v in commands.items())
             and all(isinstance(v[0], Callable) and isinstance(v[1], list) and isinstance(v[2], str) 
                     for v in commands.values())
             ):
         raise TypeError('COMMANDS type not dict[str, tuple[Callable, str]]')
+    global _comm
+    _comm = commands
+    
 
 
 def draw_substate(title: str):
@@ -35,11 +40,10 @@ def draw_substate(title: str):
     
 
 def draw_state(title: str, 
-          commands: dict[str, tuple[Callable, list, str]], 
           caption_up: str='',
           caption_down: str=''):
+    global _comm
     """ Отрисовка TUI """
-    check_commands_type(commands)
     
     cls()  # Очистка экрана
     x, y = shutil.get_terminal_size((80, 20))
@@ -56,13 +60,13 @@ def draw_state(title: str,
     
     # Список комманд
     com = [
-        f'{Fore.CYAN}{key}{' ' if commands else ''}{' '.join(commands[key][1])}{Style.RESET_ALL} - {commands[key][2]} ' 
-        for key in commands
+        f'{Fore.CYAN}{key}{' ' if _comm else ''}{' '.join(_comm[key][1])}{Style.RESET_ALL} - {_comm[key][2]} ' 
+        for key in _comm
     ]
     # Расчёт размера колонн
     com_len = [
-        len(key) + len(commands[key][2]) + bool(commands) + len(' '.join(commands[key][1])) + 4 
-        for key in commands
+        len(key) + len(_comm[key][2]) + bool(_comm) + len(' '.join(_comm[key][1])) + 4 
+        for key in _comm
     ]
     count_columns = x // max(com_len)
     width_columns = x // count_columns
@@ -79,22 +83,46 @@ def draw_state(title: str,
     
     # Вертикальная линия
     print(f'{Fore.GREEN}{'=' * eqf}{'=' * eqc}{Style.RESET_ALL}')
-
-
-def next_state(commands: dict[str, tuple[Callable, list, str]]):
-    """ Приём комманд """
-    check_commands_type(commands)
     
+
+def run(start: Callable):
+    """ Приём комманд и переход в другое состояние """
+    global _comm
+    ret: tuple[Callable, tuple] = start, ()
     while True:
         try:
-            r = input('>>> ').split()
-            if r:
-                if r[0] in commands:
-                    if len(r) == 1:
-                        commands[r[0]][0]()
+            # Если нет планируемого состояния, запросить у пользователя
+            if ret is None:
+                r = input('>>> ').split()
+                if r:
+                    if r[0] in _comm:
+                        if len(r) == 1:
+                            ret = (_comm[r[0]][0], ())
+                        else:
+                            ret = (_comm[r[0]][0], tuple(r[1:]))
                     else:
-                        commands[r[0]][0](*r[1:])
-        except (EOFError) as e:
+                        raise KeyError
+
+            # Запустить состояние   
+            raw_ret = ret[0](*ret[1])
+            
+            # Обработать запрос на другое состояние
+            if raw_ret is None:
+                ret = None
+            elif isinstance(raw_ret, Callable):
+                ret = (raw_ret, tuple())
+            elif isinstance(raw_ret, tuple):
+                if len(raw_ret) == 0 or not isinstance(raw_ret[0], Callable):
+                    ret = None
+                else:
+                    if len(raw_ret) == 1:
+                        ret = (raw_ret[0], tuple())
+                    else:
+                        ret = (raw_ret[0], tuple(raw_ret[1:]))
+            else:
+                ret = None
+                
+        except (EOFError, KeyError) as e:
             pass
         except (KeyboardInterrupt) as e:
             exit(0)
@@ -110,7 +138,69 @@ def input_bool() -> bool:
                 return True
             elif r == 'n':
                 return False
-        except (EOFError) as e:
+        except (EOFError, ValueError, TypeError) as e:
+            pass
+        except (KeyboardInterrupt) as e:
+            exit(0)
+            
+            
+def input_str(max_lenght: int, s: str=" ") -> str:
+    """ Ввод str """
+    
+    while True:
+        try:
+            # Считываем строку, убирая пустые символы
+            r = input(f'{s} > ')
+            # Проверяем длину, корректность символов и пустоту
+            if not 0 < len(r) <= max_lenght:
+                raise ValueError
+            if any(x in '\r\n\t,;' for x in r):
+                raise ValueError
+            if r.isspace():
+                raise ValueError
+            return r
+        except (EOFError, ValueError, TypeError) as e:
+            pass
+        except (KeyboardInterrupt) as e:
+            exit(0)
+            
+
+def input_float(maximum: int, decimal_places: int, s: str=" ") -> float:
+    """ Ввод float """
+    
+    while True:
+        try:
+            # Считываем строку, убирая пустые символы
+            r = input(f'{s} > ').replace(' ', '')
+            f = float(r)
+            n = f * 10**decimal_places
+            if (n % 1 != 0) or (not 0 < n <= maximum):
+                raise ValueError
+            
+            return f
+        except (EOFError, ValueError, TypeError) as e:
+            pass
+        except (KeyboardInterrupt) as e:
+            exit(0)
+            
+            
+def input_date() -> str:
+    """ Ввод datetime """
+    # Текущая дата
+    
+    while True:
+        try:
+            # Считываем строку, убирая пустые символы
+            r = input(f'ДД.ММ.ГГ > ').replace(' ', '')
+            if r == '':
+                return datetime.datetime(
+                    datetime.datetime.now().year, 
+                    datetime.datetime.now().month, 
+                    datetime.datetime.now().day
+                )
+            # Проверяем дату
+            return dateutil.parser(r)
+        except (EOFError, ValueError, TypeError) as e:
             pass
         except (KeyboardInterrupt) as e:
             exit(0)
