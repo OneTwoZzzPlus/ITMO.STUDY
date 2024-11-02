@@ -1,7 +1,6 @@
 import tui
 import data
 
-import datetime
 from colorama import Fore, Back, Style
 CR = Style.RESET_ALL 
 
@@ -52,18 +51,16 @@ def state_main(clear: bool=True, *args):
     if data.available():
         caption = f'Путь к данным: {data.current_path}'
         commands = {
-            'main': (state_main, [], 'главное меню'),
-            'open': (state_open_base, ['[path]'], 'открыть новый файл'),
-            'save': (state_save_base, ['[path]'], 'сохранить файл'),
             'exit': (state_exit, [], 'выход из приложения'),
-            
-            'add': (state_add, [], 'добавить продукт'),
+            'main': (state_main, [], 'главное меню'),
+            'open': (state_open_base, ['[path]'], 'открыть файл'),
+            'save': (state_save_base, ['[path]'], 'сохранить файл'),
             'list': (state_list, [], 'просмотреть коллекцию'),
-            'date': (not_implemented, [''], 'просмотреть по дате'),
-            'type': (not_implemented, [], 'просмотреть по категории'),
-            'up': (not_implemented, [], 'сортировать по возрастанию стоимости'),
-            'down': (not_implemented, [], 'сортировать по убыванию стоимости'),
-            'remove': (not_implemented, [], 'удалить продукт'),
+            'add': (state_add, [], 'добавить продукт'),
+            'remove': (substate_remove, ['<id>'], 'удалить продукт'),
+            'inc': (substate_inc, [], 'по возрастанию стоимости'),
+            'dec': (substate_dec, [], 'по убыванию стоимости'),
+            'help': (state_main, [], 'справка')
         }
     else:
         caption = "Откройте файл"
@@ -77,22 +74,75 @@ def state_main(clear: bool=True, *args):
         tui.draw_state('Главное меню', caption_down=caption)
     
 
+def substate_remove(*args):
+    if len(args) == 1 and args[0].isnumeric():
+        res = data.remove_product(int(args[0]))
+        print("Удалено" if res else "Не удалено")
+    
 
-def state_list(*args):
+def substate_inc():
+    data.sort_cost(True)
+    print("Отсортировано по возрастанию цены")
+    
+    
+def substate_dec():
+    data.sort_cost(False)
+    print("Отсортировано по убыванию цены")
+    
+
+def state_list(clear: bool=True, *args):
     if len(data.data) == 0:
         print("Коллекция пуста! Добавьте туда что-нибудь")
         return state_main, False
     
     commands = {
             'main': (state_main, [], 'главное меню'),
-            'exit': (state_exit, [], 'выход из приложения'),
+            'list': (state_list, [], 'просмотреть всю коллекцию'),
+            'date': (state_list_date, ['[ДД.ММ.ГГ]'], 'просмотреть по дате'),
+            'type': (state_list_type, ['<type>'], 'просмотреть по категории')
     }
     tui.set_commands(commands)
-    tui.draw_state('Коллекция')
+    if clear:
+        tui.draw_state('Коллекция')
 
-    for x in data.get_list():
+        for x in data.get_list():
+            print(x)
+
+
+def state_list_date(*args):
+    if len(args) == 0:
+        date = tui.now_date()
+    elif len(args) == 1:
+        date = tui.validate_date(args[0])
+        if date is None:
+            print("Неправильная дата!")
+            return state_list, False
+    else:
+        print("Лишние аргументы!")
+        return state_list, False
+
+    if data.empty_list_date(date):
+        print("На эту дату ничего нет!")
+        return state_list, False
+
+    tui.draw_state("Коллекция")
+    for x in data.get_list_date(date):
         print(x)
 
+
+def state_list_type(*args):
+    if len(args) != 1:
+        print("Должен быть ровно один аргумент")
+        return state_list, False
+    
+    if data.empty_list_type(args[0]):
+        print("В этой категории ничего нет!")
+        return state_list, False
+
+    tui.draw_state("Коллекция")
+    for x in data.get_list_type(args[0]):
+        print(x)
+        
 
 def state_add(*args):
     tui.draw_substate('Добавление')
@@ -106,8 +156,6 @@ def state_add(*args):
     print(f"Введите {Fore.GREEN}категорию{CR} продукта (до {Fore.CYAN}{data.PRODUCT_TYPE_LEN}{CR} символов)")
     product_type = tui.input_str(data.PRODUCT_TYPE_LEN)
     
-    now = data.time_display_datatime(datetime.datetime.now())
-    print(f"Нажмите {Fore.CYAN}enter{CR} для {Fore.CYAN}{now}{CR} или введите другую {Fore.GREEN}дату{CR}")
     product_date = tui.input_date()
     
     tui.draw_substate('Подтверждение')

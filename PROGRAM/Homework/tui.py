@@ -4,12 +4,19 @@ import datetime
 from typing import Callable
 import dateutil
 from colorama import init as colorama_init, Fore, Back, Style
+CR = Style.RESET_ALL
 colorama_init()
 
 
 # Очистка терминала в зависимости от ОС
 cls = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
+
+now_date = lambda: datetime.datetime(
+    datetime.datetime.now().year, 
+    datetime.datetime.now().month, 
+    datetime.datetime.now().day
+)
 
 # Переменные
 _comm: dict[str, tuple[Callable, list, str]] = {}
@@ -103,6 +110,9 @@ def run(start: Callable):
                     else:
                         raise KeyError
 
+            if ret is None:
+                raise KeyError
+            
             # Запустить состояние   
             raw_ret = ret[0](*ret[1])
             
@@ -182,25 +192,42 @@ def input_float(maximum: int, decimal_places: int, s: str=" ") -> float:
             pass
         except (KeyboardInterrupt) as e:
             exit(0)
+
+
+def validate_date(r: str):
+    try:
+        rs = r.split('.')
+        year = int(rs[2])
+        
+        if year < 100:
+            year += 2000
+        elif 100 <= year <= 1970 or year > 3000:
+            raise ValueError
+
+        return datetime.datetime(year, int(rs[1]), int(rs[0]))
+    except (ValueError, TypeError, IndexError) as e:
+        return None
             
-            
-def input_date() -> str:
+
+def input_date() -> datetime.datetime:
     """ Ввод datetime """
     # Текущая дата
     
     while True:
         try:
             # Считываем строку, убирая пустые символы
-            r = input(f'ДД.ММ.ГГ > ').replace(' ', '')
+            print(f"Нажмите {Fore.CYAN}enter{CR} или введите {Fore.GREEN}дату{CR}")
+            r = input(f'{now_date().strftime('%d.%m.%y')} > ').replace(' ', '')
             if r == '':
-                return datetime.datetime(
-                    datetime.datetime.now().year, 
-                    datetime.datetime.now().month, 
-                    datetime.datetime.now().day
-                )
-            # Проверяем дату
-            return dateutil.parser(r)
+                # Текущее время
+                return now_date()
+            else:
+                # Проверяем дату
+                date = validate_date(r)
+                if date is not None:
+                    return date
+                
         except (EOFError, ValueError, TypeError) as e:
-            pass
+            print(e)
         except (KeyboardInterrupt) as e:
             exit(0)
