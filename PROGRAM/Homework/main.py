@@ -1,17 +1,31 @@
 import tui
 import data
+import dtf
 
 from colorama import Fore, Back, Style
 CR = Style.RESET_ALL 
 
+# [DEVELOP] Настраиваем логирование
+import logging
+logging.basicConfig(
+    filename="log.txt", 
+    filemode='a', 
+    encoding='utf-8',
+    level=logging.DEBUG)
+# [DEVELOP] Выключаем логирование
+# logging.disable(level=logging.CRITICAL)  
+
   
 def not_implemented(*args):
-    print(f"Не реализовано =)")
+    """ [DEVELOP] """
+    print(f"Функция не реализована =)")
     if args:
         print(f'Кстати, ваши аргументы:', args)
    
             
 def substate_qsave():
+    """ Запрашивает подтверждение сохранения """
+    tui.draw_substate("Сохранение")
     if data.available():
         print(f"Сохранить изменения в: {data.current_path}?")
         if tui.input_bool():
@@ -19,11 +33,13 @@ def substate_qsave():
       
         
 def state_exit(*args):
+    """ Выход из приложения """
     substate_qsave()
     exit(0)
     
         
 def state_open_base(*args):
+    """ Выгружает данные из файла """
     substate_qsave()
     
     if len(args) == 0:
@@ -37,6 +53,7 @@ def state_open_base(*args):
     
     
 def state_save_base(*args):
+    """ Сохраняет данные в файл """
     if len(args) == 0:
         print("Сохранено!" if data.save_file() else "Нет доступа к записи!")
         return state_main, False
@@ -60,7 +77,7 @@ def state_main(clear: bool=True, *args):
             'remove': (substate_remove, ['<id>'], 'удалить продукт'),
             'inc': (substate_inc, [], 'по возрастанию стоимости'),
             'dec': (substate_dec, [], 'по убыванию стоимости'),
-            'help': (state_main, [], 'справка')
+            'help': (not_implemented, [], 'справка')
         }
     else:
         caption = "Откройте файл"
@@ -163,7 +180,7 @@ def state_add(*args):
     print(f"Название:\t{Fore.CYAN}{product_name}{CR}")
     print(f"Стоимость:\t{Fore.CYAN}{product_cost}{CR}")
     print(f"Категория:\t{Fore.CYAN}{product_type}{CR}")
-    print(f"Дата:\t\t{Fore.CYAN}{data.time_display_datatime(product_date)}{CR}")
+    print(f"Дата:\t\t{Fore.CYAN}{dtf.display_data(product_date)}{CR}")
     
     if tui.input_bool():
         data.add_product(product_name, product_cost, product_type, product_date)

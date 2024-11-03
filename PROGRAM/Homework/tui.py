@@ -1,8 +1,8 @@
 import os
 import shutil
-import datetime
+import dtf
 from typing import Callable
-import dateutil
+
 from colorama import init as colorama_init, Fore, Back, Style
 CR = Style.RESET_ALL
 colorama_init()
@@ -11,14 +11,7 @@ colorama_init()
 # Очистка терминала в зависимости от ОС
 cls = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
-
-now_date = lambda: datetime.datetime(
-    datetime.datetime.now().year, 
-    datetime.datetime.now().month, 
-    datetime.datetime.now().day
-)
-
-# Переменные
+# Текущие доступные комманды
 _comm: dict[str, tuple[Callable, list, str]] = {}
 
 
@@ -36,9 +29,9 @@ def set_commands(commands: dict[str, tuple[Callable, list, str]]):
 
 
 def draw_substate(title: str):
-    """ Отрисовка временного шага TUI """
+    """ Отрисовка временной страницы TUI """
     cls()  # Очистка экрана
-    x, y = shutil.get_terminal_size((80, 20))
+    x, _ = shutil.get_terminal_size((80, 20))
     # Размеры линий
     equ = (x - len(title) - 3) // 2
     eqc = int(not(x % 2))
@@ -50,10 +43,10 @@ def draw_state(title: str,
           caption_up: str='',
           caption_down: str=''):
     global _comm
-    """ Отрисовка TUI """
+    """ Отрисовка страницы TUI """
     
     cls()  # Очистка экрана
-    x, y = shutil.get_terminal_size((80, 20))
+    x, _ = shutil.get_terminal_size((80, 20))
     # Размеры линий
     equ = (x - len(title) - 3) // 2
     eqf = 2 * equ + len(title) + 2
@@ -143,10 +136,10 @@ def input_bool() -> bool:
     
     while True:
         try:
-            r = input('[y/n] > ')
-            if r == 'y':
+            r = input('[д/н] > ')
+            if r in 'yд1+':
                 return True
-            elif r == 'n':
+            elif r in 'nн0-':
                 return False
         except (EOFError, ValueError, TypeError) as e:
             pass
@@ -192,38 +185,23 @@ def input_float(maximum: int, decimal_places: int, s: str=" ") -> float:
             pass
         except (KeyboardInterrupt) as e:
             exit(0)
-
-
-def validate_date(r: str):
-    try:
-        rs = r.split('.')
-        year = int(rs[2])
-        
-        if year < 100:
-            year += 2000
-        elif 100 <= year <= 1970 or year > 3000:
-            raise ValueError
-
-        return datetime.datetime(year, int(rs[1]), int(rs[0]))
-    except (ValueError, TypeError, IndexError) as e:
-        return None
             
 
-def input_date() -> datetime.datetime:
-    """ Ввод datetime """
+def input_date() -> dtf.date:
+    """ Ввод date """
     # Текущая дата
     
     while True:
         try:
             # Считываем строку, убирая пустые символы
             print(f"Нажмите {Fore.CYAN}enter{CR} или введите {Fore.GREEN}дату{CR}")
-            r = input(f'{now_date().strftime('%d.%m.%y')} > ').replace(' ', '')
+            r = input(f'{dtf.now().strftime('%d.%m.%y')} > ').replace(' ', '')
             if r == '':
                 # Текущее время
-                return now_date()
+                return dtf.now()
             else:
                 # Проверяем дату
-                date = validate_date(r)
+                date = dtf.validate_point_date(r)
                 if date is not None:
                     return date
                 
