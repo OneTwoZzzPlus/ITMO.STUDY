@@ -15,14 +15,29 @@ logging.basicConfig(
 # [DEVELOP] Выключаем логирование
 # logging.disable(level=logging.CRITICAL)  
 
-  
+
 def not_implemented(*args):
     """ [DEVELOP] """
     print(f"Функция не реализована =)")
     if args:
         print(f'Кстати, ваши аргументы:', args)
-   
-            
+        
+
+def state_help(*args):
+    """ Справка """
+    commands = {
+        'main': (state_main, [], 'главное меню'),
+        'help': (state_help, ["[команда]"], 'справка'),
+        'exit': (state_exit, [], 'выход из приложения')
+    }
+    tui.set_commands(commands)
+    tui.draw_state("Справка")
+    if len(args) == 1:
+        print(f"Информация про", args[0])
+    else:
+        print(f"TODO общая информация")
+
+
 def substate_qsave():
     """ Запрашивает подтверждение сохранения """
     tui.draw_substate("Сохранение")
@@ -30,14 +45,14 @@ def substate_qsave():
         print(f"Сохранить изменения в: {data.current_path}?")
         if tui.input_bool():
             data.save_file()
-      
-        
+
+
 def state_exit(*args):
     """ Выход из приложения """
     substate_qsave()
     exit(0)
-    
-        
+
+
 def state_open_base(*args):
     """ Выгружает данные из файла """
     substate_qsave()
@@ -50,8 +65,8 @@ def state_open_base(*args):
     if not data.available():
         print(f"Нет доступа к {data.current_path}")
     return state_main, data.available()
-    
-    
+
+
 def state_save_base(*args):
     """ Сохраняет данные в файл """
     if len(args) == 0:
@@ -62,68 +77,22 @@ def state_save_base(*args):
         if tui.input_bool():
             print("Сохранено!" if data.save_file(' '.join(args)) else "Нет доступа к записи!")
             return state_main
-        
-    
-def state_main(clear: bool=True, *args):
-    if data.available():
-        caption = f'Путь к данным: {data.current_path}'
-        commands = {
-            'exit': (state_exit, [], 'выход из приложения'),
-            'main': (state_main, [], 'главное меню'),
-            'open': (state_open_base, ['[path]'], 'открыть файл'),
-            'save': (state_save_base, ['[path]'], 'сохранить файл'),
-            'list': (state_list, [], 'просмотреть коллекцию'),
-            'add': (state_add, [], 'добавить продукт'),
-            'remove': (substate_remove, ['<id>'], 'удалить продукт'),
-            'inc': (substate_inc, [], 'по возрастанию стоимости'),
-            'dec': (substate_dec, [], 'по убыванию стоимости'),
-            'help': (not_implemented, [], 'справка')
-        }
-    else:
-        caption = "Откройте файл"
-        commands = {
-            'open': (state_open_base, ['[path]'], 'открыть файл'),
-            'exit': (state_exit, [], 'выход из приложения')
-        }
-    
-    tui.set_commands(commands) 
-    if clear:
-        tui.draw_state('Главное меню', caption_down=caption)
-    
+
 
 def substate_remove(*args):
     if len(args) == 1 and args[0].isnumeric():
         res = data.remove_product(int(args[0]))
         print("Удалено" if res else "Не удалено")
-    
+
 
 def substate_inc():
     data.sort_cost(True)
     print("Отсортировано по возрастанию цены")
-    
-    
+
+
 def substate_dec():
     data.sort_cost(False)
     print("Отсортировано по убыванию цены")
-    
-
-def state_list(clear: bool=True, *args):
-    if len(data.data) == 0:
-        print("Коллекция пуста! Добавьте туда что-нибудь")
-        return state_main, False
-    
-    commands = {
-            'main': (state_main, [], 'главное меню'),
-            'list': (state_list, [], 'просмотреть всю коллекцию'),
-            'date': (state_list_date, ['[ДД.ММ.ГГ]'], 'просмотреть по дате'),
-            'type': (state_list_type, ['<type>'], 'просмотреть по категории')
-    }
-    tui.set_commands(commands)
-    if clear:
-        tui.draw_state('Коллекция')
-
-        for x in data.get_list():
-            print(x)
 
 
 def state_list_date(*args):
@@ -159,7 +128,26 @@ def state_list_type(*args):
     tui.draw_state("Коллекция")
     for x in data.get_list_type(args[0]):
         print(x)
-        
+
+
+def state_list(clear: bool=True, *args):
+    if len(data.data) == 0:
+        print("Коллекция пуста! Добавьте туда что-нибудь")
+        return state_main, False
+    
+    commands = {
+            'main': (state_main, [], 'главное меню'),
+            'list': (state_list, [], 'просмотреть всю коллекцию'),
+            'date': (state_list_date, ['[ДД.ММ.ГГ]'], 'просмотреть по дате'),
+            'type': (state_list_type, ['<type>'], 'просмотреть по категории')
+    }
+    tui.set_commands(commands)
+    if clear:
+        tui.draw_state('Коллекция')
+
+        for x in data.get_list():
+            print(x)
+       
 
 def state_add(*args):
     tui.draw_substate('Добавление')
@@ -185,7 +173,35 @@ def state_add(*args):
     if tui.input_bool():
         data.add_product(product_name, product_cost, product_type, product_date)
     return state_main
+
+
+def state_main(clear: bool=True, *args):
+    if data.available():
+        caption = f'Путь к данным: {data.current_path}'
+        commands = {
+            'exit': (state_exit, [], 'выход из приложения'),
+            'main': (state_main, [], 'главное меню'),
+            'open': (state_open_base, ['[path]'], 'открыть файл'),
+            'save': (state_save_base, ['[path]'], 'сохранить файл'),
+            'list': (state_list, [], 'просмотреть коллекцию'),
+            'add': (state_add, [], 'добавить продукт'),
+            'remove': (substate_remove, ['<id>'], 'удалить продукт'),
+            'inc': (substate_inc, [], 'по возрастанию стоимости'),
+            'dec': (substate_dec, [], 'по убыванию стоимости'),
+            'help': (not_implemented, [], 'справка')
+        }
+    else:
+        caption = "Откройте файл"
+        commands = {
+            'open': (state_open_base, ['[path]'], 'открыть файл'),
+            'help': (state_help, ["[команда]"], 'справка'),
+            'exit': (state_exit, [], 'выход из приложения')
+        }
     
+    tui.set_commands(commands) 
+    if clear:
+        tui.draw_state('Главное меню', caption_down=caption)
+ 
 
 if __name__ == "__main__":
     
