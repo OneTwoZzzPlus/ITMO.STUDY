@@ -11,6 +11,9 @@ colorama_init()
 # Очистка терминала в зависимости от ОС
 cls = lambda: os.system('cls' if os.name=='nt' else 'clear')
 
+# Таблицы
+_table_small: bool = False
+
 # Текущие доступные комманды
 _comm: dict[str, tuple[Callable, list, str]] = {}
 
@@ -27,6 +30,34 @@ def set_commands(commands: dict[str, tuple[Callable, list, str]]):
     _comm = commands
     
 
+def draw_table_head(head: list[str], width_min: list[str]):
+    global _table_small
+    if not ( len(head) == len(width_min) ):
+        raise TypeError("Different list sizes!")
+    x, _ = shutil.get_terminal_size((80, 20))
+    count = len(head)
+    min_w = sum(width_min) + 3 * (count - 1)
+    if min_w > x:
+        _table_small = None 
+    else:
+        print(Fore.GREEN, " | ".join(head), CR, sep='')
+    if _table_small:
+        print(f"{Fore.GREEN}{', '.join(head)}{CR}")
+        # Вертикальная линия
+        print(f'{Fore.GREEN}{'-' * (x - 1)}{'-' * int(not(x % 2))}{CR}')
+        
+    
+def draw_table_row(row):
+    global _table_small
+    x, _ = shutil.get_terminal_size((80, 20))
+    if _table_small:
+        print(f"{', '.join(row)}")
+        # Вертикальная линия
+        print(f'{'-' * (x - 1)}{'-' * int(not(x % 2))}')
+    else:
+        print(" | ".join(row))
+        
+
 
 def draw_substate(title: str):
     """ Отрисовка временной страницы TUI """
@@ -36,8 +67,8 @@ def draw_substate(title: str):
     equ = (x - len(title) - 3) // 2
     eqc = int(not(x % 2))
     # Линия с подписью
-    print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{Style.RESET_ALL}')
-    
+    print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{CR}')
+
 
 def draw_state(title: str, 
           caption_up: str='',
@@ -52,7 +83,7 @@ def draw_state(title: str,
     eqf = 2 * equ + len(title) + 2
     eqc = int(not(x % 2))
     # Линия с подписью
-    print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{Style.RESET_ALL}')
+    print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{CR}')
     
     # Подпись сверху при наличии
     if caption_up != '':
@@ -60,7 +91,7 @@ def draw_state(title: str,
     
     # Список комманд
     com = [
-        f'{Fore.CYAN}{key}{' ' if _comm else ''}{' '.join(_comm[key][1])}{Style.RESET_ALL} - {_comm[key][2]} ' 
+        f'{Fore.CYAN}{key}{' ' if _comm else ''}{' '.join(_comm[key][1])}{CR} - {_comm[key][2]} ' 
         for key in _comm
     ]
     # Расчёт размера колонн
@@ -82,7 +113,7 @@ def draw_state(title: str,
         print(caption_down)
     
     # Вертикальная линия
-    print(f'{Fore.GREEN}{'=' * eqf}{'=' * eqc}{Style.RESET_ALL}')
+    print(f'{Fore.GREEN}{'=' * eqf}{'=' * eqc}{CR}')
     
 
 def run(start: Callable):
@@ -209,3 +240,13 @@ def input_date() -> dtf.date:
             print(e)
         except (KeyboardInterrupt) as e:
             exit(0)
+
+
+if __name__ == "__main__":
+    import data
+    draw_table_head(data.table_head, data.table_width_min())
+    draw_table_row(('0', 'lol', '100.00', 'lol1', '31.10.24'))
+    draw_table_row(('1', 'name1', '111.00', 'test1', '14.08.24'))
+    draw_table_row(('2', '123', '45600.00', '789', '02.11.24'))
+    draw_table_row(('3', 'arbzdcx', '213400.00', 'test2', '02.11.24'))
+    draw_table_row(('4', 'ehadhxx', '1235663.00', 'asd', '30.10.24'))

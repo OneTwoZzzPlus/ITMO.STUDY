@@ -1,6 +1,7 @@
 import tui
 import data
 import dtf
+import helps
 
 from colorama import Fore, Back, Style
 CR = Style.RESET_ALL 
@@ -26,16 +27,20 @@ def not_implemented(*args):
 def state_help(*args):
     """ Справка """
     commands = {
-        'main': (state_main, [], 'главное меню'),
-        'help': (state_help, ["[команда]"], 'справка'),
-        'exit': (state_exit, [], 'выход из приложения')
+        '1': (state_main, [], 'главное меню'),
+        '9': (state_help, ["[команда]"], 'справка'),
+        '0': (state_exit, [], 'выход из приложения')
     }
     tui.set_commands(commands)
     tui.draw_state("Справка")
     if len(args) == 1:
-        print(f"Информация про", args[0])
+        if args[0] in helps.commands:
+            print(f"Информация по команде {Fore.CYAN}{args[0]}{CR}")
+            print(helps.commands[args[0]])
+        else:
+            print("Нет такой команды:", args[0])
     else:
-        print(f"TODO общая информация")
+        print(helps.main)
 
 
 def substate_qsave():
@@ -97,9 +102,9 @@ def substate_dec():
 
 def state_list_date(*args):
     if len(args) == 0:
-        date = tui.now_date()
+        date = dtf.now()
     elif len(args) == 1:
-        date = tui.validate_date(args[0])
+        date = dtf.validate_point_date(args[0])
         if date is None:
             print("Неправильная дата!")
             return state_list, False
@@ -112,8 +117,9 @@ def state_list_date(*args):
         return state_list, False
 
     tui.draw_state("Коллекция")
+    tui.draw_table_head(data.table_head, data.table_width_min())
     for x in data.get_list_date(date):
-        print(x)
+        tui.draw_table_row(x)
 
 
 def state_list_type(*args):
@@ -126,8 +132,9 @@ def state_list_type(*args):
         return state_list, False
 
     tui.draw_state("Коллекция")
+    tui.draw_table_head(data.table_head, data.table_width_min())
     for x in data.get_list_type(args[0]):
-        print(x)
+        tui.draw_table_row(x)
 
 
 def state_list(clear: bool=True, *args):
@@ -136,17 +143,17 @@ def state_list(clear: bool=True, *args):
         return state_main, False
     
     commands = {
-            'main': (state_main, [], 'главное меню'),
-            'list': (state_list, [], 'просмотреть всю коллекцию'),
-            'date': (state_list_date, ['[ДД.ММ.ГГ]'], 'просмотреть по дате'),
-            'type': (state_list_type, ['<type>'], 'просмотреть по категории')
+        '1': (state_main, [], 'главное меню'),
+        '4': (state_list, [], 'просмотреть всю коллекцию'),
+        '41': (state_list_date, ['[ДД.ММ.ГГ]'], 'просмотреть по дате'),
+        '42': (state_list_type, ['<type>'], 'просмотреть по категории')
     }
     tui.set_commands(commands)
     if clear:
         tui.draw_state('Коллекция')
-
+        tui.draw_table_head(data.table_head, data.table_width_min())
         for x in data.get_list():
-            print(x)
+            tui.draw_table_row(x)
        
 
 def state_add(*args):
@@ -179,23 +186,24 @@ def state_main(clear: bool=True, *args):
     if data.available():
         caption = f'Путь к данным: {data.current_path}'
         commands = {
-            'exit': (state_exit, [], 'выход из приложения'),
-            'main': (state_main, [], 'главное меню'),
-            'open': (state_open_base, ['[path]'], 'открыть файл'),
-            'save': (state_save_base, ['[path]'], 'сохранить файл'),
-            'list': (state_list, [], 'просмотреть коллекцию'),
-            'add': (state_add, [], 'добавить продукт'),
-            'remove': (substate_remove, ['<id>'], 'удалить продукт'),
-            'inc': (substate_inc, [], 'по возрастанию стоимости'),
-            'dec': (substate_dec, [], 'по убыванию стоимости'),
-            'help': (not_implemented, [], 'справка')
+            '1': (state_main, [], 'главное меню'),
+            '2': (state_open_base, ['[path]'], 'открыть файл'),
+            '3': (state_save_base, ['[path]'], 'сохранить файл'),
+            '4': (state_list, [], 'просмотреть коллекцию'),
+            '5': (state_add, [], 'добавить продукт'),
+            '6': (substate_remove, ['<ID>'], 'удалить продукт'),
+            '7': (substate_inc, [], 'по возрастанию стоимости'),
+            '8': (substate_dec, [], 'по убыванию стоимости'),
+            '9': (state_help, [], 'справка'),
+            '0': (state_exit, [], 'выход из приложения')
         }
     else:
         caption = "Откройте файл"
         commands = {
-            'open': (state_open_base, ['[path]'], 'открыть файл'),
-            'help': (state_help, ["[команда]"], 'справка'),
-            'exit': (state_exit, [], 'выход из приложения')
+            '1': (state_main, [], 'главное меню'),
+            '2': (state_open_base, ['[path]'], 'открыть файл'),
+            '9': (state_help, [], 'справка'),
+            '0': (state_exit, [], 'выход из приложения')
         }
     
     tui.set_commands(commands) 
@@ -205,10 +213,11 @@ def state_main(clear: bool=True, *args):
 
 if __name__ == "__main__":
     
-    # print('Программа для контроля собственных денежных средств.')
-    # try:
-    #     input('Нажмите enter > ')
-    # except (EOFError, KeyboardInterrupt) as e:
-    #     exit(0)
+    tui.cls()
+    print(helps.main)
+    try:
+        input('Нажмите enter > ')
+    except (EOFError, KeyboardInterrupt) as e:
+        exit(0)
         
     tui.run(state_main)

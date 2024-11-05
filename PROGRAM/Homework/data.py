@@ -4,7 +4,7 @@ import logging
 
 
 # Размеры и формат данных
-PRODUCT_NAME_LEN = 40
+PRODUCT_NAME_LEN = 100
 PRODUCT_TYPE_LEN = 40
 PRODUCT_COST_MAX = 4_294_967_296 # COST.00 x100
 DELIMITER = ','
@@ -15,18 +15,23 @@ current_path = ''
 # ID | NAME | COST*100 | TYPE | UTC_TIME
 data: list[tuple[int, str, int, str, int]] = None
 
-# Индексы
-index_eq: list[int] = []  # Сопоставление индексов индексаторов и данных
-index_cost: dict[int, list[int]] = {}  # Индексатор по цене
-index_type: dict[str, list[int]] = {}    # Индексатор по категории
-index_date: dict[int, list[int]] = {}    # Индексатор по дате
-
 # Доступность
 available = lambda: data is not None
 
 # Для отображения
 display_cost = lambda x: f"{x:.2f}"
 display_row = lambda x: (str(x[0]), x[1], display_cost(x[2]), x[3], dtf.display_utc(x[4]))
+
+# Для рисования таблиц
+table_head = ["ID", "Название", "Цена", "Категория", "Дата"]
+id_length = lambda: len(str(len(data))) if available() else 7
+cost_length = len(str(PRODUCT_COST_MAX)) + 1
+table_width_min = lambda: [id_length(), 10, 6, 10, 8]
+
+# Индексаторы
+index_eq: list[int] = []  # Сопоставление индексов индексаторов и данных
+index_type: dict[str, list[int]] = {}   # Индексатор по категории
+index_date: dict[int, list[int]] = {}   # Индексатор по дате
 
 
 def _validate_product(index: int, pname, pcost, ptype, pdate):
@@ -65,7 +70,7 @@ def _add_product(pname, pcost, ptype, pdate):
         data.append(xv)
         # Индексируем
         index_eq.append(index_id)
-        for value, indexer in zip(xv[2:5], [index_cost, index_type, index_date]):
+        for value, indexer in zip(xv[3:5], [index_type, index_date]):
             indexer.setdefault(value, []).append(index_id)
         
 
@@ -80,7 +85,7 @@ def _add_row_as_product(x: list):
 
 def load_file(path: str='base.csv') -> bool:
     """ Загрузить коллекцию из файла O(n) """
-    global data, current_path, index_cost, index_type, index_date, index_eq
+    global data, current_path, index_type, index_date, index_eq
     try:
         # Читаем файл
         file = open(path, 'r', encoding='utf-8')
@@ -89,7 +94,7 @@ def load_file(path: str='base.csv') -> bool:
         # Очищаем место хранение данных и индексаторы
         data = []
         index_eq = []
-        index_cost, index_type, index_date = {}, {}, {}
+        index_type, index_date = {}, {}
         # Построчно читааем записи
         for x in file_reader:
             _add_row_as_product(x)
@@ -142,18 +147,18 @@ def add_product(product_name: str, product_cost: float, product_type: str, produ
 
 
 def remove_product(index: int) -> bool:
-    global data, index_cost, index_type, index_date, index_eq
+    global data, index_type, index_date, index_eq
     # Проверяем существование записи
     if not 0 <= index < len(data):
         return False
     if data[index_eq[index]] is None:
         return False
     # Получаем запись
-    i, _, pc, pt, pd = data[index_eq[index]]
+    i, _, _, pt, pd = data[index_eq[index]]
     # Удаляем (заменяем на None) запись
     data[index_eq[index]] = None
     # Удаляем индекс из индексаторов
-    for value, indexer in zip([pc, pt, pd], [index_cost, index_type, index_date]): 
+    for value, indexer in zip([pt, pd], [index_type, index_date]): 
         try:
             indexer[value].remove(index)
             if not indexer[value]:
