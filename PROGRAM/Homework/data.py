@@ -19,7 +19,7 @@ data: list[tuple[int, str, int, str, int]] = None
 available = lambda: data is not None
 
 # Для отображения
-display_cost = lambda x: f"{x:.2f}"
+display_cost = lambda x: f"{x/100:.2f}"
 display_row = lambda x: (str(x[0]), x[1], display_cost(x[2]), x[3], dtf.display_utc(x[4]))
 
 # Для рисования таблиц
@@ -103,9 +103,12 @@ def load_file(path: str='base.csv') -> bool:
         return True
     except FileNotFoundError:
         # Создаём файл, если его не существует
-        logging.info(f"Создаём файл {path}")
-        open(path, 'w', encoding='utf-8')
-        return load_file(path)
+        try:
+            logging.info(f"Создаём файл {path}")
+            open(path, 'w', encoding='utf-8')
+            return load_file(path)
+        except (PermissionError, FileNotFoundError):
+            return False
     except PermissionError:
         return False
         

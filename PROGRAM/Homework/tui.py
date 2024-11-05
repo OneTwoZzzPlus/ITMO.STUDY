@@ -75,7 +75,6 @@ def draw_state(title: str,
           caption_down: str=''):
     global _comm
     """ Отрисовка страницы TUI """
-    
     cls()  # Очистка экрана
     x, _ = shutil.get_terminal_size((80, 20))
     # Размеры линий
@@ -84,21 +83,16 @@ def draw_state(title: str,
     eqc = int(not(x % 2))
     # Линия с подписью
     print(f'{Fore.GREEN}{'=' * equ} {title} {'=' * equ}{'=' * eqc}{CR}')
-    
     # Подпись сверху при наличии
     if caption_up != '':
         print(caption_up)
-    
     # Список комманд
-    com = [
-        f'{Fore.CYAN}{key}{' ' if _comm else ''}{' '.join(_comm[key][1])}{CR} - {_comm[key][2]} ' 
-        for key in _comm
-    ]
+    com = [f'{Fore.CYAN}{key}{' ' if _comm else ''}{' '.join(_comm[key][1])}'\
+           f'{CR} - {_comm[key][2]} ' 
+           for key in _comm]
     # Расчёт размера колонн
-    com_len = [
-        len(key) + len(_comm[key][2]) + bool(_comm) + len(' '.join(_comm[key][1])) + 4 
-        for key in _comm
-    ]
+    com_len = [(len(key) + len(_comm[key][2]) + bool(_comm) 
+                + len(' '.join(_comm[key][1])) + 4) for key in _comm]
     count_columns = x // max(com_len)
     width_columns = x // count_columns
     # Отображение списка комманд в табличном виде
@@ -107,11 +101,9 @@ def draw_state(title: str,
         for j in range(i, min(i + count_columns, len(com))):
             out += com[j] + (' ' * (width_columns - com_len[j]))
         print(out)
-    
     # Подпись снизу при наличии
     if caption_down != '':
         print(caption_down)
-    
     # Вертикальная линия
     print(f'{Fore.GREEN}{'=' * eqf}{'=' * eqc}{CR}')
     
@@ -133,13 +125,10 @@ def run(start: Callable):
                             ret = (_comm[r[0]][0], tuple(r[1:]))
                     else:
                         raise KeyError
-
             if ret is None:
                 raise KeyError
-            
             # Запустить состояние   
             raw_ret = ret[0](*ret[1])
-            
             # Обработать запрос на другое состояние
             if raw_ret is None:
                 ret = None
@@ -207,12 +196,12 @@ def input_float(maximum: int, decimal_places: int, s: str=" ") -> float:
             # Считываем строку, убирая пустые символы
             r = input(f'{s} > ').replace(' ', '')
             f = float(r)
-            n = f * 10**decimal_places
-            if (n % 1 != 0) or (not 0 < n <= maximum):
+            n = int(f * (10**decimal_places))
+            if not 0 < n <= maximum:
                 raise ValueError
             
             return f
-        except (EOFError, ValueError, TypeError) as e:
+        except (EOFError, ValueError, TypeError, OverflowError) as e:
             pass
         except (KeyboardInterrupt) as e:
             exit(0)
@@ -240,13 +229,3 @@ def input_date() -> dtf.date:
             print(e)
         except (KeyboardInterrupt) as e:
             exit(0)
-
-
-if __name__ == "__main__":
-    import data
-    draw_table_head(data.table_head, data.table_width_min())
-    draw_table_row(('0', 'lol', '100.00', 'lol1', '31.10.24'))
-    draw_table_row(('1', 'name1', '111.00', 'test1', '14.08.24'))
-    draw_table_row(('2', '123', '45600.00', '789', '02.11.24'))
-    draw_table_row(('3', 'arbzdcx', '213400.00', 'test2', '02.11.24'))
-    draw_table_row(('4', 'ehadhxx', '1235663.00', 'asd', '30.10.24'))

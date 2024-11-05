@@ -1,0 +1,10 @@
+INFO:root:Создаём файл 123.сым
+INFO:root:Создаём файл /21/22
+INFO:root:Создаём файл 2/2/2
+INFO:root:Создаём файл 2/2/2
+INFO:root:Создаём файл 2/2/2
+INFO:root:Создаём файл 2/2/2/2/2/2/2/2/2
+INFO:root:Создаём файл C:\123\321\ivan.xui
+INFO:root:Создаём файл ~/123/321/ivan.xui
+INFO:root:Создаём файл ~/1/2/3/ivan.xui
+INFO:root:Создаём файл ~/1/2/3/ivan.xui
