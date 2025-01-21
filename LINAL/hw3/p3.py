@@ -4,10 +4,14 @@ from sympy import *
 # b = [1, 3, 3]
 # c = [-5, 4, 4]
 # prod_xc = -4
-a = [-3, 1, 3]
-b = [-2, -4, -1]
-c = [-5, 2, -5]
-prod_xc = -5
+# a = [-3, 1, 3]
+# b = [-2, -4, -1]
+# c = [-5, 2, -5]
+# prod_xc = -5
+a = [-1, -4, -1]
+b = [-1, -3, -5]
+c = [0, 2, 1]
+prod_xc = -2
 
 
 A = Matrix([a, b, c])
@@ -27,6 +31,7 @@ for i in range(A.shape[0]):
     Ai = A.copy()
     Ai[:, i] = B
     solutions.append(Ai.det() / det_A)
+
 # Вывод результатов
 sn = []
 sd = []
