@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<table2_start>\begin{table}[h]
+\centering
+\caption{Результаты прямых измерений (Задание 1)}
+\label{tab:measurements}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+№ &amp; \multicolumn{4}{c|}{Измеренные величины} &amp; \multicolumn{2}{c|}{Рассчитанные величины} \\
+\cline{2-7} 
+&amp; \(x_1, \, \text{м}\) &amp; \(x_2, \, \text{м}\) &amp; \(t_1, \, \text{c}\) &amp; \(t_2, \, \text{c}\) &amp; \(x_2 - x_1, \, \text{м}\) &amp; \(\frac{t_2^2 - t_1^2}{2}, \, \text{c}^2\) \\
+\hline</table2_start>
+
+<table2_finish>\end{tabular}&#xA;\end{table}</table2_finish>
+</root>
