@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <root>
+<!-- ТАБЛИЦА 2 -->
 <table2_start>\begin{table}[h]
+\centering
+\caption{Фиксированные координаты (горизонтальное положение)}
+\label{tab:measurements}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\(x_1, \, \text{м}\) &amp; \(x_2, \, \text{м}\) &amp; \(h_0, \, \text{c}\) &amp; \(h_0', \, \text{c}\) \\ \hline
+</table2_start><table2_finish> \\ \hline
+\end{tabular}
+\end{table}</table2_finish>
+
+<!-- ТАБЛИЦА 3 -->
+<table3_start>\begin{table}[h]
 \centering
 \caption{Результаты прямых измерений (Задание 1)}
 \label{tab:measurements}
@@ -10,7 +23,35 @@
 № &amp; \multicolumn{4}{c|}{Измеренные величины} &amp; \multicolumn{2}{c|}{Рассчитанные величины} \\
 \cline{2-7} 
 &amp; \(x_1, \, \text{м}\) &amp; \(x_2, \, \text{м}\) &amp; \(t_1, \, \text{c}\) &amp; \(t_2, \, \text{c}\) &amp; \(x_2 - x_1, \, \text{м}\) &amp; \(\frac{t_2^2 - t_1^2}{2}, \, \text{c}^2\) \\
-\hline</table2_start>
+\hline</table3_start>
+<table3_finish>\end{tabular}&#xA;\end{table}</table3_finish>
 
-<table2_finish>\end{tabular}&#xA;\end{table}</table2_finish>
+<!-- Погрешности Y и Z -->
+
+<inaccuracy_YZ>Абсолютная погрешность для $Y=x_2-x_1$ (при $\Delta_{x_1}=\Delta_{x_2}=\frac{2}{3}\Delta_{x\text{и}} = </inaccuracy_YZ>0.005<inaccuracy_YZ>мм$): 
+{\fontsize{13}{13}\selectfont\begin{equation*}
+    \Delta_Y =
+    \sqrt{(\frac{\partial Y}{\partial x_1}\Delta_{x_1})^2+(\frac{\partial Y}{\partial x_2}\Delta_{x_2})^2} =
+    \sqrt{(-\frac{2}{3}\Delta_{x\text{и}})^2+(\frac{2}{3}\Delta_{x\text{и}})^2} = 
+    \frac{2\sqrt{2}}{3}\Delta_{x\text{и}} \approx </inaccuracy_YZ>0.005<inaccuracy_YZ>\text{мм}
+\end{equation*}}
+
+Относительные погрешности $\varepsilon_Y=\frac{\Delta_Y}{Y}\cdot100\%$:
+
+</inaccuracy_YZ>$\varepsilon_{Y_1}=0\%$, $\varepsilon_{Y_2}=0\%, \varepsilon_{Y_3}=0\%$, $\varepsilon_{Y_4}=0\%, \varepsilon_{Y_5}=0\%$<inaccuracy_YZ>.
+
+Абсолютные погрешности для $Z= \frac{t_2^2-t_1^2}{2}$  ($\Delta_{t_1}=\Delta_{t_2}=\frac{2}{3}\Delta_{t\text{и}} = </inaccuracy_YZ>0.1<inaccuracy_YZ>c$): 
+
+{\fontsize{13}{13}\selectfont\begin{equation*}
+    \Delta_Z =
+    \sqrt{(\frac{\partial Z}{\partial t_1}\Delta_{t_1})^2+(\frac{\partial Z}{\partial t_2}\Delta_{t_2})^2} =
+    \sqrt{(t_1\Delta_{t_1})^2+(t_1\Delta_{t_2})^2} =
+    \frac{2}{3}\Delta_{t\text{и}}\sqrt{t_1^2+t_1^2}
+\end{equation*}}
+
+</inaccuracy_YZ>$\Delta_{Z_1}=0\%$, $\Delta_{Z_2}=0\%, \Delta_{Z_3}=0\%$, $\Delta_{Z_4}=0\%, \Delta_{Z_5}=0\%$<inaccuracy_YZ>.
+
+Относительные погрешности $\varepsilon_Z=\frac{\Delta_Z}{Z}\cdot100\%$:
+
+</inaccuracy_YZ>$\varepsilon_{Z_1}=0\%$, $\varepsilon_{Z_2}=0\%, \varepsilon_{Z_3}=0\%$, $\varepsilon_{Z_4}=0\%, \varepsilon_{Z_5}=0\%$.
 </root>
