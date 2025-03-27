@@ -77,3 +77,13 @@ class Vehicle:
         return f"Тип: {self.vehicle_type}, имя: {self.name}, координаты {self.coordinates:.2f},"\
                f"мощность: {self.engine_power:.2f}, пробег: {self.distance_travelled:.2f},"\
                f"возраст: {self.age}"
+
+    def __add__(self, other):
+        if not isinstance(other, Vehicle):
+            raise ValueError('object must be Vehicle')
+        return Vehicle(f'{self.name}-{other.name}', self.engine_power + other.engine_power, self.coordinates)
+    
+    def __mul__(self, other):
+        if not isinstance(other, Vehicle):
+            raise ValueError('object must be Vehicle')
+        return Vehicle(f'{self.name}', self.engine_power, self.coordinates)
