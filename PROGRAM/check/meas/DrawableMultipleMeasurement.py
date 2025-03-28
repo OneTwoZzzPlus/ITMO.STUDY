@@ -18,5 +18,5 @@ class DrawableMultipleMeasurement(LinearMultipleMeasurement, Drawer):
     
     @timer
     def plot_MKN(self):
-        X, Y = [t._value_ for t in self._measurments_X], [t._value_ for t in self._measurments_Y]
-        self.plot_dependency(*self.calculate_coefficients(X, Y), self._measurments_X, self._measurments_Y)
+        X, Y = self._measurments_X.values, self._measurments_Y.values
+        self.plot_dependency(*self.calculate_coefficients(X, Y), self._measurments_X._measurments, self._measurments_Y._measurments)

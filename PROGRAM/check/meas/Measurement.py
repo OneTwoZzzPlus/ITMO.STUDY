@@ -4,10 +4,10 @@ from .BaseMeasurement import *
 
   
 class Measurement(BaseMeasurement, Tools):
-    def __init__(self, value, delta, epsilon=None):
+    def __init__(self, value, delta=0, epsilon=None):
         self._value_ = value
         self._delta_ = delta
-        self._epsilon_ = None
+        self._epsilon_ = epsilon
         self._calc()
         self._round()
         

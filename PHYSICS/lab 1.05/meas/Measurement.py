@@ -4,21 +4,24 @@ from .BaseMeasurement import *
 
   
 class Measurement(BaseMeasurement, Tools):
-    def __init__(self, value, delta, epsilon=None):
+    def __init__(self, value, delta=0, epsilon=None):
         self._value_ = value
         self._delta_ = delta
-        self._epsilon_ = None
+        self._epsilon_ = epsilon
         self._calc()
         self._round()
-        
-    def _calc(self):
-        self._epsilon_ = (self._delta_ / self._value_ * 100)  if self._epsilon_ is None else self._epsilon_
-
+    
     def _soft(self, x):
         # Округлить компьютерную погрешность
         CALC_ERROR = 12
         x = round(x, CALC_ERROR)
         return 0 if isclose(x, 0) else x
+    
+    def _calc(self):
+        if isclose(self.value_, 0):
+            self._epsilon_ = 0
+        else:
+            self._epsilon_ = (self._delta_ / abs(self._value_) * 100)  if self._epsilon_ is None else self._epsilon_
 
     def _get_first_significant_digit(self, n):
         # Получаем первую значащую цифру
@@ -111,7 +114,7 @@ class Measurement(BaseMeasurement, Tools):
         return f"{self._soft(self._value_)} Δ = {self._soft(self._delta_):.9f} ε = {self._soft(self._epsilon_):.9f}"
     
     def __str__(self):
-        return f'{self.rounded}'
+        return f'{self.rounded} ({self.raw})'
     
     def __repr__(self):
         return f'{self.rounded}'

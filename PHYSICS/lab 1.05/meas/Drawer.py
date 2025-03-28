@@ -1,19 +1,16 @@
 from math import *
-
-import matplotlib.pyplot
-
 from .tools import *
 from .LinearMultipleMeasurement import *
-import matplotlib
+
+import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoLocator
 import numpy as np
 
 
 def plot_controller(method_to_decorate):
-    plt = matplotlib.pyplot
     
     def wrapper(self, *args):
-        return method_to_decorate(self, plt, *args)
+        return method_to_decorate(self, *args)
 
     plt.tight_layout()
     plt.show()
@@ -24,7 +21,7 @@ def plot_controller(method_to_decorate):
 class Drawer():
     
     @plot_controller
-    def plot_dependency(self, plt, nA, nB, X, Y):
+    def plot_dependency(self, nA, nB, X, Y):
         # Создаем фигуру и оси
         (fig, ax) = plt.subplots(figsize=(8, 8))
         
@@ -48,7 +45,8 @@ class Drawer():
         # Устанавливаем пределы осей
         w_x, w_y = 0, 0
         ax.set_xlim(X_min.value - X_min.delta - 0.05*(X_max.value - X_min.value) - w_x, X_max.value + X_max.delta + 0.05*(X_max.value - X_min.value) + w_x)
-        ax.set_ylim(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y, Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y)
+        # print(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y, Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y)
+        ax.set_ylim(float(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y), float(Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y))
         # Подписи осей
         plt.xlabel("Z", x=1.01, ha='right', va='bottom', 
                 bbox={
@@ -72,3 +70,4 @@ class Drawer():
         # Добавляем заголовок
         plt.title('График зависимости Y(X)')
         
+    
