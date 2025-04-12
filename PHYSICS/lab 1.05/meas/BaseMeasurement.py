@@ -29,7 +29,7 @@ class BaseMeasurement(ABC):
         return self._epsilon
     
     @property
-    def epsilon(self):
+    def epsilon_(self):
         return self._epsilon_
     
     @abstractmethod

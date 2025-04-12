@@ -25,20 +25,19 @@ class Measurement(BaseMeasurement, Tools):
 
     def _get_first_significant_digit(self, n):
         # Получаем первую значащую цифру
-        if n == 0:
+        n_abs = abs(float(n))
+        if n_abs == 0:
             return 0
-        n_abs = abs(n)
         s = "{:.15e}".format(n_abs)
-        mantissa_part, exp_part = s.split('e')
-        mantissa = mantissa_part.replace('.', '').lstrip('0')
+        mantissa, exp = s.split('e')
+        mantissa = mantissa.replace('.', '').lstrip('0')
         return int(mantissa[0]) if mantissa else 0
 
     def _round_to_significant(self, value, significant):
         # Округлить до значащей цифры
         if value == 0:
             return 0.0
-        formatted = "{:.{prec}e}".format(value, prec=significant-1)
-        return float(formatted)
+        return float(("{:." + str(significant-1) + "e}").format(value))
 
     def _format_with_decimals(self, number, decimals):
         # Форматируем число с фиксированным количеством знаков после запятой

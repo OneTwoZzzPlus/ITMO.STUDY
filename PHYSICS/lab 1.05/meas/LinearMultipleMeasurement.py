@@ -44,9 +44,10 @@ class LinearMultipleMeasurement():
         a = av_y - b * av_x
         d = [y[i] - (a + b*x[i]) for i in range(N)]
         D = sum((x[i] - av_x)**2 for i in range(N))
-        sum_sQ = (sum(d[i]**2 for i in range(N)))
-        sigma_bQ = sum_sQ / (N - 2) / D
-        sigma_aQ = (1/N + av_x**2/D) * (sum(d[i]**2 for i in range(N)) / (N - 2))
+        # print(f'av_x = {av_x}, D = {D}')
+        sum_sQ = (sum(d[i]**2 for i in range(N))) / (N - 2)
+        sigma_bQ = sum_sQ  / D
+        sigma_aQ = (1/N + av_x**2/D) * (sum_sQ)
         delta_a = 2*sqrt(sigma_aQ)
         delta_b = 2*sqrt(sigma_bQ)
         self._a = Measurement(a, delta_a)

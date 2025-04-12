@@ -35,6 +35,14 @@ class Tools:
         latex_pm = '\\pm'
         return f"{x_str}{latex_pm}{delta_str}"
     
+    @property
+    def latex(self):
+        return f"${self.format_latex()}$"
+    
+    @property
+    def latex_full(self):
+        return f"${self.format_latex()}, \\varepsilon = {self.epsilon}\%$"
+    
     def phys_round(self, value):
         first_digit = self._get_first_significant_digit(value)
         k_delta_x = 2 if first_digit in {1, 2, 3} else 1
@@ -43,9 +51,9 @@ class Tools:
     
 def timer(method_to_decorate):
 
-    def wrapper(self):
+    def wrapper(self, *args, **kwargs):
         start = datetime.now()
-        res = method_to_decorate(self)
+        res = method_to_decorate(self, *args, **kwargs)
         finish = datetime.now() - start
         print("Время выполнения =", finish)
         return res

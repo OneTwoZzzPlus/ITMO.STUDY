@@ -1,41 +1,63 @@
 from math import *
 from .tools import * 
 from .BaseMeasurement import *
+from .DataBase import *
 
   
 class Measurement(BaseMeasurement, Tools):
-    def __init__(self, value, delta=0, epsilon=None):
+    def __init__(self, value, delta=0, epsilon=None, name=None):
+        if isinstance(value, str):
+            name = value
+            
+        if name is not None:
+            try:
+                res = MeasurmentDB.get(MeasurmentDB.name == name)
+            except (MeasurmentDB.DoesNotExist, OperationalError):
+                res = MeasurmentDB.create(
+                    name=name,
+                    value=value,
+                    delta=delta,
+                    epsilon=None
+                )
+            value = res.value
+            delta = res.delta
+            epsilon = res.epsilon
+
+                
         self._value_ = value
         self._delta_ = delta
         self._epsilon_ = epsilon
         self._calc()
         self._round()
-        
-    def _calc(self):
-        self._epsilon_ = (self._delta_ / self._value_ * 100)  if self._epsilon_ is None else self._epsilon_
-
+            
+    
     def _soft(self, x):
         # Округлить компьютерную погрешность
         CALC_ERROR = 12
         x = round(x, CALC_ERROR)
         return 0 if isclose(x, 0) else x
+    
+    def _calc(self):
+        if isclose(self.value_, 0):
+            self._epsilon_ = 0
+        else:
+            self._epsilon_ = (self._delta_ / abs(self._value_) * 100)  if self._epsilon_ is None else self._epsilon_
 
     def _get_first_significant_digit(self, n):
         # Получаем первую значащую цифру
-        if n == 0:
+        n_abs = abs(float(n))
+        if n_abs == 0:
             return 0
-        n_abs = abs(n)
         s = "{:.15e}".format(n_abs)
-        mantissa_part, exp_part = s.split('e')
-        mantissa = mantissa_part.replace('.', '').lstrip('0')
+        mantissa, exp = s.split('e')
+        mantissa = mantissa.replace('.', '').lstrip('0')
         return int(mantissa[0]) if mantissa else 0
 
     def _round_to_significant(self, value, significant):
         # Округлить до значащей цифры
         if value == 0:
             return 0.0
-        formatted = "{:.{prec}e}".format(value, prec=significant-1)
-        return float(formatted)
+        return float(("{:." + str(significant-1) + "e}").format(value))
 
     def _format_with_decimals(self, number, decimals):
         # Форматируем число с фиксированным количеством знаков после запятой
@@ -111,7 +133,7 @@ class Measurement(BaseMeasurement, Tools):
         return f"{self._soft(self._value_)} Δ = {self._soft(self._delta_):.9f} ε = {self._soft(self._epsilon_):.9f}"
     
     def __str__(self):
-        return f'{self.rounded}'
+        return f'{self.rounded} ({self.raw})'
     
     def __repr__(self):
         return f'{self.rounded}'

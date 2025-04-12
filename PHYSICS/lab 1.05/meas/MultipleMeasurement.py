@@ -13,6 +13,10 @@ class MultipleMeasurement(Measurement, ABC):
         return self._values
     
     @property
+    def measurments(self):
+        return self._measurments
+    
+    @property
     def N(self):
         return self._N
     
@@ -21,12 +25,6 @@ class MultipleMeasurement(Measurement, ABC):
         if self._N not in student_koef:
             raise ValueError(f'Нет значения Стьюдента {self._N} измерений в "student_koef"')
         self._student = student_koef[self._N]
-        if isinstance(measured_values[0], Measurement):
-            self._measurments = measured_values
-            self._values = [x.value for x in measured_values]
-        else: 
-            self._values = measured_values
-            self._measurments = [Measurement(x) for x in measured_values]
         self._calc()
         self._round()
         

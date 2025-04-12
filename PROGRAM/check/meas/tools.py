@@ -1,8 +1,10 @@
+from .MeasException import *
 from math import *
 from datetime import datetime
 
 class Tools:
-    def format_latex(self):
+    @property
+    def latex(self):
         # Обработка абсолютной погрешности
         first_digit = self._get_first_significant_digit(self._delta_)
         k_delta = 2 if first_digit in {1, 2, 3} else 1
@@ -33,7 +35,7 @@ class Tools:
             delta_str = delta_str.split('.')[0]
             
         latex_pm = '\\pm'
-        return f"{x_str}{latex_pm}{delta_str}"
+        return f"${x_str}{latex_pm}{delta_str}$"
     
     def phys_round(self, value):
         first_digit = self._get_first_significant_digit(value)
@@ -43,9 +45,9 @@ class Tools:
     
 def timer(method_to_decorate):
 
-    def wrapper(self):
+    def wrapper(self, *args, **kwargs):
         start = datetime.now()
-        res = method_to_decorate(self)
+        res = method_to_decorate(self, *args, **kwargs)
         finish = datetime.now() - start
         print("Время выполнения =", finish)
         return res
@@ -56,19 +58,15 @@ def timer(method_to_decorate):
 def check_len(method_to_decorate):
     
     def wrapper(self, m1, m2, *args):
-        if isinstance(m1, list):
-            if len(m1) == 0 or len(m2) == 0:
-                raise ValueError('Пустые данные!')
-            if len(m1) != len(m2):
-                raise ValueError('Разные размеры массивов данных!')
-            first_type = type(m1[0])
-            if any(type(x) != first_type for x in m1) or any(type(x) != first_type for x in m2):
-                raise ValueError('Разные типы данных в массивах!')
-        else:
-            if len(m1.values) == 0 or len(m2.values) == 0:
-                raise ValueError('Пустые данные!')
-            if m1.N != m2.N:
-                raise ValueError('Разные размеры массивов данных!')
+        if not isinstance(m1, list) or not isinstance(m2, list):
+            raise MeasException('Передай список!')
+        if len(m1) == 0 or len(m2) == 0:
+            raise MeasException('Пустые данные!')
+        if len(m1) != len(m2):
+            raise MeasException('Разные размеры массивов данных!')
+        first_type = type(m1[0])
+        if any(type(x) != first_type for x in m1) or any(type(x) != first_type for x in m2):
+            raise MeasException('Разные типы данных в массивах!')
         
         return method_to_decorate(self, m1, m2, *args)
 

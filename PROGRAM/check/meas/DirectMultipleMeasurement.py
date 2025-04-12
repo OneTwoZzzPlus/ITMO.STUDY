@@ -9,7 +9,7 @@ class DirectMultipleMeasurement(MultipleMeasurement):
     
     @property
     def values(self):
-        return self.values
+        return self._values
     
     @property
     def N(self):
@@ -17,15 +17,21 @@ class DirectMultipleMeasurement(MultipleMeasurement):
     
     def __init__(self, measured_values, delta_instrumental=0):
         self._delta_instrumental_ = delta_instrumental
+        if isinstance(measured_values[0], Measurement):
+            self._measurments = measured_values
+            self._values = [x.value_ for x in measured_values]
+        else: 
+            self._values = measured_values
+            self._measurments = [Measurement(x, delta_instrumental) for x in measured_values]
         super().__init__(measured_values)
-        
+    
     def _calc(self):
         # Считаем значение и погрешность
         self._value_ = sum(self._values) / self._N
         self._sigma_ = sqrt(sum((x - self._value_)**2 for x in self._values)/(self._N*(self._N - 1)))
         self._delta_random_ = self._sigma_ * self._student
         self._delta_ = sqrt(self._delta_random_**2 + (4/9)*self._delta_instrumental_**2)
-        self._epsilon_ = self._delta_ / self._value_ * 100     
+        self._epsilon_ = self._delta_ / self._value_ * 100 if not isclose(self._value_, 0) else 0  
         
     def info(self):
         return (
