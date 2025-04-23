@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<!-- Direct Table -->
+<t1>
+\begin{table}[H]
+\centering
+\caption{Результаты прямых измерений}
+\label{tab:meas7}
+\begin{tabular}{|c|c|c|c|}
+\hline
+№ &amp; $h, \text{см}$ &amp; $h_1, \text{см}$ &amp; $t, \text{с}$ \\ \hline
+1 &amp; \multirow{5}{*}{</t1><t1>} &amp; </t1><t1> &amp; </t1><t1> \\ \cline{1-1} \cline{3-4}
+2 &amp; &amp; </t1><t1> &amp; </t1><t1> \\ \cline{1-1} \cline{3-4}
+3 &amp; &amp; </t1><t1> &amp; </t1><t1> \\ \cline{1-1} \cline{3-4}
+4 &amp; &amp; </t1><t1> &amp; </t1><t1> \\ \cline{1-1} \cline{3-4}
+5 &amp; &amp; </t1><t1> &amp; </t1><t1> \\ \hline
+\end{tabular}
+\end{table}
+</t1>
+</root>
