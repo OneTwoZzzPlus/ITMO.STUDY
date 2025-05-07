@@ -16,5 +16,5 @@ class DrawableMultipleMeasurement(LinearMultipleMeasurement, Drawer):
         B = (sum(Y) * sum(x*x for x in X) - sum(X) * sum(x*y for x, y in zip(X, Y))) / (N * sum(x*x for x in X) - (sum(X))**2)
         return B, A
     
-    async def plot_MKN(self, **kwargs):
-        await self.plot_dependency(self.a, self.b, self._measurments_X, self._measurments_Y, **kwargs)
+    def plot_MKN(self, fig=None, ax=None, **kwargs):
+        self.plot_dependency(fig, ax, self.a, self.b, self._measurments_X, self._measurments_Y, **kwargs)

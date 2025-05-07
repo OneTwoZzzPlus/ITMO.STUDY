@@ -3,8 +3,12 @@ from math import *
 from datetime import datetime
 
 class Tools:
-    @property
-    def latex(self):
+    def phys_round(self, value):
+        first_digit = self._get_first_significant_digit(value)
+        k_delta_x = 2 if first_digit in {1, 2, 3} else 1
+        return self._round_to_significant(value, k_delta_x)
+    
+    def latex(self, dim=1):
         # Обработка абсолютной погрешности
         first_digit = self._get_first_significant_digit(self._delta_)
         k_delta = 2 if first_digit in {1, 2, 3} else 1
@@ -26,8 +30,8 @@ class Tools:
             decimals = 0
         
         # Форматируем с сохранением всех нулей
-        x_str = self._format_with_decimals(rounded_x, decimals)
-        delta_str = self._format_with_decimals(rounded_delta, decimals)
+        x_str = self._format_with_decimals(rounded_x * 10**dim, decimals - dim)
+        delta_str = self._format_with_decimals(rounded_delta * 10**dim, decimals - dim)
         
         # Убираем лишние точки для целых чисел
         if decimals == 0:
@@ -35,13 +39,35 @@ class Tools:
             delta_str = delta_str.split('.')[0]
             
         latex_pm = '\\pm'
-        return f"${x_str}{latex_pm}{delta_str}$"
+        
+        if x_str[-1] == '0' and delta_str[-1] == '0':
+            x_str, delta_str = x_str[:-1], delta_str[:-1]
+        
+        return f"{x_str}{latex_pm}{delta_str}"
     
-    def phys_round(self, value):
-        first_digit = self._get_first_significant_digit(value)
-        k_delta_x = 2 if first_digit in {1, 2, 3} else 1
-        return self._round_to_significant(value, k_delta_x)
+    def latex_m(self, dim=0):
+        return f'${self.latex(dim=dim)}$'
     
+    def meas_latex(self, dim=0):
+        name, unit = self._char, self._unit
+        return f"\\centerline{{${name} = ({self.latex(dim)}){f'\\cdot 10^{{{-dim}}}' if dim != 0 else ''} {unit}, \\quad \\varepsilon = {self.epsilon} \\%, \\quad \\alpha = 0.95$}}"
+    
+    def value_latex(self, dim=0, hide_char=False):
+        name, unit = "" if hide_char else f"{self._char} = ", self._unit
+        return f"{name}({self.latex(dim)}){f'\\cdot 10^{{{-dim}}}' if dim != 0 else ''} {unit}"
+    
+    def value_latex_m(self, dim=0):
+        return f"${self.value_latex(dim=dim)}$"
+
+    def DDM(self):
+        ch = self._char
+        return (
+            f"$\\bar{{{ch}}} = {self.value} {self._unit}$.\n\n" +
+            f"\\centerline{{$\\sigma_{{\\bar{{{ch}}}}} = {self._sigma_}, \quad " +
+            f"\\Delta_{{\\bar{{{ch}}}}} = {self._student} \\cdot {self._sigma_} = {self._delta_random_} {self._unit}$}}\n\n" +
+            f"\\centerline{{$\\Delta_{{{ch}}} = \sqrt{{({self._delta_random_})^2 + (\\frac{2}{3} \\cdot {self._delta_instrumental_})^2}} = {self.delta} {self._unit}, \quad " +
+            f"\\varepsilon_{{{ch}}} = \\frac{{{self.delta}}}{{{self.value}}} \\cdot 100\\% = {self.epsilon}\%$}}"
+        )
     
 def timer(method_to_decorate):
 
@@ -60,14 +86,13 @@ def check_len(method_to_decorate):
     def wrapper(self, m1, m2, *args):
         if not isinstance(m1, list) or not isinstance(m2, list):
             raise MeasException('Передай список!')
-        if len(m1) == 0 or len(m2) == 0:
-            raise MeasException('Пустые данные!')
+        if len(m1) < 3 or len(m2) < 3:
+            raise MeasException('Слишком мало данных!')
         if len(m1) != len(m2):
             raise MeasException('Разные размеры массивов данных!')
         first_type = type(m1[0])
         if any(type(x) != first_type for x in m1) or any(type(x) != first_type for x in m2):
             raise MeasException('Разные типы данных в массивах!')
-        
         return method_to_decorate(self, m1, m2, *args)
 
     return wrapper

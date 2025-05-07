@@ -8,6 +8,7 @@ class MultipleMeasurement(Measurement, ABC):
     _N: int
     _values: list[float]
     _measurments: list[Measurement]
+    _is_direct = False
     
     @property
     def values(self):
@@ -21,13 +22,23 @@ class MultipleMeasurement(Measurement, ABC):
     def N(self):
         return self._N
     
-    def __init__(self, measured_values):
+    def __init__(self, measured_values:list[int|float|Measurement], dim:int|None=None,
+                 name:str|None=None, char:str='', unit:str='',):
         self._N = len(measured_values)
         if self._N not in student_koef:
             raise StudentException(self._N)
         self._student = student_koef[self._N]
+        self._char = char
+        self._unit = unit
+        self._name = name
+        self._dimer(dim)
         self._calc()
         self._round()
+        
+    def _dimer(self, dim):
+        if dim is not None:
+            self._values = [x * dim for x in self._values]
+            self._measurments = [Measurement(x._value_, x._delta_, dim=dim) for x in self._measurments]
         
     def info(self):
         return f"\nN = {self._N}\nvalues = {self._values}\naverage = {self._value} ({self._value_})" \

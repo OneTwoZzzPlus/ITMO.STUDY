@@ -5,7 +5,9 @@ from .DataBase import *
 
   
 class Measurement(BaseMeasurement, Tools):
-    def __init__(self, value, delta=0, epsilon=None, name=None):
+    def __init__(self, value:float, delta:float|None=None, epsilon:float|None=None, 
+                 name:str|None=None, char:str='', unit:str='',
+                 dim:float|None=None, direct:bool=False):
         if isinstance(value, str):
             name = value
             
@@ -22,14 +24,21 @@ class Measurement(BaseMeasurement, Tools):
             value = res.value
             delta = res.delta
             epsilon = res.epsilon
-
-                
+        
+        self._name = name
+        self._char = char
+        self._unit = unit
         self._value_ = value
         self._delta_ = delta
         self._epsilon_ = epsilon
+        self._is_direct = direct
+        self._dimer(dim)
         self._calc()
         self._round()
-            
+    
+    def naming(self, char:str, unit:str=''):
+        self._char = char
+        self._unit = unit
     
     def _soft(self, x):
         # Округлить компьютерную погрешность
@@ -38,11 +47,22 @@ class Measurement(BaseMeasurement, Tools):
         return 0 if isclose(x, 0) else x
     
     def _calc(self):
-        if isclose(self.value_, 0):
-            self._epsilon_ = 0
-        else:
-            self._epsilon_ = (self._delta_ / abs(self._value_) * 100)  if self._epsilon_ is None else self._epsilon_
-
+        if self._epsilon_ is None and self._delta_ is None:
+            self._epsilon_, self.delta = 0, 10^(-13)
+        if self._epsilon_ is None:
+            if isclose(self.value_, 0):
+                self._epsilon_ = 0
+            else:
+                self._epsilon_ = (self._delta_ / abs(self._value_) * 100)
+        elif self._delta_ is None:
+            self._delta_ = self._epsilon_ * self._value_ / 100
+    
+    def _dimer(self, dim):
+        if dim is not None:
+            self._value_ *= dim
+            if self._delta_ is not None:
+                self._delta_ *= dim
+        
     def _get_first_significant_digit(self, n):
         # Получаем первую значащую цифру
         n_abs = abs(float(n))
@@ -125,12 +145,12 @@ class Measurement(BaseMeasurement, Tools):
     @property
     def rounded(self):
         # Для дебага округлённых значений
-        return f"{self.format()} ε = {self._epsilon}"
+        return f"{self.format()}, ε = {self._epsilon}%"
     
     @property
     def raw(self):
         # Для дебага сырых значений
-        return f"{self._soft(self._value_)} Δ = {self._soft(self._delta_):.9f} ε = {self._soft(self._epsilon_):.9f}"
+        return f"{self._soft(self._value_)}, Δ = {self._soft(self._delta_):.9f}, ε = {self._soft(self._epsilon_):.9f}"
     
     def __str__(self):
         return f'{self.rounded} ({self.raw})'
@@ -150,13 +170,31 @@ class Measurement(BaseMeasurement, Tools):
     def __lt__(self, other): return self._value < other.value
     def __ge__(self, other): return not (self < other)
     
+    
     def __add__(self, other):
-        if not isinstance(other, Measurement):
-            raise ValueError("Можно складывать только измерения")
-        return Measurement(self._value_ + other._value_, self._delta_ + other._delta_)
+        if isinstance(other, Measurement):
+            return Measurement(
+                self._value_ + other._value_, 
+                sqrt((self._idm() * self._delta_)**2 + (self._idm() * other._delta_)**2)
+                )
+        raise ValueError("Можно складывать только измерения")
+        
     
     def __sub__(self, other):
-        if not isinstance(other, Measurement):
-            raise ValueError("Можно вычитать только измерения")
-        return Measurement(self._value_ - other._value_, self._delta_ - other._delta_)
+        if isinstance(other, Measurement):
+            return Measurement(
+                self._value_ - other._value_, 
+                sqrt((self._idm * self._delta_)**2 + (self._idm * other._delta_)**2)
+                )
+        raise ValueError("Можно вычитать только измерения")
+    
+    def __truediv__(self, other):
+        if isinstance(other, (int, float)):
+            if isclose(other, 0):
+                raise ZeroDivisionError()
+            return Measurement(
+                self.value_ / other, 
+                self.delta_ / other, 
+                direct=self._is_direct
+            )
     

@@ -15,15 +15,20 @@ class DirectMultipleMeasurement(MultipleMeasurement):
     def N(self):
         return self._N
     
-    def __init__(self, measured_values, delta_instrumental=0):
+    def __init__(self, 
+            measured_values:list[int|float|Measurement], delta_instrumental:int|float=0, 
+            dim:int|None=None,
+            name:str|None=None, char:str='', unit:str=''):
         self._delta_instrumental_ = delta_instrumental
         if isinstance(measured_values[0], Measurement):
             self._measurments = measured_values
             self._values = [x.value_ for x in measured_values]
         else: 
             self._values = measured_values
-            self._measurments = [Measurement(x, delta_instrumental) for x in measured_values]
-        super().__init__(measured_values)
+            self._measurments = [Measurement(x, delta_instrumental, direct=True) for x in measured_values]
+        if dim is not None:
+            self._delta_instrumental_ *= dim
+        super().__init__(measured_values, dim=dim, name=name, char=char, unit=unit)
     
     def _calc(self):
         # Считаем значение и погрешность

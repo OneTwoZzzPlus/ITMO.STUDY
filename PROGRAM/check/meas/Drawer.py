@@ -5,15 +5,15 @@ from .LinearMultipleMeasurement import *
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoLocator
 import numpy as np
-import asyncio
 
 
 def plot_controller(method_to_decorate):
     
-    async def wrapper(self, *args, **kwargs):
-        await method_to_decorate(self, *args, **kwargs)
-    
-    plt.show()
+    def wrapper(self, fig=None, ax=None, *args, **kwargs):
+        if fig is None or ax is None:
+            (fig, ax) = plt.subplots(figsize=(8, 8))
+        ax.clear()
+        method_to_decorate(self, fig, ax, *args, **kwargs)
     
     return wrapper
 
@@ -21,7 +21,7 @@ def plot_controller(method_to_decorate):
 class Drawer():
     
     @plot_controller
-    async def plot_dependency(self, 
+    def plot_dependency(self, fig, ax,
             nA:Measurement, nB:Measurement, X:list[Measurement], Y:list[Measurement],
             x_name='X', x_unit='', y_name='Y', y_unit='',
             label: str=None, pad_x=1.35, pad_y=1.65,
@@ -31,9 +31,6 @@ class Drawer():
             label = f'График зависимости: {y_name}({x_name})'
             
         print(f'График зависимости: {y_name} = {nA.value}{'+' if nB.value >= 0 else ''}{nB.value}{x_name}')
-        
-        # Создаем фигуру и оси
-        (fig, ax) = plt.subplots(figsize=(8, 8))
         
         # Считаем границы
         X_min, X_max = min(X), max(X)
