@@ -1,142 +1,126 @@
-import tkinter as tk
+from tkinter import *
 from tkinter import ttk
-from tkinter.messagebox import showinfo
-import asyncio
-import meas
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import numpy as np
 
 
-class App(tk.Tk):
+class ListNotebook(Frame): 
     def __init__(self):
         super().__init__()
-        self.title("Калькулятор МНК")
-        self.geometry("800x600")
+        self.frames = []
         
-        self.A = 0.0
-        self.B = 0.0
+        # NOTEBOOK
+        self.notebook = ttk.Notebook(self)
+        ttk.Style(self).layout("TNotebook.Tab", [])            
+        self.notebook.pack(expand=True, side="right", fill="both")
         
-        self.create_widgets()
-        self.update_info()
+        # LISTBOX
+        self.left_frame = Frame(self, width=180)
+        self.left_frame.pack_propagate(False)
+        self.left_frame.pack(side="left", fill="y", expand=False)
 
-    def create_widgets(self):
-        # Левая панель
-        left_frame = ttk.Frame(self, padding=10)
-        left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
-        # Текстовое поле с прокруткой
-        self.text = tk.Text(left_frame, wrap=tk.NONE, width=20)
-        scroll = ttk.Scrollbar(left_frame, command=self.text.yview)
-        self.text.configure(yscrollcommand=scroll.set)
+        self.listbox = Listbox(self.left_frame)
         
-        self.text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        # прокрутка
+        scrollbar = ttk.Scrollbar(self.listbox, orient="vertical", command=self.listbox.yview)
+        scrollbar.pack(side=RIGHT, fill=Y)
+        self.listbox["yscrollcommand"]=scrollbar.set
         
-        # Привязка валидации
-        self.text.bind("<<Modified>>", self.validate_input)
-
-        # Правая панель
-        right_frame = ttk.Frame(self, padding=10)
-        right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
-
-        # Информационная панель
-        info_frame = ttk.Frame(right_frame)
-        info_frame.pack(side=tk.TOP, fill=tk.X)
+        def selected(event):
+            if self.listbox.size() != 0:
+                tab = self.listbox.curselection()[0]
+                self.notebook.select(tab)
         
-        self.count_label = ttk.Label(info_frame, text="Количество значений: 0")
-        self.a_label = ttk.Label(info_frame, text=f"A")
-        self.b_label = ttk.Label(info_frame, text=f"B")
-        self.eq_label = ttk.Label(info_frame, text="Уравнение: y = Ax + B")
+        self.listbox.bind("<<ListboxSelect>>", selected)    
+        self.listbox.pack(expand=True, fill="both")
         
-        self.count_label.pack(anchor=tk.W)
-        self.a_label.pack(anchor=tk.W)
-        self.b_label.pack(anchor=tk.W)
-        self.eq_label.pack(anchor=tk.W)
+        self.pack(expand=True, side="top", fill="both")
 
-        # График
-        self.figure, self.ax = plt.subplots(figsize=(5, 4))
-        self.canvas = FigureCanvasTkAgg(self.figure, right_frame)
-        self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+    def add(self, element: str|list[str]):
+        if isinstance(element, list):
+            for x in element:
+                self.add(x)
+            return # для добавления списка
         
-        # Меню
-        main_menu = tk.Menu()
-        main_menu.add_cascade(label="Сохранить график", command=self.save_plot)
-        main_menu.add_cascade(label="Справка", command=self.help)
-
-        self.config(menu=main_menu)
-
-    def help(self):
-        tk.messagebox.showinfo("Справка", 'Создатель этого "шедевра" Сакулин Иван Михайлович. Вводите в новой строке значения через пробел: X Y.')
-
-
-    def validate_input(self, event):
-        if not self.text.edit_modified():
-            return
+        frame = ttk.Frame(self)
+        ttk.Button(frame, text=element).pack(expand=True, fill="both")
+        self.frames.append(frame)
         
-        text = self.text.get("1.0", tk.END)
-        lines = text.splitlines()
-        valid_lines = []
+        self.listbox.insert(END, element)
+        self.notebook.add(frame)
         
-        for line in lines:
-            lsp = line.split()
-            if len(lsp) < 2:
-                valid_lines.append(line)
-                continue
-            if len(lsp) > 2:
-                lsp = lsp[0:2]
-            if lsp[1].strip() == "-":
-                valid_lines.append(f'{lsp[0]} {lsp[1]}')
-                continue
-            try:
-                float(lsp[0].strip())
-                float(lsp[1].strip())
-                valid_lines.append(line)
-            except ValueError:
-                continue
-        
-        self.text.delete("1.0", tk.END)
-        self.text.insert("1.0", "\n".join(valid_lines))
-        self.text.edit_modified(False)
-        
-        self.update_info()
-
-    def update_info(self):
-        text = self.text.get("1.0", tk.END)
-        values = [line.strip().split() for line in text.splitlines() if len(line.split()) == 2 and line.split()[1] != '-']
-        
-        try:
-            # Рассчёт
-            dmm = meas.DrawableMultipleMeasurement(
-                [float(v[0]) for v in values],
-                [float(v[1]) for v in values]
-            )
-            
-            # Обновление информации
-            self.count_label.config(text=f"Количество значений: {dmm._N}")
-            self.a_label.config(text=f"Угловой коэффициент: {dmm._b.rounded}")
-            self.b_label.config(text=f"Свободный член: {dmm._a.rounded}")
-            self.eq_label.config(text=f"Уравнение: y = {dmm._b.value}x + {dmm._a.value}")
-            
-            dmm.plot_MKN(fig=self.figure, ax=self.ax)
-            self.canvas.draw()
-            
-        except meas.MeasException as e:
-            self.count_label.config(text=e)
-            self.a_label.config(text=f"Угловой коэффициент K")
-            self.b_label.config(text=f"Свободный член A")
-            self.eq_label.config(text=f"Уравнение: y = Kx + A")
-            self.ax.clear()
-
-    def save_plot(self):
-        path = tk.filedialog.asksaveasfilename(
-            initialdir = "/",title = "Сохранение",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))
-            )
-        self.figure.savefig(path)
+    def delete(self, index: int):
+        self.listbox.delete(index)
+        self.notebook.forget(self.frames[index])
 
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+class MainWindow(Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("MainWindow")
+        self.minsize(600, 300)
+        self.option_add("*tearOff", FALSE)
+        
+        # MENU
+        file_menu = Menu()
+        file_menu.add_cascade(label="Новый", command=self.new_file)
+        file_menu.add_cascade(label="Открыть", command=self.open_file)
+        file_menu.add_cascade(label="Сохранить", command=self.save_file)
+        
+        edit_menu = Menu()
+        edit_menu.add_cascade(label="Добавить", command=self.add_meas)
+        edit_menu.add_cascade(label="DMM", command=self.add_DMM)
+        edit_menu.add_cascade(label="LMM", command=self.add_LMM)
+        edit_menu.add_cascade(label="Удалить", command=self.del_meas)
+        
+        menu = Menu()
+        menu.add_cascade(label="Файл", menu=file_menu)
+        menu.add_cascade(label="Правка", menu=edit_menu)
+        menu.add_cascade(label="Справка", command=self.reference)
+        self.config(menu=menu)
+        
+        # HOTKEYS
+        self.bind('<Control-n>', lambda x: self.new_file())
+        self.bind('<Control-o>', lambda x: self.open_file())
+        self.bind('<Control-s>', lambda x: self.save_file())
+        
+        # BOTTOM FRAME
+        self.bottom_frame = Frame(self, height=50)
+        self.bottom_frame.pack_propagate(False)
+        ttk.Button(self.bottom_frame, text="Добавить", command=self.add_meas).grid(row=1, column=1)
+        ttk.Button(self.bottom_frame, text="DMM", command=self.add_DMM).grid(row=1, column=2)
+        ttk.Button(self.bottom_frame, text="LMM", command=self.add_LMM).grid(row=1, column=3)
+        ttk.Button(self.bottom_frame, text="Удалить", command=self.del_meas).grid(row=1, column=4)
+        self.bottom_frame.pack(side="bottom", fill="x", expand=False)
+        
+        # TOP FRAME
+        self.top_frame = ListNotebook()
+        self.top_frame.add(list(map(str, range(10)))) 
+        
+    def new_file(self):
+        print('new_file')
+        
+    def open_file(self):
+        print('open_file')
+        
+    def save_file(self):
+        print('save_file')
     
+    def add_meas(self):
+        print('add_meas')
+        
+    def add_DMM(self):
+        print('add_DMM')
+        
+    def add_LMM(self):
+        print('add_LMM')
+        
+    def del_meas(self):
+        print('del_meas')
+        
+    def reference(self):
+        print('Справка')
+        
+        
+if __name__ == "__main__":
+    root = MainWindow()
+    root.mainloop()
     

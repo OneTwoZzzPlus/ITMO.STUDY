@@ -1,8 +1,7 @@
 from math import *
-from .tools import * 
+from .Tools import * 
 from .BaseMeasurement import *
-from .DataBase import *
-
+from copy import deepcopy
   
 class Measurement(BaseMeasurement, Tools):
     def __init__(self, value:float, delta:float|None=None, epsilon:float|None=None, 
@@ -10,20 +9,6 @@ class Measurement(BaseMeasurement, Tools):
                  dim:float|None=None, direct:bool=False):
         if isinstance(value, str):
             name = value
-            
-        if name is not None:
-            try:
-                res = MeasurmentDB.get(MeasurmentDB.name == name)
-            except (MeasurmentDB.DoesNotExist, OperationalError):
-                res = MeasurmentDB.create(
-                    name=name,
-                    value=value,
-                    delta=delta,
-                    epsilon=None
-                )
-            value = res.value
-            delta = res.delta
-            epsilon = res.epsilon
         
         self._name = name
         self._char = char
@@ -171,6 +156,18 @@ class Measurement(BaseMeasurement, Tools):
     def __ge__(self, other): return not (self < other)
     
     
+    def __neg__(self):
+        new_self = deepcopy(self)
+        new_self._value_ = -self.value_
+        new_self._value = -self.value
+        return new_self
+    
+    def __abs__(self):
+        new_self = deepcopy(self)
+        new_self._value_ = abs(self.value_)
+        new_self._value = abs(self.value)
+        return new_self
+    
     def __add__(self, other):
         if isinstance(other, Measurement):
             return Measurement(
@@ -187,6 +184,14 @@ class Measurement(BaseMeasurement, Tools):
                 sqrt((self._idm * self._delta_)**2 + (self._idm * other._delta_)**2)
                 )
         raise ValueError("Можно вычитать только измерения")
+    
+    def __mul__(self, other):
+        if isinstance(other, (int, float)):
+            return Measurement(
+                self.value_ * other, 
+                self.delta_ * other, 
+                direct=self._is_direct
+            )
     
     def __truediv__(self, other):
         if isinstance(other, (int, float)):

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<dt>
+\begin{table}[ht]
+\centering
+\caption{Протокол измерений времени падения груза при разной массе груза и разном положении утяжелителей на крестовине}
+\label{tab:direct104}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Масса}} &amp; 
+\multirow{2}{*}{\textbf{Время}} &amp; 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{3-8}
+&amp; &amp; 1 риска &amp; 2 риска &amp; 3 риска &amp; 4 риска &amp; 5 риска &amp; 6 риска \\ \hline
+\multirow{4}{*}{\( m_1 \)} 
+&amp; \( t_1 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_2 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_3 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_{\text{ср}} \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \hline
+\multirow{4}{*}{\( m_2 \)} 
+&amp; \( t_1 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_2 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_3 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_{\text{ср}} \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \hline
+\multirow{4}{*}{\( m_3 \)} 
+&amp; \( t_1 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_2 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_3 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_{\text{ср}} \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \hline
+\multirow{4}{*}{\( m_4 \)} 
+&amp; \( t_1 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_2 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_3 \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \cline{2-8}
+&amp; \( t_{\text{ср}} \) &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> &amp; </dt><dt> \\ \hline
+\end{tabular}
+\end{table}
+</dt>
+
+<dtx>
+\begin{table}[h]
+\centering
+\caption{Ускорение, угловое ускорение и момент силы.}
+\label{tab:direct104}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} &amp; 
+\multirow{3}{*}{$m$, кг} &amp; 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{3-8}
+&amp; &amp; 1 риска &amp; 2 риска &amp; 3 риска &amp; 4 риска &amp; 5 риска &amp; 6 риска \\ \hline
+$a, \text{м}/\text{с}^2$ &amp; \multirow{3}{*}{</dtx><dtx>} &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$\varepsilon, \text{рад}/\text{с}^2$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$M, \text{Н}\cdot\text{м}$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \hline
+$a, \text{м}/\text{с}^2$ &amp; \multirow{3}{*}{</dtx><dtx>} &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$\varepsilon, \text{рад}/\text{с}^2$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$M, \text{Н}\cdot\text{м}$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \hline
+$a, \text{м}/\text{с}^2$ &amp; \multirow{3}{*}{</dtx><dtx>} &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$\varepsilon, \text{рад}/\text{с}^2$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$M, \text{Н}\cdot\text{м}$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \hline
+$a, \text{м}/\text{с}^2$ &amp; \multirow{3}{*}{</dtx><dtx>} &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$\varepsilon, \text{рад}/\text{с}^2$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \cline{1-1} \cline{3-8}
+$M, \text{Н}\cdot\text{м}$ &amp; &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> &amp; </dtx><dtx> \\ \hline
+\end{tabular}
+\end{table}
+</dtx>
+
+<err1>
+Для массы спускающегося груза: $m = m_\text{каретки} + n \cdot m_\text{шайбы} = </err1>267.0<err1> \text{кг}$
+
+\centerline{$\Delta_m = \sqrt{(\Delta_{m_\text{каретки}})^2 + (n \cdot \Delta_{m_\text{шайбы}})^2} = </err1>2.1<err1> \text{кг}, \quad \varepsilon_{m} = \frac{\Delta_m}{m} \cdot 100\% = </err1>0.22<err1>\%$.}
+
+Для ускорения: $a=\frac{2h}{t^2} = </err1>0.28552<err1> \text{м}/\text{с}^2$, 
+
+\centerline{$\varepsilon_{a} = \sqrt{(\frac{2}{3} \cdot \frac{\Delta h}{h})^2 + (\frac{\Delta t}{t})^2} \cdot 100\% = </err1>0.08<err1>\%, \quad \Delta_a=\frac{a \cdot \varepsilon_a}{100\%} = </err1>2.3 \cdot 10^{-4}<err1> \text{м}/\text{с}^2$.}
+
+Для углового ускорения: $\varepsilon=\frac{2a}{d_\text{ступ}} = </err1>12.414<err1> \text{рад}/\text{с}^2$, 
+
+\centerline{$\varepsilon_{\varepsilon} = \sqrt{(\frac{\Delta a}{a})^2 + (\frac{2}{3} \cdot \frac{\Delta d_\text{ступ}}{d_\text{ступ}})^2} \cdot 100\% = </err1>0.08<err1>\%, \quad \Delta_\varepsilon=\frac{\varepsilon \cdot \varepsilon_\varepsilon}{100\%} = </err1>0.01<err1> \text{рад}/\text{с}^2$.}
+
+Для момента силы натяжения нити: $M=\frac{md_\text{ступ}}{2}(g-a) = </err1>0.058548<err1> \text{Н}\cdot\text{м}$, 
+
+\centerline{$\varepsilon_M = \sqrt{(\frac{\Delta m}{m})^2 + (\frac{2}{3} \cdot \frac{\Delta d_\text{ступ}}{d_\text{ступ}})^2 + (\frac{\Delta a}{g-a})^2} \cdot 100\% = </err1>0.011<err1>\%$,}
+
+\centerline{$\Delta_M=\frac{\varepsilon \cdot \varepsilon_\varepsilon}{100\%} = </err1>7 \cdot 10^{-6}<err1> \text{м}/\text{с}^2$.}
+</err1>
+
+<me>
+\begin{itemize}
+    \item Для 1 риски: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+    \item Для 2 рисок: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+    \item Для 3 рисок: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+    \item Для 4 рисок: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+    \item Для 5 рисок: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+    \item Для 6 рисок: $M = </me>0.017<me>+</me>0.0182<me> \cdot I$.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Момент силы и момент инерции.}
+\label{tab:indirect2104}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} &amp; 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{2-7}
+&amp; 1 риска &amp; 2 риска &amp; 3 риска &amp; 4 риска &amp; 5 риска &amp; 6 риска \\ \hline
+$I, \text{кг}\cdot\text{м}^2$ &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> \\ \hline
+$M_\text{тр}, \text{Н}\cdot\text{м}$ &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> &amp; </me><me> \\ \hline
+\end{tabular}
+\end{table}
+</me>
+
+<mx>
+\begin{table}[H]
+\centering
+\caption{Момент инерции и квадрат расстояния до грузов.}
+\label{tab:indirect2104}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} &amp; 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{2-7}
+&amp; 1 риска &amp; 2 риска &amp; 3 риска &amp; 4 риска &amp; 5 риска &amp; 6 риска \\ \hline
+$R, \text{м}$ &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> \\ \hline
+$R^2, \text{м}^2$ &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> \\ \hline
+$I, \text{кг}\cdot\text{м}^2$ &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> &amp; </mx><mx> \\ \hline
+\end{tabular}
+\end{table}
+</mx>
+
+</root>

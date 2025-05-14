@@ -8,7 +8,8 @@ class BaseMeasurement(ABC):
     _epsilon: float    # окр. относительная
     _epsilon_: float   # относительная
     
-    _is_direct: bool   # измерение прямое
+    # Флаг прямого измерения, True - 1.00, False - 0.95
+    _is_direct: bool   
     
     def _idm(self):
         return 2/3 if self._is_direct else 1
@@ -47,9 +48,9 @@ class BaseMeasurement(ABC):
     
     @abstractmethod
     def _calc(self):
-        raise NotImplementedError('Реализуйте пересчёт значений!')
+        raise NotImplementedError('This method is not implemented!')
     
     @abstractmethod
     def info(self):
-        raise NotImplementedError('Реализуйте вывод информации!')
+        raise NotImplementedError('This method is not implemented!')
     

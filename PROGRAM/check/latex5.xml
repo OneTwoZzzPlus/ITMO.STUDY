@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<!-- 8. Результаты прямых измерений и их обработки -->
+<c8>
+Результаты измерения $N=10$ колебаний маятника из положения $\varphi_\text{шк}=0$:
+\begin{equation*}
+    t_1=</c8><c8>c, t_2=</c8><c8>c, t_3=</c8><c8>c
+\end{equation*}
+
+В таблице \ref{tab:meas2} представлены результаты 3х измерений времени затухания, количество колебаний до полной остановки маятника $Z_\text{эксп}=...$.
+
+\begin{table}[H]
+\centering
+\caption{Время затухания до определённой амплитуды отклонения $\varphi_\text{шк}$}
+\label{tab:meas2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\begin{tabular}[x]{@{}c@{}}Амплитуда\\отклонения\\Время\end{tabular} &amp; $25^{\circ}$ &amp; $20^{\circ}$ &amp; $15^{\circ}$ &amp; $10^{\circ}$ &amp; $5^{\circ}$ &amp; $0^{\circ}$ \\ \hline
+$t_1, c$ &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> \\ \hline
+$t_2, c$ &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> \\ \hline
+$t_3, c$ &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> \\ \hline
+$\bar{t}, c$ &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> &amp; </c8> <c8> \\ \hline
+\end{tabular}
+\end{table}
+
+В таблице \ref{tab:meas3} представлены результаты измерения времени $N=5$ колебаний маятника из положения $\varphi_\text{шк}=15^\circ$ при разных положениях боковых грузов.
+
+\begin{table}[H]
+\centering
+\caption{Время колебаний маятника при разных положениях грузов}
+\label{tab:meas3}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\begin{tabular}[x]{@{}c@{}}Положение\\боковых\\грузов\end{tabular} &amp; $t_1$, c &amp; $t_2$, c &amp; $t_3$, c &amp; $\bar{t}$, c &amp; $T$, c \\ \hline
+0.5 рисок  &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+1 риска    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+2 риски    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+3 риски    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+4 риски    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+5 рисок    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+5.5 рисок  &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+6 рисок    &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+6.5 рисок  &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8><c8> &amp; </c8> <c8> \\ \hline
+\end{tabular}
+\end{table}
+</c8>
+
+<t4>
+\begin{table}[ht]
+\centering
+\caption{Определение характеристик маятника}\label{tab:cosmeas}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Риски} &amp; $R_{\text{бок}}, \text{м}$ &amp; $I_{\text{гр}}, \text{кг}\cdot\text{м}^2$ &amp; $T^2, \text{c}^2$ \\ 
+\hline
+0.5 &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+1   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+2   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+3   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+4   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+5   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+5.5 &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+6   &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+6.5 &amp; </t4><t4> &amp; </t4><t4> &amp; </t4><t4> \\ \hline
+\end{tabular}
+\end{table}
+</t4>
+
+</root>

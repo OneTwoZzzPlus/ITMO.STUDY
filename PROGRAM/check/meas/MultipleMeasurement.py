@@ -1,6 +1,6 @@
 from .Measurement import Measurement
 from .MeasException import *
-from abc import ABC, abstractmethod
+from abc import ABC
  
 student_koef = {2:12.7, 3:4.30, 4:3.18, 5:2.78, 6:2.57, 7:2.45, 8:2.36, 9:2.31, 10:2.26, 20:2.09, 30:2.04}
  

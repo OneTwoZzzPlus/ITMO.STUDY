@@ -1,5 +1,4 @@
 from math import *
-from .tools import *
 from .LinearMultipleMeasurement import *
 
 import matplotlib.pyplot as plt
@@ -9,24 +8,25 @@ import numpy as np
 
 def plot_controller(method_to_decorate):
     
-    def wrapper(self, fig=None, ax=None, *args, **kwargs):
+    def wrapper(self, data, fig=None, ax=None, *args, **kwargs):
         if fig is None or ax is None:
             (fig, ax) = plt.subplots(figsize=(8, 8))
         ax.clear()
-        method_to_decorate(self, fig, ax, *args, **kwargs)
+        method_to_decorate(self, fig, ax, data, *args, **kwargs)
     
     return wrapper
 
 
 class Drawer():
-    
     @plot_controller
-    def plot_dependency(self, fig, ax,
-            nA:Measurement, nB:Measurement, X:list[Measurement], Y:list[Measurement],
+    def plot_MKN(self, fig, ax, 
+            data: LinearMultipleMeasurement,
             x_name='X', x_unit='', y_name='Y', y_unit='',
             label: str=None, pad_x=1.35, pad_y=1.65,
             error_X=False, error_Y=False, 
         ):
+        nA, nB, X, Y = data.a, data.b, data.measurments_X, data.measurments_Y
+        
         if label is None:
             label = f'График зависимости: {y_name}({x_name})'
             
@@ -85,4 +85,82 @@ class Drawer():
         plt.grid(True, which='both', linestyle='--', alpha=0.7)
         # Добавляем заголовок
         plt.title(label)
+        plt.tight_layout()
+        
+    """ ДЛЯ КУЧИ ГРАФИКОВ """
+        
+    @plot_controller
+    async def plot_multiple_dependency(self, fig, ax,
+            data: list[LinearMultipleMeasurement],
+            x_name='X', x_unit='', y_name='Y', y_unit='',
+            label: str=None, labels: list[str]=None, pad_x=1.35, pad_y=1.65,
+            error_X=False, error_Y=False, 
+        ):
+        if label is None:
+            label = f'График зависимости: {y_name}({x_name})'
+        if labels is None:
+            labels = list(range(len(data)))
+        if len(labels) != len(data):
+            labels = ["Кол-во подписей!" for _ in range(len(data))]
+        
+        # Считаем границы
+        X_min, X_max = min(lmm.min_X for lmm in data), max(lmm.max_X for lmm in data)
+        Y_min, Y_max = min(lmm.min_Y for lmm in data), max(lmm.max_Y for lmm in data)
+        
+        for i in range(len(data)):
+            X = data[i].measurments_X
+            Y = data[i].measurments_Y
+            nA = data[i].a
+            nB = data[i].b
+            
+            # Экспериментальные точки
+            xerr = [point.delta for point in X] if error_X else None
+            yerr = [point.delta for point in Y] if error_Y else None
+            # print(xerr, yerr)
+            ax.errorbar(x=[point.value for point in X], 
+                        y=[point.value for point in Y], 
+                        xerr=xerr, 
+                        yerr=yerr,
+                        fmt='o', color=f'C{i}', markersize=4, capsize=1)
+            
+            # Теоретическая зависимость
+            X_range = np.linspace(data[i].min_X.value - data[i].min_X.delta, data[i].max_X.value + data[i].max_X.delta)
+            Y_theor = nA.value_ + X_range * nB.value_
+            ax.plot(X_range, Y_theor, '-', label=labels[i], color=f'C{i}')
+        
+        # Устанавливаем пределы осей
+        w_x, w_y = 0, 0
+        m_x, m_y = 0.05*(X_max.value - X_min.value), 0.05*(Y_max.value - Y_min.value)
+        ax.set_xlim(
+            float(min(X_min.value - X_min.delta - m_x - w_x, min(X_range)-m_x)), 
+            float(max(X_max.value + X_max.delta + m_x + w_x, max(X_range)+m_x))
+            )
+        # print(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y, Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y)
+        ax.set_ylim(
+            float(min(Y_min.value - Y_min.delta - m_y - w_y, min(Y_theor)-m_y)), 
+            float(max(Y_max.value + Y_max.delta + m_y + w_y, max(Y_theor)+m_y))
+            )
+        # Подписи осей
+        plt.xlabel(f'{x_name}{'' if x_unit == '' else f', {x_unit}'}', x=1.01, ha='right', va='bottom', 
+                bbox={
+                    'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
+                    'facecolor': 'white', # цвет фона
+                    'edgecolor': 'white', # цвет рамки
+                    'pad': pad_x           # отступ текста от рамки
+                })
+        plt.ylabel(f'{y_name}{'' if y_unit == '' else f', {y_unit}'}', y=1.01, ha='left', va='top', rotation=0, 
+                bbox={
+                    'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
+                    'facecolor': 'white', # цвет фона
+                    'edgecolor': 'white', # цвет рамки
+                    'pad': pad_y            # отступ текста от рамки
+                })
+        # Настройка делений сетки
+        ax.xaxis.set_major_locator(AutoLocator())
+        ax.yaxis.set_major_locator(AutoLocator())
+        # Включаем сетку
+        plt.grid(True, which='both', linestyle='--', alpha=0.7)
+        # Добавляем заголовок
+        plt.title(label)
+        plt.legend(loc='best')
         plt.tight_layout()
