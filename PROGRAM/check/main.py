@@ -1,126 +1,161 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
+from copypaste import *
+from ListNotebook import *
+from MeasForm import *
+from ExpressionForm import *
 
-class ListNotebook(Frame): 
-    def __init__(self):
-        super().__init__()
-        self.frames = []
-        
-        # NOTEBOOK
-        self.notebook = ttk.Notebook(self)
-        ttk.Style(self).layout("TNotebook.Tab", [])            
-        self.notebook.pack(expand=True, side="right", fill="both")
-        
-        # LISTBOX
-        self.left_frame = Frame(self, width=180)
-        self.left_frame.pack_propagate(False)
-        self.left_frame.pack(side="left", fill="y", expand=False)
-
-        self.listbox = Listbox(self.left_frame)
-        
-        # прокрутка
-        scrollbar = ttk.Scrollbar(self.listbox, orient="vertical", command=self.listbox.yview)
-        scrollbar.pack(side=RIGHT, fill=Y)
-        self.listbox["yscrollcommand"]=scrollbar.set
-        
-        def selected(event):
-            if self.listbox.size() != 0:
-                tab = self.listbox.curselection()[0]
-                self.notebook.select(tab)
-        
-        self.listbox.bind("<<ListboxSelect>>", selected)    
-        self.listbox.pack(expand=True, fill="both")
-        
-        self.pack(expand=True, side="top", fill="both")
-
-    def add(self, element: str|list[str]):
-        if isinstance(element, list):
-            for x in element:
-                self.add(x)
-            return # для добавления списка
-        
-        frame = ttk.Frame(self)
-        ttk.Button(frame, text=element).pack(expand=True, fill="both")
-        self.frames.append(frame)
-        
-        self.listbox.insert(END, element)
-        self.notebook.add(frame)
-        
-    def delete(self, index: int):
-        self.listbox.delete(index)
-        self.notebook.forget(self.frames[index])
+from Models import *
+from meas import *
 
 
 class MainWindow(Tk):
     def __init__(self):
         super().__init__()
-        self.title("MainWindow")
+        self.current_exp = None
+        self.title("Выберите эксперимент...")
         self.minsize(600, 300)
-        self.option_add("*tearOff", FALSE)
+        self.create_menu()
+        self.create_widgets()
         
-        # MENU
-        file_menu = Menu()
-        file_menu.add_cascade(label="Новый", command=self.new_file)
-        file_menu.add_cascade(label="Открыть", command=self.open_file)
-        file_menu.add_cascade(label="Сохранить", command=self.save_file)
-        
-        edit_menu = Menu()
-        edit_menu.add_cascade(label="Добавить", command=self.add_meas)
-        edit_menu.add_cascade(label="DMM", command=self.add_DMM)
-        edit_menu.add_cascade(label="LMM", command=self.add_LMM)
-        edit_menu.add_cascade(label="Удалить", command=self.del_meas)
-        
-        menu = Menu()
-        menu.add_cascade(label="Файл", menu=file_menu)
-        menu.add_cascade(label="Правка", menu=edit_menu)
-        menu.add_cascade(label="Справка", command=self.reference)
-        self.config(menu=menu)
-        
-        # HOTKEYS
-        self.bind('<Control-n>', lambda x: self.new_file())
-        self.bind('<Control-o>', lambda x: self.open_file())
-        self.bind('<Control-s>', lambda x: self.save_file())
-        
-        # BOTTOM FRAME
+        self.load_experiments()
+    
+    def create_widgets(self):
+        # Панель действий
         self.bottom_frame = Frame(self, height=50)
         self.bottom_frame.pack_propagate(False)
-        ttk.Button(self.bottom_frame, text="Добавить", command=self.add_meas).grid(row=1, column=1)
-        ttk.Button(self.bottom_frame, text="DMM", command=self.add_DMM).grid(row=1, column=2)
-        ttk.Button(self.bottom_frame, text="LMM", command=self.add_LMM).grid(row=1, column=3)
-        ttk.Button(self.bottom_frame, text="Удалить", command=self.del_meas).grid(row=1, column=4)
         self.bottom_frame.pack(side="bottom", fill="x", expand=False)
         
-        # TOP FRAME
-        self.top_frame = ListNotebook()
-        self.top_frame.add(list(map(str, range(10)))) 
+        # ListNotebook
+        self.note = ListNotebook()
         
-    def new_file(self):
-        print('new_file')
+        # Пустая форма
+        self.empty_frame = ttk.Frame(self)
+        ttk.Button(self.empty_frame, text="Новый эксперимент", command=self.new_experiment).pack(expand=True)
+        self.note.basic_frame(self.empty_frame)
         
-    def open_file(self):
-        print('open_file')
+        # Форма добавления Measurement
+        self.add_frame = MeasForm(self, self.create_measurement)
+        c = lambda frame=self.add_frame: self.note.open_frame(frame)
+        ttk.Button(self.bottom_frame, text="Добавить", command=c).grid(row=0, column=0)
+        self.edit_menu.add_cascade(label="Добавить", command=c)
+        self.note.basic_frame(self.add_frame)
         
-    def save_file(self):
-        print('save_file')
+        # Форма вычисления выражения
+        self.expr_form = ExpressionForm(self, self.create_measurement, self.note.items)
+        c = lambda frame=self.expr_form: self.note.open_frame(frame)
+        ttk.Button(self.bottom_frame, text="Выражение", command=c).grid(row=0, column=1)
+        self.edit_menu.add_cascade(label="Выражение", command=c)
+        self.note.basic_frame(self.expr_form)
+        
+        # Кнопка удаления
+        ttk.Button(self.bottom_frame, text="Удалить", command=self.delete_measurement).grid(row=0, column=2)
+        self.edit_menu.add_cascade(label="Удалить", command=self.delete_measurement)
+
+    def create_menu(self):
+        self.option_add("*tearOff", FALSE)
+        
+        self.exp_menu = Menu()
+        self.edit_menu = Menu()
+        
+        self.file_menu = Menu()
+        self.file_menu.add_cascade(label="База данных...", command=self.choose_bd)
+        self.file_menu.add_separator()
+        self.file_menu.add_cascade(label="Новый эксперимент", command=self.new_experiment)
+        self.file_menu.add_cascade(label="Удалить эксперимент", command=self.delete_experiment)      
+        self.file_menu.add_cascade(label="Эксперимент", menu=self.exp_menu)
+
+        menu = Menu()
+        menu.add_cascade(label="Файл", menu=self.file_menu)
+        menu.add_cascade(label="Правка", menu=self.edit_menu)
+        menu.add_cascade(label="Справка", command=self.reference)
+        self.config(menu=menu)
     
-    def add_meas(self):
-        print('add_meas')
-        
-    def add_DMM(self):
-        print('add_DMM')
-        
-    def add_LMM(self):
-        print('add_LMM')
-        
-    def del_meas(self):
-        print('del_meas')
+    """ Информационные сообщения """
+    
+    def choose_bd(self):
+        messagebox.showinfo(title="База данных", message=f"Используемая база данных: {PATH}")
         
     def reference(self):
-        print('Справка')
+        messagebox.showinfo("Справка", "Разработчик: Сакулин Иван Михайлович (467335)")
+    
+    """ Управление экспериментами """
+    
+    def new_experiment(self):
+        result = AskNameDialog(self, "Новый эксперимент").result
+        if result is not None:
+            exp = Experiment.create(name=result)
+            self.load_experiments()
+            self.open_experiment(exp)
+            
+    def delete_experiment(self):
+        if self.current_exp is not None:
+            result = messagebox.askokcancel("Удаление", "Удалить эксперимент?")
+            if result:
+                Experiment.delete_by_id(self.current_exp.exp_id)
+                self.note.clear()
+                self.title("Выберите эксперимент...")
+                self.note.notebook.select(self.empty_frame)
+                self.load_experiments()     
+    
+    def load_experiments(self):
+        self.exp_menu.delete(0, END)
+        for exp in Experiment.select():
+            self.exp_menu.add_radiobutton(label=exp.name, command=lambda exp=exp: self.open_experiment(exp))
+        if Experiment.select():
+            self.file_menu.entryconfigure(3, state=NORMAL)
+            self.file_menu.entryconfigure(4, state=NORMAL)
+            self.open_experiment(exp)
+        else:
+            self.file_menu.entryconfigure(3, state=DISABLED)
+            self.file_menu.entryconfigure(4, state=DISABLED)
+        
+    def open_experiment(self, exp):
+        self.note.clear()
+        self.current_exp = exp
+        self.title(exp.name)
+        for m in Meas.select().where((Meas.exp_id == exp.exp_id) & (Meas.name.is_null(False))):
+            ms = Measurement(m.value, m.delta, m.epsilon, m.name, m.char, m.unit, direct=m.direct)
+            ms.mid = m.meas_id
+            self.load_measurement(ms)
+        self.note.notebook.select(self.add_frame)
+    
+    """ Управление списком измерений """
+    
+    def create_measurement(self, _, m: Measurement):
+        m.mid = Meas.create(exp_id=self.current_exp, name=m.name, char=m.char, unit=m.unit,
+                    value=m.value_, delta=m.delta_, epsilon=m.epsilon_, direct=m.is_direct).meas_id
+        self.load_measurement(m)
+    
+    def edit_measurement(self, old: Measurement, m: Measurement):
+        meas = Meas.get(Meas.meas_id == old.mid)
+        meas.name=m.name
+        meas.char=m.char
+        meas.unit=m.unit
+        meas.value=m.value_
+        meas.delta=m.delta_
+        meas.epsilon=m.epsilon_
+        meas.direct=m.is_direct
+        meas.save()
+        self.note.update_listbox(m)
+    
+    def delete_measurement(self):
+        ret = self.note.pop()
+        if ret is None:
+            return
+        if isinstance(ret, Measurement):
+            Meas.delete_by_id(ret.mid)
+    
+    def load_measurement(self, m: Measurement):
+        frame = MeasForm(self, self.edit_measurement, m)
+        self.note.add(frame)
         
         
 if __name__ == "__main__":
+    PATH = "test.db"
+    db.init(PATH)
+    db.create_tables(tables)
     root = MainWindow()
     root.mainloop()
     

@@ -25,7 +25,8 @@ class LinearMultipleMeasurement():
         return self._measurments_Y
     
     @check_len
-    def __init__(self, measurments_X, measurments_Y):
+    def __init__(self, measurments_X, measurments_Y, name=None):
+        self.name = name
         self._N = len(measurments_X)
         if isinstance(measurments_X[0], Measurement):
             self._measurments_X = measurments_X

@@ -49,5 +49,5 @@ class MultipleMeasurement(Measurement, ABC):
         return self._measurments[index]
     
     @property
-    def asMeasurment(self):
+    def asMeasurment(self) -> Measurement:
         return Measurement(self._value, self._delta, self._epsilon)

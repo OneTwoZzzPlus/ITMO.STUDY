@@ -10,9 +10,9 @@ class Measurement(BaseMeasurement, Tools):
         if isinstance(value, str):
             name = value
         
-        self._name = name
-        self._char = char
-        self._unit = unit
+        self.name = name
+        self.char = char
+        self.unit = unit
         self._value_ = value
         self._delta_ = delta
         self._epsilon_ = epsilon
@@ -22,8 +22,8 @@ class Measurement(BaseMeasurement, Tools):
         self._round()
     
     def naming(self, char:str, unit:str=''):
-        self._char = char
-        self._unit = unit
+        self.char = char
+        self.unit = unit
     
     def _soft(self, x):
         # Округлить компьютерную погрешность
@@ -33,7 +33,7 @@ class Measurement(BaseMeasurement, Tools):
     
     def _calc(self):
         if self._epsilon_ is None and self._delta_ is None:
-            self._epsilon_, self.delta = 0, 10^(-13)
+            self._epsilon_, self._delta_ = 0, 10^(-13)
         if self._epsilon_ is None:
             if isclose(self.value_, 0):
                 self._epsilon_ = 0
