@@ -4,12 +4,10 @@ from .BaseMeasurement import *
 from copy import deepcopy
   
 class Measurement(BaseMeasurement, Tools):
-    def __init__(self, value:float, delta:float|None=None, epsilon:float|None=None, 
+    def __init__(self, value:float, 
+                 delta:float|None=None, epsilon:float|None=None, 
                  name:str|None=None, char:str='', unit:str='',
                  dim:float|None=None, direct:bool=False):
-        if isinstance(value, str):
-            name = value
-        
         self.name = name
         self.char = char
         self.unit = unit
@@ -65,7 +63,7 @@ class Measurement(BaseMeasurement, Tools):
         return float(("{:." + str(significant-1) + "e}").format(value))
 
     def _format_with_decimals(self, number, decimals):
-        # Форматируем число с фиксированным количеством знаков после запятой
+        # Форматируем число с фиксированным количеством знаков
         return ("{0:." + str(decimals) + "f}").format(number)
     
     def _round(self):
@@ -80,7 +78,10 @@ class Measurement(BaseMeasurement, Tools):
         exp = int(exp_part)
         order = 10 ** (exp - (k_delta_x - 1))
         
-        rounded_x = round(self._value_ / order) * order if order != 0 else self._value_
+        if order != 0:
+            rounded_x = round(self._value_ / order) * order
+        else:
+            rounded_x = self._value_
         
         # Обработка относительной погрешности
         rounded_delta_rel = None
@@ -135,7 +136,9 @@ class Measurement(BaseMeasurement, Tools):
     @property
     def raw(self):
         # Для дебага сырых значений
-        return f"{self._soft(self._value_)}, Δ = {self._soft(self._delta_):.9f}, ε = {self._soft(self._epsilon_):.9f}"
+        return (f"{self._soft(self._value_)}, " +
+               f"Δ = {self._soft(self._delta_):.9f}," + 
+               f"ε = {self._soft(self._epsilon_):.9f}")
     
     def __str__(self):
         return f'{self.rounded} ({self.raw})'
@@ -172,7 +175,8 @@ class Measurement(BaseMeasurement, Tools):
         if isinstance(other, Measurement):
             return Measurement(
                 self._value_ + other._value_, 
-                sqrt((self._idm() * self._delta_)**2 + (self._idm() * other._delta_)**2)
+                sqrt((self._idm() * self._delta_)**2 
+                     + (self._idm() * other._delta_)**2)
                 )
         raise ValueError("Можно складывать только измерения")
         
@@ -181,7 +185,8 @@ class Measurement(BaseMeasurement, Tools):
         if isinstance(other, Measurement):
             return Measurement(
                 self._value_ - other._value_, 
-                sqrt((self._idm * self._delta_)**2 + (self._idm * other._delta_)**2)
+                sqrt((self._idm * self._delta_)**2 
+                     + (self._idm * other._delta_)**2)
                 )
         raise ValueError("Можно вычитать только измерения")
     

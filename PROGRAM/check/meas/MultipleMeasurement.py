@@ -2,7 +2,8 @@ from .Measurement import Measurement
 from .MeasException import *
 from abc import ABC
  
-student_koef = {2:12.7, 3:4.30, 4:3.18, 5:2.78, 6:2.57, 7:2.45, 8:2.36, 9:2.31, 10:2.26, 20:2.09, 30:2.04}
+student_koef = {2:12.7, 3:4.30, 4:3.18, 5:2.78, 6:2.57, 7:2.45, 
+                8:2.36, 9:2.31, 10:2.26, 20:2.09, 30:2.04}
  
 class MultipleMeasurement(Measurement, ABC):
     _N: int
@@ -22,7 +23,8 @@ class MultipleMeasurement(Measurement, ABC):
     def N(self):
         return self._N
     
-    def __init__(self, measured_values:list[int|float|Measurement], dim:int|None=None,
+    def __init__(self, measured_values:list[int|float|Measurement], 
+                 dim:int|None=None,
                  name:str|None=None, char:str='', unit:str='',):
         self._N = len(measured_values)
         if self._N not in student_koef:
@@ -34,14 +36,18 @@ class MultipleMeasurement(Measurement, ABC):
         self._dimer(dim)
         self._calc()
         self._round()
-        
+    
     def _dimer(self, dim):
         if dim is not None:
             self._values = [x * dim for x in self._values]
-            self._measurments = [Measurement(x._value_, x._delta_, dim=dim) for x in self._measurments]
+            self._measurments = [
+                Measurement(x._value_, x._delta_, dim=dim) 
+                for x in self._measurments
+            ]
         
     def info(self):
-        return f"\nN = {self._N}\nvalues = {self._values}\naverage = {self._value} ({self._value_})" \
+        return f"\nN = {self._N}\nvalues = {self._values}" \
+               f"\naverage = {self._value} ({self._value_})" \
                f"\ndelta = {self._delta} ({self._delta_})" \
                f"\nepsilon = {self._epsilon} ({self._epsilon_})"
                
@@ -50,4 +56,5 @@ class MultipleMeasurement(Measurement, ABC):
     
     @property
     def asMeasurment(self) -> Measurement:
-        return Measurement(self._value, self._delta, self._epsilon)
+        return Measurement(self._value, self._delta, self._epsilon, 
+                           self.name, self.char, self.unit)

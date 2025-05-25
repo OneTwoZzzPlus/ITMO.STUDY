@@ -1,0 +1,350 @@
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_AskNameDialog_part_1.png}
+    \caption{Код в файле <<AskNameDialog.py>> часть 1}
+    \label{code_AskNameDialog_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_DMMForm_part_1.png}
+    \caption{Код в файле <<DMMForm.py>> часть 1}
+    \label{code_DMMForm_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_DMMForm_part_2.png}
+    \caption{Код в файле <<DMMForm.py>> часть 2}
+    \label{code_DMMForm_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_DMMForm_part_3.png}
+    \caption{Код в файле <<DMMForm.py>> часть 3}
+    \label{code_DMMForm_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_EntryEx_part_1.png}
+    \caption{Код в файле <<EntryEx.py>> часть 1}
+    \label{code_EntryEx_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_ExpressionForm_part_1.png}
+    \caption{Код в файле <<ExpressionForm.py>> часть 1}
+    \label{code_ExpressionForm_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_ExpressionForm_part_2.png}
+    \caption{Код в файле <<ExpressionForm.py>> часть 2}
+    \label{code_ExpressionForm_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_ExpressionForm_part_3.png}
+    \caption{Код в файле <<ExpressionForm.py>> часть 3}
+    \label{code_ExpressionForm_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_GraphicSettingsFrame_part_1.png}
+    \caption{Код в файле <<GraphicSettingsFrame.py>> часть 1}
+    \label{code_GraphicSettingsFrame_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_GraphicSettingsFrame_part_2.png}
+    \caption{Код в файле <<GraphicSettingsFrame.py>> часть 2}
+    \label{code_GraphicSettingsFrame_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_GraphicSettingsFrame_part_3.png}
+    \caption{Код в файле <<GraphicSettingsFrame.py>> часть 3}
+    \label{code_GraphicSettingsFrame_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_ListNotebook_part_1.png}
+    \caption{Код в файле <<ListNotebook.py>> часть 1}
+    \label{code_ListNotebook_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_ListNotebook_part_2.png}
+    \caption{Код в файле <<ListNotebook.py>> часть 2}
+    \label{code_ListNotebook_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LMMForm_part_1.png}
+    \caption{Код в файле <<LMMForm.py>> часть 1}
+    \label{code_LMMForm_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LMMForm_part_2.png}
+    \caption{Код в файле <<LMMForm.py>> часть 2}
+    \label{code_LMMForm_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LMMForm_part_3.png}
+    \caption{Код в файле <<LMMForm.py>> часть 3}
+    \label{code_LMMForm_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LMMForm_part_4.png}
+    \caption{Код в файле <<LMMForm.py>> часть 4}
+    \label{code_LMMForm_part_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LMMForm_part_5.png}
+    \caption{Код в файле <<LMMForm.py>> часть 5}
+    \label{code_LMMForm_part_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_main_part_1.png}
+    \caption{Код в файле <<main.py>> часть 1}
+    \label{code_main_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_main_part_2.png}
+    \caption{Код в файле <<main.py>> часть 2}
+    \label{code_main_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_main_part_3.png}
+    \caption{Код в файле <<main.py>> часть 3}
+    \label{code_main_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_main_part_4.png}
+    \caption{Код в файле <<main.py>> часть 4}
+    \label{code_main_part_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_main_part_5.png}
+    \caption{Код в файле <<main.py>> часть 5}
+    \label{code_main_part_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MeasForm_part_1.png}
+    \caption{Код в файле <<MeasForm.py>> часть 1}
+    \label{code_MeasForm_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MeasForm_part_2.png}
+    \caption{Код в файле <<MeasForm.py>> часть 2}
+    \label{code_MeasForm_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MeasForm_part_3.png}
+    \caption{Код в файле <<MeasForm.py>> часть 3}
+    \label{code_MeasForm_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MeasForm_part_4.png}
+    \caption{Код в файле <<MeasForm.py>> часть 4}
+    \label{code_MeasForm_part_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Models_part_1.png}
+    \caption{Код в файле <<Models.py>> часть 1}
+    \label{code_Models_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_SaveMeasFrame_part_1.png}
+    \caption{Код в файле <<SaveMeasFrame.py>> часть 1}
+    \label{code_SaveMeasFrame_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_SaveMeasFrame_part_2.png}
+    \caption{Код в файле <<SaveMeasFrame.py>> часть 2}
+    \label{code_SaveMeasFrame_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_BaseMeasurement_part_1.png}
+    \caption{Код в файле <<BaseMeasurement.py>> часть 1}
+    \label{code_BaseMeasurement_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_BaseMeasurement_part_2.png}
+    \caption{Код в файле <<BaseMeasurement.py>> часть 2}
+    \label{code_BaseMeasurement_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_DirectMultipleMeasurement_part_1.png}
+    \caption{Код в файле <<DirectMultipleMeasurement.py>> часть 1}
+    \label{code_DirectMultipleMeasurement_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Drawer_part_1.png}
+    \caption{Код в файле <<Drawer.py>> часть 1}
+    \label{code_Drawer_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Drawer_part_2.png}
+    \caption{Код в файле <<Drawer.py>> часть 2}
+    \label{code_Drawer_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Drawer_part_3.png}
+    \caption{Код в файле <<Drawer.py>> часть 3}
+    \label{code_Drawer_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Drawer_part_4.png}
+    \caption{Код в файле <<Drawer.py>> часть 4}
+    \label{code_Drawer_part_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Expression_part_1.png}
+    \caption{Код в файле <<Expression.py>> часть 1}
+    \label{code_Expression_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Expression_part_2.png}
+    \caption{Код в файле <<Expression.py>> часть 2}
+    \label{code_Expression_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LinearMultipleMeasurement_part_1.png}
+    \caption{Код в файле <<LinearMultipleMeasurement.py>> часть 1}
+    \label{code_LinearMultipleMeasurement_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_LinearMultipleMeasurement_part_2.png}
+    \caption{Код в файле <<LinearMultipleMeasurement.py>> часть 2}
+    \label{code_LinearMultipleMeasurement_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MeasException_part_1.png}
+    \caption{Код в файле <<MeasException.py>> часть 1}
+    \label{code_MeasException_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Measurement_part_1.png}
+    \caption{Код в файле <<Measurement.py>> часть 1}
+    \label{code_Measurement_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Measurement_part_2.png}
+    \caption{Код в файле <<Measurement.py>> часть 2}
+    \label{code_Measurement_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Measurement_part_3.png}
+    \caption{Код в файле <<Measurement.py>> часть 3}
+    \label{code_Measurement_part_3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Measurement_part_4.png}
+    \caption{Код в файле <<Measurement.py>> часть 4}
+    \label{code_Measurement_part_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_Measurement_part_5.png}
+    \caption{Код в файле <<Measurement.py>> часть 5}
+    \label{code_Measurement_part_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MultipleMeasurement_part_1.png}
+    \caption{Код в файле <<MultipleMeasurement.py>> часть 1}
+    \label{code_MultipleMeasurement_part_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code_MultipleMeasurement_part_2.png}
+    \caption{Код в файле <<MultipleMeasurement.py>> часть 2}
+    \label{code_MultipleMeasurement_part_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{code/code___init_part_1.png}
+    \caption{Код в файле <<__init__.py>> часть 1}
+    \label{code___init_part_1}
+\end{figure}
+

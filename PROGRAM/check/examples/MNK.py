@@ -13,10 +13,6 @@ class App(tk.Tk):
         super().__init__()
         self.title("Калькулятор МНК")
         self.geometry("800x600")
-        
-        self.A = 0.0
-        self.B = 0.0
-        
         self.create_widgets()
         self.update_info()
 
@@ -107,7 +103,7 @@ class App(tk.Tk):
         
         try:
             # Рассчёт
-            dmm = meas.DrawableMultipleMeasurement(
+            dmm = meas.LinearMultipleMeasurement(
                 [float(v[0]) for v in values],
                 [float(v[1]) for v in values]
             )
@@ -118,7 +114,7 @@ class App(tk.Tk):
             self.b_label.config(text=f"Свободный член: {dmm._a.rounded}")
             self.eq_label.config(text=f"Уравнение: y = {dmm._b.value}x + {dmm._a.value}")
             
-            dmm.plot_MKN(fig=self.figure, ax=self.ax)
+            meas.Drawer().plot_MKN(fig=self.figure, ax=self.ax, data=dmm)
             self.canvas.draw()
             
         except meas.MeasException as e:

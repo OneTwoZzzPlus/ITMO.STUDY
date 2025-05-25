@@ -8,7 +8,8 @@ class IndirectMultipleMeasurement(MultipleMeasurement):
     def _calc(self):
         # Считаем значение и погрешность
         self._value_ = sum(self._values) / self._N
-        self._sigma_ = sqrt(sum((x - self._value_)**2 for x in self._values)/(self._N*(self._N - 1)))
+        self._sigma_ = sqrt(sum((x - self._value_)**2 for x in self._values)
+                            /(self._N*(self._N - 1)))
         self._delta_ = self._sigma_ * self._student
         self._epsilon_ = self._delta_ / self._value_ * 100  
             

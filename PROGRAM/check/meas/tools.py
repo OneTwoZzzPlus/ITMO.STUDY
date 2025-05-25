@@ -63,10 +63,10 @@ class Tools:
         ch = self._char
         return (
             f"$\\bar{{{ch}}} = {self.value} {self._unit}$.\n\n" +
-            f"\\centerline{{$\\sigma_{{\\bar{{{ch}}}}} = {self._sigma_}, \quad " +
+            f"\\centerline{{$\\sigma_{{\\bar{{{ch}}}}} = {self._sigma_}, \\quad " +
             f"\\Delta_{{\\bar{{{ch}}}}} = {self._student} \\cdot {self._sigma_} = {self._delta_random_} {self._unit}$}}\n\n" +
-            f"\\centerline{{$\\Delta_{{{ch}}} = \sqrt{{({self._delta_random_})^2 + (\\frac{2}{3} \\cdot {self._delta_instrumental_})^2}} = {self.delta} {self._unit}, \quad " +
-            f"\\varepsilon_{{{ch}}} = \\frac{{{self.delta}}}{{{self.value}}} \\cdot 100\\% = {self.epsilon}\%$}}"
+            f"\\centerline{{$\\Delta_{{{ch}}} = \\sqrt{{({self._delta_random_})^2 + (\\frac{2}{3} \\cdot {self._delta_instrumental_})^2}} = {self.delta} {self._unit}, \\quad " +
+            f"\\varepsilon_{{{ch}}} = \\frac{{{self.delta}}}{{{self.value}}} \\cdot 100\\% = {self.epsilon}\\%$}}"
         )
     
 def timer(method_to_decorate):

@@ -29,8 +29,9 @@ class Drawer():
         
         if label is None:
             label = f'График зависимости: {y_name}({x_name})'
-            
-        print(f'График зависимости: {y_name} = {nA.value}{'+' if nB.value >= 0 else ''}{nB.value}{x_name}')
+        
+        pm = '+' if nB.value >= 0 else ''
+        print(f'График зависимости: {y_name} = {nA.value}{pm}{nB.value}{x_name}')
         
         # Считаем границы
         X_min, X_max = min(X), max(X)
@@ -58,20 +59,21 @@ class Drawer():
             float(min(X_min.value - X_min.delta - m_x - w_x, min(X_range)-m_x)), 
             float(max(X_max.value + X_max.delta + m_x + w_x, max(X_range)+m_x))
             )
-        # print(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y, Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y)
         ax.set_ylim(
             float(min(Y_min.value - Y_min.delta - m_y - w_y, min(Y_theor)-m_y)), 
             float(max(Y_max.value + Y_max.delta + m_y + w_y, max(Y_theor)+m_y))
             )
         # Подписи осей
-        plt.xlabel(f'{x_name}{'' if x_unit == '' else f', {x_unit}'}', x=1.01, ha='right', va='bottom', 
+        plt.xlabel(f'{x_name}{'' if x_unit == '' else f', {x_unit}'}', 
+                   x=1.01, ha='right', va='bottom', 
                 bbox={
                     'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
                     'facecolor': 'white', # цвет фона
                     'edgecolor': 'white', # цвет рамки
                     'pad': pad_x           # отступ текста от рамки
                 })
-        plt.ylabel(f'{y_name}{'' if y_unit == '' else f', {y_unit}'}', y=1.01, ha='left', va='top', rotation=0, 
+        plt.ylabel(f'{y_name}{'' if y_unit == '' else f', {y_unit}'}', 
+                   y=1.01, ha='left', va='top', rotation=0, 
                 bbox={
                     'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
                     'facecolor': 'white', # цвет фона
@@ -124,7 +126,8 @@ class Drawer():
                         fmt='o', color=f'C{i}', markersize=4, capsize=1)
             
             # Теоретическая зависимость
-            X_range = np.linspace(data[i].min_X.value - data[i].min_X.delta, data[i].max_X.value + data[i].max_X.delta)
+            X_range = np.linspace(data[i].min_X.value - data[i].min_X.delta, 
+                                  data[i].max_X.value + data[i].max_X.delta)
             Y_theor = nA.value_ + X_range * nB.value_
             ax.plot(X_range, Y_theor, '-', label=labels[i], color=f'C{i}')
         
@@ -135,20 +138,21 @@ class Drawer():
             float(min(X_min.value - X_min.delta - m_x - w_x, min(X_range)-m_x)), 
             float(max(X_max.value + X_max.delta + m_x + w_x, max(X_range)+m_x))
             )
-        # print(Y_min.value - Y_min.delta - 0.05*(Y_max.value - Y_min.value) - w_y, Y_max.value + Y_max.delta + 0.05*(Y_max.value - Y_min.value) + w_y)
         ax.set_ylim(
             float(min(Y_min.value - Y_min.delta - m_y - w_y, min(Y_theor)-m_y)), 
             float(max(Y_max.value + Y_max.delta + m_y + w_y, max(Y_theor)+m_y))
             )
         # Подписи осей
-        plt.xlabel(f'{x_name}{'' if x_unit == '' else f', {x_unit}'}', x=1.01, ha='right', va='bottom', 
+        plt.xlabel(f'{x_name}{'' if x_unit == '' else f', {x_unit}'}', 
+                   x=1.01, ha='right', va='bottom', 
                 bbox={
                     'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
                     'facecolor': 'white', # цвет фона
                     'edgecolor': 'white', # цвет рамки
                     'pad': pad_x           # отступ текста от рамки
                 })
-        plt.ylabel(f'{y_name}{'' if y_unit == '' else f', {y_unit}'}', y=1.01, ha='left', va='top', rotation=0, 
+        plt.ylabel(f'{y_name}{'' if y_unit == '' else f', {y_unit}'}', 
+                   y=1.01, ha='left', va='top', rotation=0, 
                 bbox={
                     'boxstyle': 'square',  # стиль рамки (круглая/прямоугольная)
                     'facecolor': 'white', # цвет фона

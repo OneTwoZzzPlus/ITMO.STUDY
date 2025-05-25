@@ -1,21 +1,25 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 
-from copypaste import *
-from ListNotebook import *
-from MeasForm import *
-from ExpressionForm import *
+from AskNameDialog import AskNameDialog
+from ListNotebook import ListNotebook
+from MeasForm import MeasForm
+from ExpressionForm import ExpressionForm
+from LMMForm import LMMForm
+from DMMForm import DMMForm
 
 from Models import *
 from meas import *
 
 
-class MainWindow(Tk):
+class App(Tk):
+    current_exp: Experiment|None
+    
     def __init__(self):
         super().__init__()
         self.current_exp = None
         self.title("Выберите эксперимент...")
-        self.minsize(600, 300)
+        self.minsize(1300, 600)
         self.create_menu()
         self.create_widgets()
         
@@ -29,29 +33,54 @@ class MainWindow(Tk):
         
         # ListNotebook
         self.note = ListNotebook()
+        self.note.pack(expand=True, side="top", fill="both")
         
         # Пустая форма
         self.empty_frame = ttk.Frame(self)
-        ttk.Button(self.empty_frame, text="Новый эксперимент", command=self.new_experiment).pack(expand=True)
+        ttk.Button(self.empty_frame, text="Новый эксперимент", 
+                   command=self.new_experiment).pack(expand=True)
         self.note.basic_frame(self.empty_frame)
         
         # Форма добавления Measurement
         self.add_frame = MeasForm(self, self.create_measurement)
         c = lambda frame=self.add_frame: self.note.open_frame(frame)
-        ttk.Button(self.bottom_frame, text="Добавить", command=c).grid(row=0, column=0)
+        ttk.Button(self.bottom_frame, text="Добавить", 
+                   command=c).grid(row=0, column=0)
         self.edit_menu.add_cascade(label="Добавить", command=c)
         self.note.basic_frame(self.add_frame)
         
         # Форма вычисления выражения
-        self.expr_form = ExpressionForm(self, self.create_measurement, self.note.items)
+        self.expr_form = ExpressionForm(self, self.create_measurement, 
+                                        self.note._items)
         c = lambda frame=self.expr_form: self.note.open_frame(frame)
-        ttk.Button(self.bottom_frame, text="Выражение", command=c).grid(row=0, column=1)
+        ttk.Button(self.bottom_frame, text="Выражение", 
+                   command=c).grid(row=0, column=1)
         self.edit_menu.add_cascade(label="Выражение", command=c)
         self.note.basic_frame(self.expr_form)
         
+        # Форма вычисления LMM
+        self.lmm_form = LMMForm(self, self.create_measurement)
+        c = lambda frame=self.lmm_form: self.note.open_frame(frame)
+        ttk.Button(self.bottom_frame, text="LMM", 
+                   command=c).grid(row=0, column=2)
+        self.edit_menu.add_cascade(label="LMM", command=c)
+        self.note.basic_frame(self.lmm_form)
+        
+        # Форма вычисления DMM
+        self.dmm_form = DMMForm(self, self.create_measurement)
+        c = lambda frame=self.dmm_form: self.note.open_frame(frame)
+        ttk.Button(self.bottom_frame, text="DMM", 
+                   command=c).grid(row=0, column=3)
+        self.edit_menu.add_cascade(label="DMM", command=c)
+        self.note.basic_frame(self.dmm_form)
+        
         # Кнопка удаления
-        ttk.Button(self.bottom_frame, text="Удалить", command=self.delete_measurement).grid(row=0, column=2)
-        self.edit_menu.add_cascade(label="Удалить", command=self.delete_measurement)
+        ttk.Button(self.bottom_frame, text="Удалить", 
+                   command=self.delete_measurement).grid(row=0, column=4)
+        self.edit_menu.add_cascade(
+            label="Удалить", 
+            command=self.delete_measurement
+        )
 
     def create_menu(self):
         self.option_add("*tearOff", FALSE)
@@ -60,11 +89,15 @@ class MainWindow(Tk):
         self.edit_menu = Menu()
         
         self.file_menu = Menu()
-        self.file_menu.add_cascade(label="База данных...", command=self.choose_bd)
+        self.file_menu.add_cascade(label="База данных...", 
+                                   command=self.choose_bd)
         self.file_menu.add_separator()
-        self.file_menu.add_cascade(label="Новый эксперимент", command=self.new_experiment)
-        self.file_menu.add_cascade(label="Удалить эксперимент", command=self.delete_experiment)      
-        self.file_menu.add_cascade(label="Эксперимент", menu=self.exp_menu)
+        self.file_menu.add_cascade(label="Новый эксперимент", 
+                                   command=self.new_experiment)
+        self.file_menu.add_cascade(label="Удалить эксперимент", 
+                                   command=self.delete_experiment)      
+        self.file_menu.add_cascade(label="Эксперимент", 
+                                   menu=self.exp_menu)
 
         menu = Menu()
         menu.add_cascade(label="Файл", menu=self.file_menu)
@@ -75,10 +108,16 @@ class MainWindow(Tk):
     """ Информационные сообщения """
     
     def choose_bd(self):
-        messagebox.showinfo(title="База данных", message=f"Используемая база данных: {PATH}")
+        messagebox.showinfo(
+            title="База данных", 
+            message=f"Используемая база данных: {PATH}"
+        )
         
     def reference(self):
-        messagebox.showinfo("Справка", "Разработчик: Сакулин Иван Михайлович (467335)")
+        messagebox.showinfo(
+            title="Справка", 
+            message="Разработчик: Сакулин Иван Михайлович (467335)"
+        )
     
     """ Управление экспериментами """
     
@@ -91,7 +130,10 @@ class MainWindow(Tk):
             
     def delete_experiment(self):
         if self.current_exp is not None:
-            result = messagebox.askokcancel("Удаление", "Удалить эксперимент?")
+            result = messagebox.askokcancel(
+                "Удаление", 
+                "Удалить эксперимент?"
+            )
             if result:
                 Experiment.delete_by_id(self.current_exp.exp_id)
                 self.note.clear()
@@ -102,7 +144,9 @@ class MainWindow(Tk):
     def load_experiments(self):
         self.exp_menu.delete(0, END)
         for exp in Experiment.select():
-            self.exp_menu.add_radiobutton(label=exp.name, command=lambda exp=exp: self.open_experiment(exp))
+            self.exp_menu.add_radiobutton(
+                label=exp.name, 
+                command=lambda exp=exp: self.open_experiment(exp))
         if Experiment.select():
             self.file_menu.entryconfigure(3, state=NORMAL)
             self.file_menu.entryconfigure(4, state=NORMAL)
@@ -115,8 +159,10 @@ class MainWindow(Tk):
         self.note.clear()
         self.current_exp = exp
         self.title(exp.name)
-        for m in Meas.select().where((Meas.exp_id == exp.exp_id) & (Meas.name.is_null(False))):
-            ms = Measurement(m.value, m.delta, m.epsilon, m.name, m.char, m.unit, direct=m.direct)
+        for m in Meas.select().where(
+            (Meas.exp_id == exp.exp_id) & (Meas.name.is_null(False))):
+            ms = Measurement(m.value, m.delta, m.epsilon, m.name, 
+                             m.char, m.unit, direct=m.direct)
             ms.mid = m.meas_id
             self.load_measurement(ms)
         self.note.notebook.select(self.add_frame)
@@ -124,8 +170,16 @@ class MainWindow(Tk):
     """ Управление списком измерений """
     
     def create_measurement(self, _, m: Measurement):
-        m.mid = Meas.create(exp_id=self.current_exp, name=m.name, char=m.char, unit=m.unit,
-                    value=m.value_, delta=m.delta_, epsilon=m.epsilon_, direct=m.is_direct).meas_id
+        m.mid = Meas.create(
+            exp_id=self.current_exp, 
+            name=m.name, 
+            char=m.char, 
+            unit=m.unit, 
+            value=m.value_, 
+            delta=m.delta_, 
+            epsilon=m.epsilon_, 
+            direct=m.is_direct
+        ).meas_id
         self.load_measurement(m)
     
     def edit_measurement(self, old: Measurement, m: Measurement):
@@ -140,22 +194,20 @@ class MainWindow(Tk):
         meas.save()
         self.note.update_listbox(m)
     
+    def load_measurement(self, m: Measurement):
+        frame = MeasForm(self, self.edit_measurement, m)
+        self.note.add(frame)
+    
     def delete_measurement(self):
         ret = self.note.pop()
         if ret is None:
             return
-        if isinstance(ret, Measurement):
-            Meas.delete_by_id(ret.mid)
-    
-    def load_measurement(self, m: Measurement):
-        frame = MeasForm(self, self.edit_measurement, m)
-        self.note.add(frame)
-        
+        Meas.delete_by_id(ret.mid)
         
 if __name__ == "__main__":
     PATH = "test.db"
     db.init(PATH)
-    db.create_tables(tables)
-    root = MainWindow()
+    db.create_tables(db_tables)
+    root = App()
     root.mainloop()
     

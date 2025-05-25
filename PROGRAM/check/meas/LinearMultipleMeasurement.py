@@ -38,10 +38,13 @@ class LinearMultipleMeasurement():
     
     @timer
     def _calc(self):
-        N, x, y = self._N, [x.value_ for x in self.measurments_X], [y.value_ for y in self.measurments_Y]
+        N = self._N
+        x = [x.value_ for x in self.measurments_X]
+        y = [y.value_ for y in self.measurments_Y]
         av_x = sum(x) / N
         av_y = sum(y) / N
-        b = sum((x[i] - av_x) * (y[i] - av_y) for i in range(N)) / sum((x[i] - av_x)**2 for i in range(N))
+        b = (sum((x[i] - av_x) * (y[i] - av_y) for i in range(N)) 
+             / sum((x[i] - av_x)**2 for i in range(N)))
         a = av_y - b * av_x
         d = [y[i] - (a + b*x[i]) for i in range(N)]
         D = sum((x[i] - av_x)**2 for i in range(N))
@@ -56,6 +59,7 @@ class LinearMultipleMeasurement():
         
     @property
     def info(self):
-        return f"y = a + bx: y = {self.a.value}{'+' if self.b.value >= 0 else ''}{self.b.value}x"\
+        pm = '+' if self.b.value >= 0 else ''
+        return f"y = a + bx: y = {self.a.value}{pm}{self.b.value}x"\
                f"\na = {self.a}\nb = {self.b}"
     
