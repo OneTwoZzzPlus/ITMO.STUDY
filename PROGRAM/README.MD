@@ -10,4 +10,4 @@
 ### Содержание
 - Работа на лабах 11_09, 25_09, 09_10... 
 - Необязательные ДЗ к лекциям phw1, phw2, phw3
-- ДЗ на практики [Homework](./Homework/), [Homework2](./Homework2/)
+- ДЗ на практики [Homework](./Homework/), [Homework2](./check/)
