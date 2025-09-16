@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\bin\Debug\Calc_switch.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\bin\Debug\Calc_switch.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\bin\Debug\Calc_switch.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\obj\Debug\Calc_switch.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\obj\Debug\Calc_switch.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\obj\Debug\Calc_switch.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\obj\Debug\Calc_switch.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Calc_switch\obj\Debug\Calc_switch.exe.config

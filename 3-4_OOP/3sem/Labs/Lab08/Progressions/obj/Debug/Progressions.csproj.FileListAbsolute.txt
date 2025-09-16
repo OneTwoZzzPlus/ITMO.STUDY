@@ -1,0 +1,16 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\bin\Debug\Progressions.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\bin\Debug\Progressions.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\bin\Debug\Progressions.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\obj\Debug\Progressions.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\obj\Debug\Progressions.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\obj\Debug\Progressions.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\obj\Debug\Progressions.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Progressions\obj\Debug\Progressions.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\bin\Debug\Progressions.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\bin\Debug\Progressions.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\bin\Debug\Progressions.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\obj\Debug\Progressions.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\obj\Debug\Progressions.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\obj\Debug\Progressions.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\obj\Debug\Progressions.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab08\Progressions\obj\Debug\Progressions.pdb

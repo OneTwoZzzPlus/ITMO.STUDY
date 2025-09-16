@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\bin\Debug\StructType.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\bin\Debug\StructType.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\bin\Debug\StructType.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\obj\Debug\StructType.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\obj\Debug\StructType.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\obj\Debug\StructType.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\obj\Debug\StructType.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\StructType\obj\Debug\StructType.exe.config

@@ -1,0 +1,16 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\bin\Debug\Utils.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\bin\Debug\Utils.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\bin\Debug\Utils.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\obj\Debug\Utils.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\obj\Debug\Utils.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\obj\Debug\Utils.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Utils\obj\Debug\Utils.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\bin\Debug\Utils.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\bin\Debug\Utils.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\bin\Debug\Utils.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\obj\Debug\Utils.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\obj\Debug\Utils.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\obj\Debug\Utils.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\obj\Debug\Utils.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab04\Utils\obj\Debug\Utils.pdb

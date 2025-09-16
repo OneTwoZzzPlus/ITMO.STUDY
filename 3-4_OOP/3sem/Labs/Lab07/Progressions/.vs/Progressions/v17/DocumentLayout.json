@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\progressions\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\progressions\\progression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|solutionrelative:progression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\progressions\\arithmeticprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|solutionrelative:arithmeticprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\progressions\\geometricprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D12F6E9-FEB7-4BC6-9C38-3DF6E9A8386B}|Progressions.csproj|solutionrelative:geometricprogression.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Progression.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\Progression.cs",
+              "RelativeDocumentMoniker": "Progression.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\Progression.cs",
+              "RelativeToolTip": "Progression.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T12:32:59.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArithmeticProgression.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\ArithmeticProgression.cs",
+              "RelativeDocumentMoniker": "ArithmeticProgression.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\ArithmeticProgression.cs",
+              "RelativeToolTip": "ArithmeticProgression.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T12:54:15.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GeometricProgression.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\GeometricProgression.cs",
+              "RelativeDocumentMoniker": "GeometricProgression.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\GeometricProgression.cs",
+              "RelativeToolTip": "GeometricProgression.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:03:45.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Progressions\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T12:32:27.723Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

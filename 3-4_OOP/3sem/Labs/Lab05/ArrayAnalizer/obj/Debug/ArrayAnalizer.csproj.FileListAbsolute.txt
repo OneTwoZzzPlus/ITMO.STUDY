@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\bin\Debug\ArrayAnalizer.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\bin\Debug\ArrayAnalizer.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\bin\Debug\ArrayAnalizer.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\obj\Debug\ArrayAnalizer.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\obj\Debug\ArrayAnalizer.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\obj\Debug\ArrayAnalizer.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\obj\Debug\ArrayAnalizer.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\ArrayAnalizer\obj\Debug\ArrayAnalizer.exe.config

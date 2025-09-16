@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\bin\Debug\Loop.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\bin\Debug\Loop.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\bin\Debug\Loop.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\obj\Debug\Loop.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\obj\Debug\Loop.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\obj\Debug\Loop.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\obj\Debug\Loop.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\Loop\obj\Debug\Loop.exe.config

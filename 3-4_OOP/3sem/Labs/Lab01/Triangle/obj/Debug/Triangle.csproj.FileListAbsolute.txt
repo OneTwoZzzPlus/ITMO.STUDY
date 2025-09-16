@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\bin\Debug\Triangle.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\bin\Debug\Triangle.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\bin\Debug\Triangle.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\obj\Debug\Triangle.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\obj\Debug\Triangle.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\obj\Debug\Triangle.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\obj\Debug\Triangle.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Triangle\obj\Debug\Triangle.exe.config

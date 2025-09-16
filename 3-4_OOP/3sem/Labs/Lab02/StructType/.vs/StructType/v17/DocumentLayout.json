@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab02\\StructType\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{69E58BE7-2E86-4386-9098-2BA2221CE934}|StructType.csproj|d:\\itmo.private\\3_oop\\labs\\lab02\\structtype\\struct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69E58BE7-2E86-4386-9098-2BA2221CE934}|StructType.csproj|solutionrelative:struct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Struct.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab02\\StructType\\Struct.cs",
+              "RelativeDocumentMoniker": "Struct.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab02\\StructType\\Struct.cs",
+              "RelativeToolTip": "Struct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T17:25:26.654Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

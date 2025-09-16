@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\game\\gamer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|solutionrelative:gamer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\game\\gamedice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|solutionrelative:gamedice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|d:\\itmo.private\\3_oop\\labs\\lab07\\game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79DD3980-E32F-4DE5-A996-8E79E7C1B201}|Game.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Gamer.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\Gamer.cs",
+              "RelativeDocumentMoniker": "Gamer.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\Gamer.cs",
+              "RelativeToolTip": "Gamer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T22:50:20.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameDice.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\GameDice.cs",
+              "RelativeDocumentMoniker": "GameDice.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\GameDice.cs",
+              "RelativeToolTip": "GameDice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T22:45:00.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab07\\Game\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T22:41:47.261Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\bin\Debug\ShootingMain.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\bin\Debug\ShootingMain.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\bin\Debug\ShootingMain.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\obj\Debug\ShootingMain.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\obj\Debug\ShootingMain.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\obj\Debug\ShootingMain.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\obj\Debug\ShootingMain.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Shooting\ShootingMain\obj\Debug\ShootingMain.exe.config

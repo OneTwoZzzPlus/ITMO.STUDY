@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\bin\Debug\MatrixMultiply.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\bin\Debug\MatrixMultiply.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\bin\Debug\MatrixMultiply.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\obj\Debug\MatrixMultiply.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\obj\Debug\MatrixMultiply.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\obj\Debug\MatrixMultiply.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\obj\Debug\MatrixMultiply.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab05\MatrixMultiply\obj\Debug\MatrixMultiply.exe.config

@@ -1,0 +1,15 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\bin\Debug\Game.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\bin\Debug\Game.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\bin\Debug\Game.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\obj\Debug\Game.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\Game\obj\Debug\Game.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\bin\Debug\Game.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\bin\Debug\Game.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\bin\Debug\Game.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\obj\Debug\Game.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\obj\Debug\Game.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab09\Game\obj\Debug\Game.pdb

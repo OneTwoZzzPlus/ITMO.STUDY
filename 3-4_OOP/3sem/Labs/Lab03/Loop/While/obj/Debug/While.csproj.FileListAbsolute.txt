@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\bin\Debug\While.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\bin\Debug\While.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\bin\Debug\While.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\obj\Debug\While.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\obj\Debug\While.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\obj\Debug\While.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\obj\Debug\While.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\While\obj\Debug\While.exe.config

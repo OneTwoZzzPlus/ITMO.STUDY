@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab05\\MatrixMultiply\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BF97C0C-A06A-4EBC-AD8A-C7E3FF3F04E4}|MatrixMultiply.csproj|d:\\itmo.private\\3_oop\\labs\\lab05\\matrixmultiply\\matrixmultiply.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BF97C0C-A06A-4EBC-AD8A-C7E3FF3F04E4}|MatrixMultiply.csproj|solutionrelative:matrixmultiply.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MatrixMultiply.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab05\\MatrixMultiply\\MatrixMultiply.cs",
+              "RelativeDocumentMoniker": "MatrixMultiply.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\3_OOP\\Labs\\Lab05\\MatrixMultiply\\MatrixMultiply.cs",
+              "RelativeToolTip": "MatrixMultiply.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T19:17:00.924Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

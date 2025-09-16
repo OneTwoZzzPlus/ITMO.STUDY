@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\bin\Debug\MyClassLine.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\bin\Debug\MyClassLine.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\bin\Debug\MyClassLine.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\obj\Debug\MyClassLine.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\obj\Debug\MyClassLine.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\obj\Debug\MyClassLine.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\obj\Debug\MyClassLine.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab07\MyClassLine\obj\Debug\MyClassLine.exe.config

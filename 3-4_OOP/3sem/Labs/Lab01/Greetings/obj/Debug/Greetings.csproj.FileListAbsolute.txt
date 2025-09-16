@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\bin\Debug\Greetings.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\bin\Debug\Greetings.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\bin\Debug\Greetings.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\obj\Debug\Greetings.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\obj\Debug\Greetings.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\obj\Debug\Greetings.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\obj\Debug\Greetings.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Greetings\obj\Debug\Greetings.exe.config

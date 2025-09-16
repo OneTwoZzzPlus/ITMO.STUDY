@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\bin\Debug\Distance.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\bin\Debug\Distance.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\bin\Debug\Distance.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\obj\Debug\Distance.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\obj\Debug\Distance.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\obj\Debug\Distance.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\obj\Debug\Distance.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Distance\obj\Debug\Distance.exe.config

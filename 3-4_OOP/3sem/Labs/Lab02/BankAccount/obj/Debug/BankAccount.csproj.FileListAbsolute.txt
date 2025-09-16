@@ -1,0 +1,7 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\bin\Debug\BankAccount.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\bin\Debug\BankAccount.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\bin\Debug\BankAccount.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\obj\Debug\BankAccount.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\obj\Debug\BankAccount.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\obj\Debug\BankAccount.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\BankAccount\obj\Debug\BankAccount.pdb

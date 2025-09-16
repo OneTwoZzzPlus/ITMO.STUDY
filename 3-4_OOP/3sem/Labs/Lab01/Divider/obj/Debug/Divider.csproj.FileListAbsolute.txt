@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\bin\Debug\Divider.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\bin\Debug\Divider.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\bin\Debug\Divider.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\obj\Debug\Divider.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\obj\Debug\Divider.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\obj\Debug\Divider.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\obj\Debug\Divider.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab01\Divider\obj\Debug\Divider.exe.config

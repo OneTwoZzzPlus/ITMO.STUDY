@@ -1,0 +1,7 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\bin\Debug\DoWhile.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\bin\Debug\DoWhile.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\bin\Debug\DoWhile.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\obj\Debug\DoWhile.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\obj\Debug\DoWhile.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\obj\Debug\DoWhile.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab03\Loop\DoWhile\obj\Debug\DoWhile.pdb

@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\bin\Debug\YearChecher.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\bin\Debug\YearChecher.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\bin\Debug\YearChecher.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\obj\Debug\YearChecher.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\obj\Debug\YearChecher.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\obj\Debug\YearChecher.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\obj\Debug\YearChecher.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\YearChecher\obj\Debug\YearChecher.exe.config

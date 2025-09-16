@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootingMain", "ShootingMain\ShootingMain.csproj", "{8AA68DEA-C64F-4B2E-93B5-368F7DDB85E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootingAddon", "ShootingAddon\ShootingAddon.csproj", "{EAF4F7B2-758B-4F10-824E-59C31C7EABC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AA68DEA-C64F-4B2E-93B5-368F7DDB85E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA68DEA-C64F-4B2E-93B5-368F7DDB85E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA68DEA-C64F-4B2E-93B5-368F7DDB85E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA68DEA-C64F-4B2E-93B5-368F7DDB85E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAF4F7B2-758B-4F10-824E-59C31C7EABC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAF4F7B2-758B-4F10-824E-59C31C7EABC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAF4F7B2-758B-4F10-824E-59C31C7EABC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAF4F7B2-758B-4F10-824E-59C31C7EABC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADDDA6BC-9545-4EDB-8E0E-39C1AEF4ED9C}
+	EndGlobalSection
+EndGlobal

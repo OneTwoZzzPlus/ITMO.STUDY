@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\bin\Debug\Shapeifelse.exe.config
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\bin\Debug\Shapeifelse.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\bin\Debug\Shapeifelse.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\obj\Debug\Shapeifelse.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\obj\Debug\Shapeifelse.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\obj\Debug\Shapeifelse.exe
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\obj\Debug\Shapeifelse.pdb
+D:\ITMO.PRIVATE\3_OOP\Labs\Lab02\Shapeifelse\obj\Debug\Shapeifelse.exe.config
