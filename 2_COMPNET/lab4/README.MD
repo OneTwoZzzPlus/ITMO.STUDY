@@ -1,6 +1,12 @@
 # Лабораторная работа 4
 
-Видео
+- [Модель из лабораторной 3](./model-0.pkt)
+- [Тестирование протокола SТР](./model-1-1.pkt)
+- [Тестирование протокола RSТР](./model-1-2.pkt)
+- [Статическое агрегирование](./model-2-1.pkt)
+- [Динамическое агрегирование LACP](./model-2-2.pkt)
+
+### Видео
 - [STP курс молодого бойца](https://www.youtube.com/watch?v=SyT12mxtFDg&list=PLcDkQ2Au8aVNYsqGsxRQxYyQijILa94T9)
 - [STP wiki - описание и алгоритм работы](https://ru.wikipedia.org/wiki/STP)
 - [STP xgu - настройки и дополнительные опции](http://xgu.ru/wiki/STP_в_Cisco)
