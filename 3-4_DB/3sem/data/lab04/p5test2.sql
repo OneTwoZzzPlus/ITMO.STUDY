@@ -1,0 +1,1 @@
+SELECT "EmployeesDepartments".get_salary_difference(100, False);
