@@ -1,0 +1,304 @@
+\documentclass[14pt]{extreport}
+\input{prop/preamble.inc}
+
+
+\begin{document}
+
+\SETgroup{<<group>>}
+\SETstudent{<<student>>}
+\SETteacher{<<teacher>>}
+\SETdata{<<date>>}
+\SETnumber{1.04}
+\SETtitle{Исследование равноускоренного вращательного }
+\SETtitleT{движения (маятник Обербека)}
+\input{prop/title}
+
+\vskip 15mm
+\noindent\textbf{1. Цели работы}
+\begin{enumerate}[label=\arabic*)]
+    \item Проверка основного закона динамики вращения.
+    \item Проверка зависимости момента инерции от положения масс относительно оси вращения.
+\end{enumerate}
+
+
+\noindent\textbf{2. Задачи, решаемые при выполнении работы}
+
+\begin{enumerate}[label=\arabic*)]
+    \item Измерение времени падения груза при разной массе груза и разном положении утяжелителей на крестовине.
+    \item Расчёт ускорения груза, углового ускорения крестовины и момента силы натяжения нити.
+    \item Расчёт момента инерции крестовины с утяжелителями и момента силы трения.
+    \item Исследование зависимости момента силы натяжения нити от углового ускорения. Проверка основного закона динамики вращения.
+    \item Исследование зависимости момента инерции от положения масс относительно оси вращения. Проверка теоремы Штейнера.
+\end{enumerate}
+
+\noindent\textbf{3. Объект исследования}
+
+Равноускоренное вращательное движение.
+
+\noindent\textbf{4. Метод экспериментального исследования}
+
+Проведение измерений времени спуска маятника Обербека, получение экспериментальных данных, вычисление необходимых величин.
+
+\noindent\textbf{5. Рабочие формулы и исходные данные}
+
+\begin{itemize}
+    \item Высота подъёма каретки с шайбами: $ h = (<<h>>)~\text{мм} $
+    \item Масса каретки: $ m_\text{каретки} = (<<m_carriage>>)~\text{г} $
+    \item Масса шайбы: $ m_\text{шайбы} = (<<m_puck>>)~\text{г} $
+    \item Масса грузов на крестовине: $ m_\text{гр} = (<<m_cargo>>)~\text{г} $
+    \item Расстояние первой риски от оси: $ l_1 = (<<l_1>>)~\text{мм} $
+    \item Расстояние между рисками: $ l_0 = (<<l_0>>)~\text{мм} $
+    \item Диаметр ступицы: $ d_\text{ступицы} = (<<d_stup>>)~\text{мм} $
+    \item Высота груза на крестовине: $ b = (<<b>>)~\text{мм} $
+\end{itemize}
+
+Масса каретки с n шайбами:
+
+\centerline{$m = m_\text{каретки} + n \cdot m_\text{шайбы}$}
+
+Ускорение падения груза:
+
+\centerline{$a = \frac{2h}{t^2}$}
+
+Угловое ускорение крестовины:
+
+\centerline{$\varepsilon = \frac{2a}{d_\text{ступицы}}$}
+
+Момент силы натяжения нити:
+
+\centerline{$M = \frac{m d_\text{ступицы}}{2}(g - a)$}
+
+Расстояние между осью вращения и центром утяжелителя на риске n:
+
+\centerline{$R = l_1 + (n - 1)l_0 + \frac{b}{2}$}
+
+Зависимость $M(\varepsilon) = M_\text{тр}+I\varepsilon$.
+
+Зависимость $I(R^2) = I_0+4m_\text{ут}R^2$.
+
+Расчёт погрешности суммы (способ 1):
+
+\centerline{$\Delta_z = \sqrt{ \left( \frac{\partial f}{\partial a} \Delta_a \right)^2 + \left( \frac{\partial f}{\partial b} \Delta_b \right)^2  +...}, \quad \varepsilon_z = \frac{\Delta_z}{\bar{z}} \cdot 100\%$.}
+
+Расчёт погрешности произведения (способ 2):
+
+\centerline{$\varepsilon_z = \sqrt{ \left( \frac{\partial \ln z}{\partial a} \Delta_a \right)^2 + \left( \frac{\partial \ln z}{\partial b} \Delta_b \right)^2 + \ldots } \cdot 100\%, \quad \Delta_z = \frac{\overline{z} \cdot \varepsilon_z}{100\%}$.}
+
+\noindent\textbf{6. Измерительные приборы}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Измерительные приборы}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Наименование} & 
+\textbf{Предел измерений} & 
+\textbf{Цена деления} & \({\Delta_u}\) \\ \hline
+Секундомер & 10 с & 0.01 с & 0.01 с \\ \hline
+\end{tabular}
+\end{table}
+
+\noindent\textbf{7. Схема установки} 
+% ИЛИ Перечень схем, которые составляют Приложение 1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\linewidth]{<<path_schema>>}
+    \caption{Схема установки}
+    \label{picture:cheme}
+\end{figure}
+% Состав установки:
+% (1) основание,
+% (2) рукоятка сцепления крестовин,
+% (3) устройства принудительного трения,
+% (4) поперечина,
+% (5) груз крестовины,
+% (6) трубчатая направляющая,
+% (7) передняя крестовина,
+% (8) задняя крестовина,
+% (9) шайбы каретки,
+% (10) каретка,
+% (11) система передних стоек.
+
+\noindent\textbf{8. Результаты прямых измерений и их обработки} 
+%(таблицы, примеры расчетов).
+
+\begin{table}[H]
+\centering
+\caption{Протокол измерений времени падения груза при разной массе груза и разном положении утяжелителей на крестовине}
+\label{tab:direct104}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Масса}} & 
+\multirow{2}{*}{\textbf{Время}} & 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{3-8}
+& & 1 риска & 2 риска & 3 риска & 4 риска & 5 риска & 6 риска \\ \hline
+<<table_dt>>
+\end{tabular}
+\end{table}
+
+\noindent\textbf{9. Расчет результатов косвенных измерений (таблицы, примеры расчетов)} 
+
+\begin{table}[H]
+\centering
+\caption{Ускорение, угловое ускорение и момент силы.}
+\label{tab:indirect104}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} & 
+\multirow{3}{*}{$m$, г} & 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{3-8}
+& & 1 риска & 2 риска & 3 риска & 4 риска & 5 риска & 6 риска \\ \hline
+<<table_xdt>>
+\end{tabular}
+\end{table}
+
+По МНК вычислим для разных положений регулировочных грузов зависимости $M(\varepsilon) = M_\text{тр}+I\varepsilon$.
+
+\begin{itemize}
+<<text_MNK1>>
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Момент силы и момент инерции.}
+\label{tab:indirect2104}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} & 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{2-7}
+& 1 риска & 2 риска & 3 риска & 4 риска & 5 риска & 6 риска \\ \hline
+<<table_MI>>
+\end{tabular}
+\end{table}
+
+Вычислим для разных положений грузов $R = l_1 + (n - 1)l_0 + \frac{b}{2}$.
+
+\begin{table}[H]
+\centering
+\caption{Момент инерции и квадрат расстояния до грузов.}
+\label{tab:indirect3104}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\multirow{3}{*}{\textbf{Значение}} & 
+\multicolumn{6}{c|}{\textbf{Положение утяжелителей}} \\ \cline{2-7}
+& 1 риска & 2 риска & 3 риска & 4 риска & 5 риска & 6 риска \\ \hline
+<<table_RI>>
+\end{tabular}
+\end{table}
+
+По МНК вычислим зависимость $I(R^2) = I_0+2m_\text{ут}R^2$.
+
+\centerline{$I = <<MNK_a>>+<<MNK_b>> \cdot R^2$}
+
+$a = I_0 = (<<I_0>>) \text{кг}\cdot\text{м}^2$
+
+$b = 4m_\text{ут} = (<<MNK_b>>) \text{кг}$, $m_\text{ут} = (<<m_ut>>) \text{кг}$
+
+Здесь $I_0$ - сумма моментов инерции стрежней крестовины, момента инерции ступицы и собственных центральных моментов инерции утяжелителей.
+
+\noindent\textbf{10. Расчет погрешностей измерений (для прямых и косвенных измерений)}
+
+Расчёт для множественного измерения с 1 риской и $m_1$.
+
+Для времени: $\bar{t} = \frac{<<err_t[0]>> + <<err_t[1]>> + <<err_t[2]>> }{3} \approx <<err_t[3]>> c$,
+
+\centerline{$\sigma_{\bar{t}} = <<err_t[4]>>, \quad S(3, 0.95)=<<err_t[5]>>, \quad \Delta_{\bar{t}} = <<err_t[5]>> \cdot <<err_t[4]>> = <<err_t[6]>> c$,}
+
+\centerline{$\Delta_{t} = \sqrt{(<<err_t[6]>>)^2 + (\frac{2}{3} \cdot <<err_t[7]>>)^2} = <<err_t[8]>> c, \quad \varepsilon_{t} = \frac{<<err_t[8]>>}{<<err_t[3]>>} \cdot 100\% = <<err_t[9]>>\%$}
+
+Для массы спускающегося груза: $m = m_\text{каретки} + n \cdot m_\text{шайбы} = <<err_m[0]>> \text{г}$
+
+\centerline{$\Delta_m = \sqrt{(\Delta_{m_\text{каретки}})^2 + (n \cdot \Delta_{m_\text{шайбы}})^2} = <<err_m[1]>> \text{г}, \quad \varepsilon_{m} = \frac{\Delta_m}{m} \cdot 100\% = <<err_m[2]>>\%$.}
+
+Для ускорения: $a=\frac{2h}{t^2} = <<err_a[0]>> \text{м}/\text{с}^2$, 
+
+\centerline{$\varepsilon_{a} = \sqrt{(\frac{2}{3} \cdot \frac{\Delta h}{h})^2 + (\frac{\Delta t}{t})^2} \cdot 100\% = <<err_a[2]>>\%, \quad \Delta_a=\frac{a \cdot \varepsilon_a}{100\%} = <<err_a[1]>> \cdot 10^{-5} \text{м}/\text{с}^2$.}
+
+Для углового ускорения: $\varepsilon=\frac{2a}{d_\text{ступ}} = <<err_E[0]>> \text{рад}/\text{с}^2$, 
+
+\centerline{$\varepsilon_{\varepsilon} = \sqrt{(\frac{\Delta a}{a})^2 + (\frac{2}{3} \cdot \frac{\Delta d_\text{ступ}}{d_\text{ступ}})^2} \cdot 100\% = <<err_m[2]>>\%, \quad \Delta_\varepsilon=\frac{\varepsilon \cdot \varepsilon_\varepsilon}{100\%} = <<err_m[1]>> \text{рад}/\text{с}^2$.}
+
+Для момента силы натяжения нити: $M=\frac{md_\text{ступ}}{2}(g-a) = <<err_M[0]>> \text{Н}\cdot\text{м}$, 
+
+\centerline{$\varepsilon_M = \sqrt{(\frac{\Delta m}{m})^2 + (\frac{2}{3} \cdot \frac{\Delta d_\text{ступ}}{d_\text{ступ}})^2 + (\frac{\Delta a}{g-a})^2} \cdot 100\% = <<err_M[2]>>\%$,}
+
+\centerline{$\Delta_M=\frac{\varepsilon \cdot \varepsilon_\varepsilon}{100\%} = <<err_M[1]>> \cdot 10^{-6} \text{м}/\text{с}^2$.}
+
+Расчёт погрешности $a = I_0$ и $b = 4m_\text{ут}$ по МНК в $I(R^2) = I_0 + 4 m_\text{ут} R^2$.
+
+\centerline{$\Delta_a=<<MNK_a_delta>> \text{кг}\cdot\text{м}^2, \varepsilon_a=<<MNK_a_eps>>\%$; $\Delta_b=<<MNK_b_delta>> \text{кг}, \varepsilon_b=<<MNK_b_epsilon>>\%$}
+
+\noindent\textbf{11. Графики (перечень графиков)}
+
+- Рисунок \ref{fig:g1} -- график зависимости $M(\varepsilon) = M_\text{тр}+I\varepsilon$.
+
+- Рисунок \ref{fig:g2} -- график зависимости $I(R^2) = I_0+4m_\text{ут}R^2$.
+
+\noindent\textbf{12. Окончательные результаты}
+% \centerline{$\tau = (161\pm17)\text{c}; \quad \varepsilon = 11\%; \quad \alpha=0.95$}
+
+Доверительные интервалы:
+
+\centerline{$\Delta_a = <<delta_a>> \text{м}/\text{с}^2$}
+
+\centerline{$\Delta_\varepsilon= <<delta_E>> \text{рад}/\text{с}^2$}
+
+\centerline{$\Delta_M = <<delta_M>> \text{м}/\text{с}^2$}
+
+Свободный член $I_0$ и четверть углового коэффициента $4m_\text{ут}$ зависимости $I(R^2) = I_0+4m_\text{ут}R^2$.
+
+\centerline{$I_0 = <<I_0>> \text{кг} \cdot \text{м}^2, \quad \varepsilon = <<I_0_eps>> \%, \quad \alpha = 0.95$}
+
+\centerline{$m_\text{ут} = <<m_ut>> \text{кг}, \quad \varepsilon = <<m_ut_eps>> \%, \quad \alpha = 0.95$}
+
+\noindent\textbf{13. Выводы и анализ результатов работы}
+
+В ходе выполнения лабораторной работы были исследованы зависимости момента силы натяжения нити от углового ускорения крестовины и момента инерции системы от положения грузов-утяжелителей. Уменьшение погрешностей может быть достигнуто за счёт увеличения числа измерений. Экспериментальные данные подтвердили основной закон динамики вращательного движения $M = M_\text{тр} + I \varepsilon$, так как графики $M(\varepsilon)$ для всех положений утяжелителей оказались линейными. Увеличение момента инерции $I$ с ростом расстояния $R$ до грузов согласуется с теоремой Штейнера $I = I_0 + 4 m_\text{ут} R^2$. 
+
+\newpage
+\textbf{Контрольные вопросы}
+
+\begin{enumerate}
+    \item Инерция — свойство тела сохранять состояние покоя или равномерного прямолинейного движения при отсутствии внешних сил.
+
+    \item Угловое ускорение $\varepsilon = \frac{2a}{d}$, где $d$ -- диаметр ступицы. 
+
+    \item Сумма моментов сил, действующих на тело $M = I \cdot \varepsilon$.
+
+    \item Теорема Штейнера позволяет определить момент инерции тела относительно произвольной оси, если известен момент инерции относительно оси, проходящей через центр масс: $I = I_0 + m \cdot R^2$, где $I_0$ — момент инерции относительно центра масс, $R$ — расстояние между осями.
+
+    \item Учитываются момент силы натяжения нити $M$ и момент силы трения $M_{\text{тр}}$: $I \cdot \varepsilon = M - M_{\text{тр}}$.
+
+    \item Увеличится момент инерции системы ($I = I_0 + 4m_{\text{ут}}R^2$), что приведёт к уменьшению углового ускорения при том же моменте сил.
+
+    \item Момент инерции — мера инертности тела при вращении. Его можно найти экспериментально: $I = \frac{M - M_{\text{тр}}}{\varepsilon}$, или теоретически через интеграл.
+
+    \item Момент силы — векторное произведение силы на плечо. $M = [\bar{F}, \bar{r}]$ В этой работе:
+    $M = \frac{m \cdot d}{2} \cdot (g - a)$,
+    где $d$ — диаметр ступицы, $a$ — линейное ускорение.
+
+    \item Момент инерции — $\text{кг} \cdot \text{м}^2$, момент силы — $\text{Н} \cdot \text{м}$.
+
+    \item Увеличится момент инерции ($I = I_0 + 4m_{\text{ут}}R^2$), что снизит угловое ускорение. Также возрастёт коэффициент при $R^2$ в этой формуле.
+\end{enumerate}
+
+\newpage
+\textbf{Приложение 1}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{<<path_g1>>}
+    \caption{График зависимости момента силы от углового ускорения}
+    \label{fig:g1}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{<<path_g2>>}
+    \caption{График зависимости момента инерции от квадрата расстояния до грузов.}
+    \label{fig:g2}
+\end{figure}
+
+\end{document}
