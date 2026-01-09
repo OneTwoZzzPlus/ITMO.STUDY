@@ -1,6 +1,6 @@
 # Физика
 
-- [Лабораторные в LaTeX](./labs/physics.zip) `.zip` – подойдут для [overleaf](www.overleaf.com)
+- [Лабораторные в LaTeX](./labs/physics.zip) `.zip` – подойдут для [overleaf](https://www.overleaf.com)
 - [Генераторы отчётов по лабораторным](./labs) `.ipynb`
 
 ## Механика (2 семестр)
