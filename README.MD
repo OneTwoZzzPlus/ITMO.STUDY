@@ -52,6 +52,10 @@
 - [Проект в overleaf](https://ru.overleaf.com/read/wpxwxgqdcxjd#39c229)
 - [Проект в zip](latex_gost_template.zip)
 
+### Ссылки на лабы по физике
+
+-[Таблица](./physics.md)
+
 ### Шаблон отчётов лабораторных по физике
 
 - [Проект в zip](./2-3_PHYSICS/labs/physics.zip)
