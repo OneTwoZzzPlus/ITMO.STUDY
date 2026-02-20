@@ -101,7 +101,7 @@
 | `3.01` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab3.01.pdf) |
 | `3.01` | [nesterrovv](https://github.com/nesterrovv/Physics/blob/master/Нестеров%2C%20Лабораторная%20работа%20№3.01.pdf) |
 | `3.01A` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/2sem/labs/Lab_3_01A.pdf) |
-| `3.02` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/2sem/labs/M3102_Лопатенко%20Г.В._1.02.pdf) |
+| `3.02` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/2sem/labs/M3102_Лопатенко%20Г.В._3.02.pdf) |
 | `3.02` | [RomanKosovets](https://github.com/RomanKosovets/Physics_Labs/blob/main/Labs_2sem/М3110_Косовец_Роман_ЛР3.02.pdf) |
 | `3.02` | [CandyGoose](https://github.com/CandyGoose/ITMO_Software_engineering/blob/main/4_term_Software_engineering/Physics/lab_3.02/3.02.pdf) |
 | `3.03` | [maxbarsukov](https://github.com/maxbarsukov/itmo/tree/master/3-4%20физика/лабораторные/3.03) |
