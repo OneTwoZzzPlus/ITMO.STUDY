@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\bin\Debug\Tree.exe.config
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\bin\Debug\Tree.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\bin\Debug\Tree.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\obj\Debug\Tree.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\obj\Debug\Tree.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\obj\Debug\Tree.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\obj\Debug\Tree.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab03\Tree\obj\Debug\Tree.exe.config

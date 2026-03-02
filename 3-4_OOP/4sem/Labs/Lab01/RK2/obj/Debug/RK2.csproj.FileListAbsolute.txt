@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\bin\Debug\RK2.exe.config
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\bin\Debug\RK2.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\bin\Debug\RK2.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\obj\Debug\RK2.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\obj\Debug\RK2.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\obj\Debug\RK2.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\obj\Debug\RK2.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab01\RK2\obj\Debug\RK2.exe.config

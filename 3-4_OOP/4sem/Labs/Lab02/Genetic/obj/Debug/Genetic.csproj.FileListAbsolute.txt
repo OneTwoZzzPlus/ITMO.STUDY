@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\bin\Debug\Genetic.exe.config
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\bin\Debug\Genetic.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\bin\Debug\Genetic.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\obj\Debug\Genetic.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\obj\Debug\Genetic.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\obj\Debug\Genetic.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\obj\Debug\Genetic.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab02\Genetic\obj\Debug\Genetic.exe.config

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ITMO.PRIVATE\\4_OOP\\Labs\\Lab03\\Tree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D76AA6C-33BA-461D-BDD8-8F873EB676FB}|Tree.csproj|d:\\itmo.private\\4_oop\\labs\\lab03\\tree\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D76AA6C-33BA-461D-BDD8-8F873EB676FB}|Tree.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D76AA6C-33BA-461D-BDD8-8F873EB676FB}|Tree.csproj|d:\\itmo.private\\4_oop\\labs\\lab03\\tree\\tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D76AA6C-33BA-461D-BDD8-8F873EB676FB}|Tree.csproj|solutionrelative:tree.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tree.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\4_OOP\\Labs\\Lab03\\Tree\\Tree.cs",
+              "RelativeDocumentMoniker": "Tree.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\4_OOP\\Labs\\Lab03\\Tree\\Tree.cs",
+              "RelativeToolTip": "Tree.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAADwv34AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T17:48:47.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ITMO.PRIVATE\\4_OOP\\Labs\\Lab03\\Tree\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\ITMO.PRIVATE\\4_OOP\\Labs\\Lab03\\Tree\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwBYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T17:47:16.385Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

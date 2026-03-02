@@ -1,0 +1,8 @@
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\bin\Debug\Graphs.exe.config
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\bin\Debug\Graphs.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\bin\Debug\Graphs.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\obj\Debug\Graphs.csproj.AssemblyReference.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\obj\Debug\Graphs.csproj.CoreCompileInputs.cache
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\obj\Debug\Graphs.exe
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\obj\Debug\Graphs.pdb
+D:\ITMO.PRIVATE\4_OOP\Labs\Lab04\Graphs\obj\Debug\Graphs.exe.config
