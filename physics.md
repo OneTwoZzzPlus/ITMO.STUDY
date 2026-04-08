@@ -18,6 +18,7 @@
 | `1.01` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab1.01.pdf) |
 | `1.01` | [nikolaykochubeev](https://github.com/nikolaykochubeev/itmo_Physics/blob/main/2%20semester/1.01/laboratory%20work%201.01.pdf) |
 | `1.01` | [nesterrovv](https://github.com/nesterrovv/Physics/blob/master/Нестеров%2C%20Лабораторная%20работа%20№1.01.pdf) |
+| `1.01` | [ssnagin](https://github.com/ssnagin/ITMO_SPPO/blob/main/3-4%20Physics/sem1/labs/1.01/%D0%98%D0%A2%D0%9C%D0%9E.%D0%9A%D1%83%D0%BA%D1%83%D1%80%D1%83%D0%B7%D1%8F.pdf) |
 | `1.02` | [OneTwoZzzPlus](https://github.com/OneTwoZzzPlus/ITMO.STUDY/blob/main/2-3_PHYSICS/lab1.02.pdf) |
 | `1.02` | [maxbarsukov](https://github.com/maxbarsukov/itmo/tree/master/3-4%20физика/лабораторные/1.02) |
 | `1.02` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/2sem/labs/M3102_Лопатенко%20Г.В._1.02.pdf) |
@@ -31,6 +32,7 @@
 | `1.02` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab1.02.pdf) |
 | `1.02` | [nikolaykochubeev](https://github.com/nikolaykochubeev/itmo_Physics/blob/main/2%20semester/1.02/laboratory%20work%201.02.pdf) |
 | `1.02` | [nesterrovv](https://github.com/nesterrovv/Physics/blob/master/Нестеров%2C%20Лабораторная%20работа%20№1.02.pdf) |
+| `1.02` | [ssnagin](https://github.com/ssnagin/ITMO_SPPO/blob/main/3-4%20Physics/sem1/labs/1.02/%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%201.02%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%202.4.pdf) |
 | `1.02A` | [FEgor04](https://github.com/FEgor04/labs/blob/main/physics/lab1.02A/main.pdf) |
 | `1.02A` | [CandyGoose](https://github.com/CandyGoose/ITMO_Software_engineering/blob/main/3_term_Software_engineering/Physics/lab2/lab2.pdf) |
 | `1.03` | [ArsenyVekshin](https://github.com/ArsenyVekshin/ITMO/blob/master/Физика/1.03.pdf) |
@@ -39,6 +41,7 @@
 | `1.03` | [sultanowskii](https://github.com/sultanowskii/itmo-edu/blob/master/physics/sem3/lab1.03/P3213%20Султанов%20А.Р.%20ЛР%201.03.pdf) |
 | `1.03` | [CandyGoose](https://github.com/CandyGoose/ITMO_Software_engineering/blob/main/3_term_Software_engineering/Physics/lab3/lab3.docx) |
 | `1.03` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab1.03.pdf) |
+| `1.03` | [ssnagin](https://github.com/ssnagin/ITMO_SPPO/blob/main/3-4%20Physics/sem1/labs/1.03/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%20%D0%BB%D0%B0%D0%B1%D0%B0%201.03.pdf) |
 | `1.04` | [OneTwoZzzPlus](https://github.com/OneTwoZzzPlus/ITMO.STUDY/blob/main/2-3_PHYSICS/lab1.04.pdf) |
 | `1.04` | [maxbarsukov](https://github.com/maxbarsukov/itmo/tree/master/3-4%20физика/лабораторные/1.04) |
 | `1.04` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/2sem/labs/M3102_Лопатенко%20Г.В._1.04.pdf) |
@@ -56,6 +59,7 @@
 | `1.04` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab1.04.pdf) |
 | `1.04` | [nikolaykochubeev](https://github.com/nikolaykochubeev/itmo_Physics/blob/main/2%20semester/1.04/laboratory%20work%201.04.pdf) |
 | `1.04` | [nesterrovv](https://github.com/nesterrovv/Physics/blob/master/Нестеров%2C%20Лабораторная%20работа%20№1.04.pdf) |
+| `1.04` | [ssnagin](https://github.com/ssnagin/ITMO_SPPO/blob/main/3-4%20Physics/sem1/labs/1.04/%D0%9B%D0%B0%D0%B1%201.04.pdf) |
 | `1.05` | [OneTwoZzzPlus](https://github.com/OneTwoZzzPlus/ITMO.STUDY/blob/main/2-3_PHYSICS/lab1.05.pdf) |
 | `1.05` | [maxbarsukov](https://github.com/maxbarsukov/itmo/tree/master/3-4%20физика/лабораторные/1.05) |
 | `1.05` | [Lopa10ko](https://github.com/Lopa10ko/ITMO-physics-math-2022-2023/blob/main/physics/3sem/labs/M32021_Лопатенко_Жуйков_1.05.pdf) |
@@ -68,6 +72,7 @@
 | `1.05` | [staffeev](https://github.com/staffeev/phys_labs/blob/main/reports/lab1.05.pdf) |
 | `1.07` | [OneTwoZzzPlus](https://github.com/OneTwoZzzPlus/ITMO.STUDY/blob/main/2-3_PHYSICS/lab1.07.pdf) |
 | `1.07` | [tchn11](https://github.com/tchn11/ITMO-labs/blob/main/1st%20year/Physics/Lab%201.07.pdf) |
+| `1.07` | [ssnagin](https://github.com/ssnagin/ITMO_SPPO/blob/main/3-4%20Physics/sem1/labs/1.07/%D0%9F%D0%98%D0%B8%D0%9A%D0%A2%202.4%20%D0%9B%D0%B0%D0%B1%201.07%20%D0%A1%D0%BD%D0%B0%D0%B3%D0%B8%D0%BD%20%D0%A1%D1%82%D0%B0%D1%80%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%A1%D1%82%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2%20%2B%20%D0%A0%D1%83%D0%B4%D0%B5%D0%BB%D1%8C%20(%D0%A1%D0%A1%D0%A1%D0%A0).pdf) |
 | `1.07*` | [DariaGolovanova](https://github.com/DariaGolovanova/ITMO_Physics/blob/main/Лабораторная%201_07(виртуальная).docx) |
 | `1.09` | [maxbarsukov](https://github.com/maxbarsukov/itmo/tree/master/3-4%20физика/лабораторные/1.09) |
 | `1.09` | [sultanowskii](https://github.com/sultanowskii/itmo-edu/blob/master/physics/sem3/lab1.09/P3213%20Султанов%20А.Р.%20ЛР%201.09.pdf) |
@@ -209,4 +214,5 @@
 + https://github.com/georgedem975/physics/tree/master/labs
 + https://github.com/staffeev/phys_labs
 + https://github.com/nikolaykochubeev/itmo_Physics/blob/main/README.md
-- https://github.com/nesterrovv/Physics/tree/master
++ https://github.com/nesterrovv/Physics/tree/master
++ https://github.com/ssnagin/ITMO_SPPO/tree/main/3-4%20Physics
