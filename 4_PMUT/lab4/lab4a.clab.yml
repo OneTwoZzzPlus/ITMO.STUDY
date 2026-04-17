@@ -1,0 +1,71 @@
+name: lab4a
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.20.20.0/24
+
+topology:
+  defaults:
+    kind: vr-ros
+    image: vrnetlab/mikrotik_routeros:6.47.9
+  nodes:
+    R01.HKI:  # Хельсинки
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.11
+      startup-config: configs.a/R01.HKI.rsc
+    R01.SPB:  # Санкт-Петербург
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.10
+      startup-config: configs.a/R01.SPB.rsc
+    PC1:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+      network-mode: none
+      exec:
+        - ip addr add 192.168.10.253/24 dev eth1
+        - ip route add default via 192.168.10.1
+    R02.LND:  # Лондон
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.22
+      startup-config: configs.a/R02.LND.rsc
+    R02.NYD:  # Нью-Йорк
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.20
+      startup-config: configs.a/R02.NYD.rsc
+    PC2:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+      network-mode: none
+      exec:
+        - ip addr add 192.168.20.253/24 dev eth1
+        - ip route add default via 192.168.20.1
+    R03.LBN:  # Лиссабон
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.33
+      startup-config: configs.a/R03.LBN.rsc
+    R03.SVL:  # Савонлинна
+      kind: vr-ros
+      mgmt-ipv4: 172.20.20.30
+      startup-config: configs.a/R03.SVL.rsc
+    PC3:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+      network-mode: none
+      exec:
+        - ip addr add 192.168.30.253/24 dev eth1
+        - ip route add default via 192.168.30.1
+  links:
+    - endpoints: ["R01.HKI:eth1", "R02.LND:eth1"]
+    - endpoints: ["R01.HKI:eth2", "R03.LBN:eth1"]
+    - endpoints: ["R02.LND:eth2", "R03.LBN:eth2"]
+    - endpoints: ["R01.HKI:eth3", "R01.SPB:eth1"]
+    - endpoints: ["R02.LND:eth3", "R02.NYD:eth1"]
+    - endpoints: ["R03.LBN:eth3", "R03.SVL:eth1"]
+    - endpoints: ["R01.SPB:eth2", "PC1:eth1"]
+    - endpoints: ["R02.NYD:eth2", "PC2:eth1"]
+    - endpoints: ["R03.SVL:eth2", "PC3:eth1"]
+    
+    

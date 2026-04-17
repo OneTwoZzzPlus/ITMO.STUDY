@@ -1,0 +1,47 @@
+name: lab1
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.20.20.0/24
+
+topology:
+  nodes:
+    R01.TEST:
+      kind: vr-ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.20.20.10
+    SW01.L3.01.TEST:
+      kind: vr-ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.20.20.11
+    SW02.L3.01.TEST:
+      kind: vr-ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.20.20.21
+    SW02.L3.02.TEST:
+      kind: vr-ros
+      image: vrnetlab/mikrotik_routeros:6.47.9
+      mgmt-ipv4: 172.20.20.22
+    PC1:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 172.20.20.31
+      cmd: sleep infinity
+      exec:
+        - sh -c "ip route del default via 172.20.20.1 dev eth0 2>/dev/null; ip route add 172.20.20.0/24 dev eth0 2>/dev/null"
+    PC2:
+      kind: linux
+      image: alpine:latest
+      mgmt-ipv4: 172.20.20.32
+      cmd: sleep infinity
+      exec:
+        - sh -c "ip route del default via 172.20.20.1 dev eth0 2>/dev/null; ip route add 172.20.20.0/24 dev eth0 2>/dev/null"
+      
+  links:
+    - endpoints: ["R01.TEST:eth1", "SW01.L3.01.TEST:eth1"]
+    - endpoints: ["SW01.L3.01.TEST:eth2", "SW02.L3.01.TEST:eth1"]
+    - endpoints: ["SW01.L3.01.TEST:eth3", "SW02.L3.02.TEST:eth1"]
+    - endpoints: ["SW02.L3.01.TEST:eth2", "PC1:eth1"]
+    - endpoints: ["SW02.L3.02.TEST:eth2", "PC2:eth1"]
+
+# udhcpc -i eth1
