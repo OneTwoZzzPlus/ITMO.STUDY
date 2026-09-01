@@ -14,9 +14,24 @@
 
 ## Оглавление
 
-- [**Дисциплины**](#disciplines)
 - [Полезные материалы](#materials)
+- [**Дисциплины**](#disciplines)
 - [Авторские права](#license)
+
+## Полезные материалы <a name="materials"></a>
+
+### Шаблон отчётов по ГОСТ 7.32 в LaTeX
+
+- [Проект в overleaf](https://www.overleaf.com/read/hxxkqnktktfn#64f27e)
+- [Проект в zip](latex_gost_template.zip)
+
+### Ссылки на лабы по физике
+
+- [Таблица](./physics.md)
+
+### Шаблон отчётов лабораторных по физике
+
+- [Проект в zip](./2-3_PHYSICS/labs/physics.zip)
 
 ## Дисциплины <a name="disciplines"></a>
 
@@ -66,21 +81,6 @@
 
 > [!NOTE]
 > Предметы с пометкой `BLOCKED` не будут опубликованы.
-
-## Полезные материалы <a name="materials"></a>
-
-### Шаблон отчётов по ГОСТ 7.32 в LaTeX
-
-- [Проект в overleaf](https://ru.overleaf.com/read/wpxwxgqdcxjd#39c229)
-- [Проект в zip](latex_gost_template.zip)
-
-### Ссылки на лабы по физике
-
-- [Таблица](./physics.md)
-
-### Шаблон отчётов лабораторных по физике
-
-- [Проект в zip](./2-3_PHYSICS/labs/physics.zip)
 
 ## Авторские права <a name="license"></a>
 
